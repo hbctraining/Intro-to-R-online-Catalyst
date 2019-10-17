@@ -1,4 +1,4 @@
-## Introduction to R
+## Introduction to R (materials for an online resource)
 
 | Audience | Computational skills required | Duration |
 :----------|:-------------|:----------|
