@@ -7,9 +7,11 @@ Approximate time: 60 min
 
 ## Learning Objectives
 
-* Construct data structures to store external data in R.
-* Inspect data structures in R.
-* Demonstrate how to subset data from data structures.
+*e) Understand the elements of R syntax
+*f) Describe and utilize functions in R.
+*i) Modify default behavior of functions using arguments in R.
+*o) Import/export data.
+
 
 ## Reading data into R
 Regardless of the specific analysis in R we are performing, we usually need to bring data in for the analysis. The function in R we use will depend on the type of data file we are bringing in (e.g. text, Stata, SPSS, SAS, Excel, etc.) and how the data in that file are separated, or delimited. The table below lists functions that can be used to import data from common file formats.
