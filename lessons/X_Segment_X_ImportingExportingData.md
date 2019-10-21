@@ -1,3 +1,50 @@
+---
+title: "Data subsetting with base R: vectors and factors"
+authors: Meeta Mistry, Mary Piper, Radhika Khetani
+date: "Friday, September 8, 2017"
+---
+Approximate time: 60 min
+
+## Learning Objectives
+
+* Construct data structures to store external data in R.
+* Inspect data structures in R.
+* Demonstrate how to subset data from data structures.
+
+## Reading data into R
+Regardless of the specific analysis in R we are performing, we usually need to bring data in for the analysis. The function in R we use will depend on the type of data file we are bringing in (e.g. text, Stata, SPSS, SAS, Excel, etc.) and how the data in that file are separated, or delimited. The table below lists functions that can be used to import data from common file formats.
+
+| Data type               | Extension | Function          | Package            |
+|:------------------------|:----------|:------------------|:-------------------|
+| Comma separated values  | csv       | `read.csv()`      | utils (default)    |
+|                         |           | `read_csv()`      | readr (tidyverse)  |
+| Tab separated values    | tsv       | `read_tsv()`      | readr              |
+| Other delimited formats | txt       | `read.table()`    | utils              |
+|                         |           | `read_table()`    | readr              |
+|                         |           | `read_delim()`    | readr              |
+| Stata version 13-14     | dta       | `readdta()`       | haven              |
+| Stata version 7-12      | dta       | `read.dta()`      | foreign            |
+| SPSS                    | sav       | `read.spss()`     | foreign            |
+| SAS                     | sas7bdat  | `read.sas7bdat()` | sas7bdat           |
+| Excel                   | xlsx, xls | `read_excel()`    | readxl (tidyverse) |
+
+For example, if we have text file separated by commas (comma-separated values), we could use the function `read.csv`. However, if the data are separated by a different delimiter in a text file, we could use the generic `read.table` function and specify the delimiter as an argument in the function. 
+
+When working with genomic data, we often have a metadata file containing information on each sample in our dataset. Let's bring in the metadata file using the `read.csv` function. Check the arguments for the function to get an idea of the function options:
+
+```r
+?read.csv
+```
+
+The `read.csv` function has *one required argument* and several *options* that can be specified. The mandatory argument is a path to the file and filename, which in our case is `data/mouse_exp_design.csv`. We will put the function to the right of the assignment operator, meaning that **any output will be saved as the variable name provided on the left**.
+
+```r
+metadata <- read.csv(file="data/mouse_exp_design.csv")
+```
+
+> *Note: By default, `read.csv` converts (= coerces) columns that contain characters (i.e., text) into the `factor` data type. Depending on what you want to do with the data, you may want to keep these columns as `character`. To do so, `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which can be set to `FALSE`.*
+> 
+
 ### Writing to file 
 
 Everything we have done so far has only modified the data in R; the files have remained unchanged. Whenever we want to save our datasets to file, we need to use a `write` function in R. 
