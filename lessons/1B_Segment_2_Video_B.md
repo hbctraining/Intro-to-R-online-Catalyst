@@ -42,3 +42,49 @@ Before we move on to more complex concepts and getting familiar with the languag
 * *The materials used in this lesson are adapted from work that is Copyright © Data Carpentry (http://datacarpentry.org/). 
 All Data Carpentry instructional material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).*
 
+---
+title: R Syntax and Data Structures
+authors: Meeta Mistry, Mary Piper
+date: "Friday, September 8, 2017"
+---
+Approximate time: 70 min
+
+## Learning Objectives
+
+* Employ variables in R.
+* Describe the various data types used in R. 
+* Construct data structures to store data.
+
+## The R syntax
+Now that we know how to talk with R via the script editor or the console, we want to use R for something more than adding numbers. To do this, we need to know more about the R syntax. 
+
+
+Below is an example script highlighting the many different "parts of speech" for R (syntax):
+
+  - the **comments** `#` and how they are used to document function and its content
+  - **variables** and **functions**
+  - the **assignment operator** `<-`
+  - the `=` for **arguments** in functions
+
+_NOTE: indentation and consistency in spacing is used to improve clarity and legibility_
+
+
+### Example script
+
+```r
+# Load libraries
+library(Biobase)
+library(limma)
+library(ggplot2)
+
+# Setup directory variables
+baseDir <- getwd()
+dataDir <- file.path(baseDir, "data")
+metaDir <- file.path(baseDir, "meta")
+resultsDir <- file.path(baseDir, "results")
+
+# Load data
+meta <- read.delim(file.path(metaDir, '2015-1018_sample_key.csv'), header=T, sep="\t", row.names=1)
+```
+
+
