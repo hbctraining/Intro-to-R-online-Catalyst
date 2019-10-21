@@ -7,10 +7,10 @@ Approximate time: 60 min
 
 ## Learning Objectives
 
-*e) Understand the elements of R syntax
-*f) Describe and utilize functions in R.
-*i) Modify default behavior of functions using arguments in R.
-*o) Import/export data.
+*e) Understand the elements of R syntax 
+*f) Describe and utilize functions in R. 
+*i) Modify default behavior of functions using arguments in R. 
+*o) Import/export data. 
 
 
 ## Reading data into R
