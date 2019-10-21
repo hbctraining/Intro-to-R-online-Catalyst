@@ -4,6 +4,18 @@ author: "Michael Steinbaugh, Mary Piper"
 date: "Monday, April 2nd, 2018"
 ---
 
+Learning Objectives: 
+r) Visualize data with the ggplot2 package.
+t) Perform iterative tasks on data structures.
+a) Gain familiarity with the functionality of the RStudio user interface.
+b) Describe what R and RStudio are and can be used for.
+c) Describe the relationship between R and RStudio / Interact with R using RStudio
+i) Modify default behavior of functions using arguments in R.
+s) Wrangle (such as: subset, merge, compare, arrange, match, reorder) datasets in R.
+q) Construct data structures and store them as variables.
+f) Describe and utilize functions in R.
+
+
 Approximate time: 75 minutes
 
 # Data Wrangling with Tidyverse
