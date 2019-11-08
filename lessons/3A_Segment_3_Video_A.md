@@ -91,25 +91,35 @@ Now that we have discussed the different methods for finding help, let's address
 round(3.14159, digits=2)
 ```
 
-> *NOTE:* If you provide the arguments in the exact same order as they are defined (in the help manual) you don't have to name them:
->
-	round(3.14159, 2)
->
->However, it's usually not recommended practice because it involves a lot of memorization. In addition, it makes your code difficult to read for your future self and others, especially if your code includes functions that are not commonly used. (It's however OK to not include the names of the arguments for basic functions like `mean`, `min`, etc...). Another advantage of naming arguments, is that the order doesn't matter. This is useful when a function has many arguments. 
+Note that we could have also done this without the use of the word `digits`:
+
+```r
+round(3.14159, 2)
+```
+
+And this works just the same! If you provide the arguments in the exact same order as they are defined in the help manual you don't have to name them. However, **it's usually not recommended practice** because it involves a lot of memorization. In addition, it makes your code difficult to read for your future self and others, especially if your code includes functions that are not commonly used. if you are naming your arguments then the order doesn't matter.
+
+### More functions and missing values
+
+Another commonly used base function is `mean()`. Let's use this function to calculate an average for the `glengths` vector:
+
+```r
+mean(glengths)
+```
+
+Seeing as this is the first time we are using this function, let's see what other arguments we could provide to alter the way this function works.
+
+```r
+?mean
+```
+
+(Scroll through the help documentation). We can see that at minimum the function requires a numeric vector `x`. We can also set the `trim` argument which would be a numeric value of 0 to 0.5 representing the fraction of observations to be trimmed from each end of x before the mean is computed. And finally there is a `na.rm` argument, this is an important feature of many functions in R that perform some statistical computation. The function accepts a logical value indicating whether NA values should be stripped before the computation proceeds.
+
+By default, all **R functions operating on vectors that contains missing data will return NA**. It's a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. When dealing with simple statistics like the mean, the easiest way to ignore `NA` (the missing data) is to use `na.rm=TRUE` (`rm` stands for remove).
+
+In some cases, it might be useful to remove the missing data from the vector. For this purpose, R comes with the function `na.omit` to generate a vector that has NA's removed. For some applications, it's useful to keep all observations, for others, it might be best to remove all observations that contain missing data. The function `complete.cases()` is another option, which returns a logical vector indicating which rows have no missing values. 
 
 
-***
-**Exercise** 
+### Conclusion
 
-1. Another commonly used base function is `mean()`. Use this function to calculate an average for the `glengths` vector.
-2. Use the help manual to identify additional arguments for `mean()`.
-
-***
-
-> **Missing values**
-> 
-> By default, all **R functions operating on vectors that contains missing data will return NA**. It's a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. When dealing with simple statistics like the mean, the easiest way to ignore `NA` (the missing data) is to use `na.rm=TRUE` (`rm` stands for remove).
->
-> In some cases, it might be useful to remove the missing data from the vector. For this purpose, R comes with the function `na.omit` to generate a vector that has NA's removed. For some applications, it's useful to keep all observations, for others, it might be best to remove all observations that contain missing data. The function `complete.cases()` returns a logical vector indicating which rows have no missing values. 
-
-***
+In summary, we have defined for you what a function is in R and provided some instruction on using them by providing different types of arguments. We have presented some helpful tips on finding help when using functions that your are not familiar with, and made special note of an especially useful argument (and additional functions) when you are working with data that has missing values.
