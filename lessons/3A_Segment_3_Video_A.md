@@ -34,51 +34,58 @@ The **default arguments** represent values that the author of the function has d
 
 As mentioned, we have already used a few examples of basic functions in the previous lessons i.e `getwd()`, `c()`, and  `factor()`. **All of the functions we have used are available as part of R's built in capabilities**. However, you can also obtain added functionality to your R environment by downloading and installing external packages which will introduce you to other functions. Alternatively, you can create your own functions in R. Both of these are beyond the scope of this segment, but if you are interested we encourage you to refer to those lessons (cite them here?). 
 
-For now, we will continue to use the base functions we have available in our current environment. Since R is used for statistical computing, many of the base functions involve mathematical operations. One example would be the function `sqrt()`. The input/argument must be a number, and the output is the square root of that number. Let's try finding the square root of 81:
+For now, we will continue to use the base functions we have available in our current environment. Since R is used for statistical computing, many of the base functions involve mathematical operations. One example would be the function `sqrt()`. The argument for this function is a numeric value, and the output is the square root of that number. Let's try finding the square root of 81:
 
 ```r
 sqrt(81)
 ```
 
-Now what would happen if we **called the function** (e.g. ran the function), on a *vector of values* instead of a single value? 
+Now what would happen if we **called the function** (e.g. ran the function), on a *vector of numeric values* instead of a single value? 
 
 ```r
 sqrt(glengths)
 ```
 
-In this case the task was performed on each individual value of the vector `glengths` and the respective results were displayed.
+In this case, the task was executed on each individual value of the vector `glengths` and the respective results were displayed. Note that this will not always be the case with every function.
 
 
-Let's try another function, this time using one that we can change some of the *options* (arguments that change the behavior of the function), for example `round`:
+Let's try another function, this time using one in which we can change some of the *options* (arguments that change the behavior of the function), for example `round()`:
 
 ```r
 round(3.14159)
 ```
 
-We can see that we get `3`. That's because the default is to round to the nearest whole number. **What if we want a different number of significant digits?**
+The round function takes a numeric value as input and returns the user with a number rounded to the nearest whole number. **What if we want to retain a number of significant digits?**
 
 
 ### Seeking help on arguments for functions
 
-The best way of finding out this information is to use the `?` followed by the name of the function. Doing this will open up the help manual in the bottom right panel of RStudio that will provide a description of the function, usage, arguments, details, and examples: 
+In R, there are many ways in which you can find help on arguments for a function that you are using. The best and most common way of getting help on a function is to use the `?` followed by the name of the function. 
 
 ```r
 ?round
 ```	
-Alternatively, if you are familiar with the function but just need to remind yourself of the names of the arguments, you can use:
+
+Doing this will open up the help documentation in the bottom right panel of RStudio. (Scroll through the documentation page). This documentation will provide a description of the function, some information on usage, details on the arguments it can take, and example code. 
+
+Alternatively, if you are already familiar with the function but just need to remind yourself of the names of the arguments, you can use the `args()` function:
 
 ```r
 args(round)
 ```
+Here, what you will see reported in the console is the different arguments the function `round()` will take, in addition what the defaults are set to.
 
-Even more useful is the `example()` function. This will allow you to run the examples section from the Online Help to see exactly how it works when executing the commands. Let's try that for `round()`:
+
+Another method of obtaining help is by use of the `example()` function. This will allow you to run the examples section from the help documentation to see exactly how it works when executing the commands. Let's try that for `round()`:
 
 ```r
 example("round")
 ```
 
-In our example, we can change the number of digits returned by **adding an argument**. We can type `digits=2` or however many we may want:
+This does not appear to be all that helpful in the case of the `round()` function, but it can be super helpful when working with functions for visualization. The `example()` function runs some example code and produces a plot. Knowing that you would like to draw a similar plot with your data, you now have the code you would require to do so.
 
+
+Now that we have discussed the different methods for finding help, let's address the question at hand. **How do we round our number to only keep two significant digits?** The help documentation tells us that we can provide a `digits` argument, which should be an integer indicating the number of decimal places or significant digits:
 
 ```r
 round(3.14159, digits=2)
