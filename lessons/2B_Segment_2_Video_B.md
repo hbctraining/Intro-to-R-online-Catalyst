@@ -78,13 +78,13 @@ species <- c("ecoli", "human", "corn")
 
 Now that you know how to create vectors, let's practice with a quick exercise. 
 
-Let's go through the exercise. First we need to create a new vector by combining the values of our `glengths` and `species` vectors. We need to use the combine function with a c, parentheses, and inside the parentheses we add our values. What are the values we would place inside the combine functions? Would it be the names glengths and species surrounded by quotes?
+Now, let's go through the exercise. First, we need to create a new vector by combining the values of our `glengths` and `species` vectors. We need to use the combine function using a c, parentheses, and inside the parentheses we add our values. What are the values we would place inside the combine functions? Would it be the names `glengths` and `species` surrounded by quotes?
 
 ```r
 c("glengths", "species")
 ```
 
-No, this would give us a vector of two values; one value is `glengths` and the other is `species`. This is not what I want. What I want is to combine the values stored inside these variables. Remember to access the contents stored inside a variable, we can just type that variable's name. Therefore, inside the combine function, we would want to type glengths and species without any quotation marks surrounding the words.
+No, this would give us a vector of two values; one value is `glengths` and the other is `species`. This is not what I want. What I want is to combine the **values stored inside** these variables. Remember to access the contents stored inside a variable, we can just type that variable's name. Therefore, inside the combine function, we would want to type glengths and species without any quotation marks surrounding the words.
 
 ```r
 c(glengths, species)
@@ -105,17 +105,27 @@ Since vectors can only be of a single data type, R will automatically coerce the
 
 ### Factors
 
-A **factor** is a special type of vector that is used to **store categorical data**. Each unique category is referred to as a **factor level** (i.e. category = level). Factors are built on top of integer vectors such that each **factor level** is assigned an **integer value**, creating value-label pairs. 
+The next data structure we'll explore is called a **factor**, which is really just a special type of vector used to **store categorical data**. We discussed in the introductory lessons, how R has powerful abilities for working with categorical data and this specialized data structure is the reason. Within a factor, each unique category is referred to as a **factor level**. Factors are built on top of integer vectors such that each **factor level** or category is assigned an **integer value**, creating value-label pairs. 
+
+For instance, if we have four animals and the first animal is female, the second and third are male, and the fourth is female, we could create a factor that appears like a vector, but has integer values stored under-the-hood. The integer value assigned is one for females and two for males. The numbers are assigned in alphabetical order, so because the f- in females comes before the m- in males in the alphabet, females get assigned a one and males a two. In later lessons we will show you how you could change these assignments.
 
 ![factors](../img/factors_sm.png)
 
-Let's create a factor vector and explore a bit more.  We'll start by creating a character vector describing three different levels of expression:
+Let's create a factor and explore a bit more.  We'll start by creating a character vector describing three different levels of expression. 
+
+We will use the combine function to combine together the values low, high, medium, high, low, medium, high into a vector, then assign it to a variable called `expression`. In the environment, we can see `expression` is a character vector of 7 values.
 
 ```r
 expression <- c("low", "high", "medium", "high", "low", "medium", "high")
 ```
 
-Now we can convert this character vector into a *factor* using the `factor()` function:
+Let's print all values to the console by typing and running `expression`.
+
+```r
+expression
+```
+
+Now we can convert this character vector into a *factor* using the `factor()` function. Inside the parentheses we give the vector of values that we would like to turn into a factor. We could assign the output to a new variable; however, we aren't really interested in keeping a character vector called `expression`, so we can just overwrite it be re-assigning the output to `expression`.
 
 ```r
 expression <- factor(expression)
@@ -125,22 +135,34 @@ So, what exactly happened when we applied the `factor()` function?
 
 ![factor_new](../img/factors_new.png)
 
-The expression vector is categorical, in that all the values in the vector belong to a set of categories; in this case, the categories are `low`, `medium`, and `high`. By turning the expression vector into a factor, the **categories are assigned integers alphabetically**, with high=1, low=2, medium=3. This in effect assigns the different factor levels. You can view the newly created factor variable and the levels in the **Environment** window.
+The expression vector is categorical, in that all the values in the vector belong to a set of categories; in this case, the categories are `low`, `medium`, and `high`. By turning the expression vector into a factor, the **categories are assigned integers alphabetically**, with high=1, low=2, medium=3. This in effect assigns the different factor levels. You can view the newly created factor variable and the levels in the **Environment** window and when you print the contents to the console by just typing and running `expression`. By outputting it in the console, it also outputs the factor levels in order of the integers assigned. So here high comes first because it recieves a 1, low second, and medium third.
 
-![Factor variables in environment](../img/factors.png)
+```r
+expression
+```
 
+So now that we have an idea of what factors are, when would you ever want to use them? 
 
-***
-**Exercises**
+Factors are extremely valuable for many operations often performed in R. For instance, factors can give order to values with no intrinsic order. In the previous `expression` vector, if I wanted the low category to be less than the medium category, then we could do this using factors. Also, factors are necessary for many statistical methods. For example, descriptive statistics can be obtained for character vectors if you have the categorical information stored as a factor. Also, if you want to denote which category is your base level for a statistical comparison, then you would need to have your category variable stored as a factor with the base level assigned to 1. Anytime that it is helpful to have the categories thought of as a groups in an analysis, the factor function makes this possible. For instance, if you want to color your plots by treatment type, then you would need the treatment variable to be a factor.
 
-Let's say that in our experimental analyses, we are working with three different sets of cells: normal, cells knocked out for geneA (a very exciting gene), and cells overexpressing geneA. We have three replicates for each celltype.
+Let's practice using factors for categorical data with an exercise.
 
-1. Create a vector named `samplegroup` using the code below. This vector will contain nine elements: 3 control ("CTL") samples, 3 knock-out ("KO") samples, and 3 over-expressing ("OE") samples:
+For the exercise, we need to create a vector with three samples for each of the different sample groups. Remember we can use the combine function or `c()` to create a vector. Inside the parentheses, we can write three of each of the values, CTL for control, KO for knock-out, and OE for overexpression. Don't forget that these are character values, so we need to surround each value with quotation marks.
 
-	```r
-	samplegroup <- c("CTL", "CTL", "CTL", "KO", "KO", "KO", "OE", "OE", "OE")
-	```
+```r
+samplegroup <- c("CTL", "CTL", "CTL", "KO", "KO", "KO", "OE", "OE", "OE")
+```
 
-2. Turn `samplegroup` into a factor data structure.
+If we look at `samplegroup` in the Environment, we can see that it's a character vector with 9 values. If we would like to turn it into a factor, we can do so using the factor function and re-assigning to `samplegroup`.
 
-***
+```r
+samplegroup <- factor(samplegroup)
+```
+
+If we print to console, we can see the level assignments:
+
+```r
+samplegroup
+```
+
+Which level received a 1? If I look at the levels in the output, I can see that control or CTL comes first, so received the one. That makes sense since C- in CTL comes in the alphabet before K- in KO and O- in OE.
