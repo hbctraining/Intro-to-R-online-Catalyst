@@ -1,10 +1,9 @@
 So far we have learned that variables are like buckets where information is maintained and referenced, and we use the name on the outside of the bucket to refer to it. In the previous lesson, we only created variables or buckets filled with a single value, but **variables can store more than just a single value, they can store a multitude of values. These values can be stored in different formats or different data structures.** These include, but are not limited to, vectors, factors, matrices, data frames and lists. In this video, we will introduce the one-dimensional data structures, vectors and factors.
 
-A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a collection of values, mainly either numbers:
+A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a collection of values, and those values can be of any data type. For instance, we can see that this is a vector or collection of 4 values: 1, 50, 9, and 42.
 
 ![numeric vector](../img/vector2.png)
 
-We can see that this is a vector or collection of 4 values: 1, 50, 9, and 42.
 
 Vectors can, also, contain character values:
 
