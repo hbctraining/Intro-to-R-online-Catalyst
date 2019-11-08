@@ -1,7 +1,4 @@
-
-## Data Structures
-
-We know that variables are like buckets, and so far we have seen that bucket filled with a single value. Even when `number` was created, the result of the mathematical operation was a single value. **Variables can store more than just a single value, they can store a multitude of different data structures.** These include, but are not limited to, vectors (`c`), factors (`factor`), matrices (`matrix`), data frames (`data.frame`) and lists (`list`).
+So far we have learned that variables are like buckets where information is stored and maintained There is a name on the outside of the bucket to reference the values stored inside. In the previous lessons, we have only seen that bucket filled with a single value, but **variables can store more than just a single value, they can store a multitude of values. These values can be stored in different formats or different data structures.** These include, but are not limited to, vectors (`c`), factors (`factor`), matrices (`matrix`), data frames (`data.frame`) and lists (`list`). In this video, we will introduce the one-dimensional data structures, vectors and factors.
 
 
 ### Vectors
