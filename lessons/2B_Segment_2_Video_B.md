@@ -19,7 +19,7 @@ or logical values:
 
 ![logical vector](../img/vector5-logical.png)
 
-**Note that all values in a vector must be of the same data type.** If you try to create a vector with more than a single data type, R will automatically try to coerce it into a single data type. 
+**Note that all values in a vector must be of the same data type.** If you try to create a vector with values of different data types, R will automatically try to coerce it into a single data type. 
 
 For example, if you were to try to create the following vector, with values A, 9, C, 52:
 
