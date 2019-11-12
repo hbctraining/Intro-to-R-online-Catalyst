@@ -166,3 +166,7 @@ samplegroup
 ```
 
 Which level received a 1? If I look at the levels in the output, I can see that control or CTL comes first, so received the one. That makes sense since C- in CTL comes in the alphabet before K- in KO and O- in OE.
+
+## Conclusion
+
+In this lesson, we explored the **vector** and **factor** data structures available to us in R for one-dimensional data. We learned how to create these data structures, as well as, when these data structures are useful. In the next lesson, we will learn about additional data structures for higher dimensional data.  
