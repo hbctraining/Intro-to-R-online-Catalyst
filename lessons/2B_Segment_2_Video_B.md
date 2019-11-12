@@ -1,4 +1,8 @@
+## Introduction
+
 So far we have learned that variables are like buckets where information is maintained and referenced, and we use the name on the outside of the bucket to refer to it. In the previous lesson, we only created variables or buckets filled with a single value, but **variables can store more than just a single value, they can store a multitude of values. These values can be stored in different formats or different data structures.** These include, but are not limited to, vectors, factors, matrices, data frames and lists. In this video, we will introduce the one-dimensional data structures, vectors and factors.
+
+## Vectors
 
 A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a collection of values, and those values can be of any data type. For instance, we can see that this is a vector or collection of 4 values: 1, 50, 9, and 42.
 
@@ -78,7 +82,9 @@ species <- c("ecoli", "human", "corn")
 
 Now that you know how to create vectors, let's practice with a quick exercise. 
 
-Now, let's go through the exercise. First, we need to create a new vector by combining the values of our `glengths` and `species` vectors. We need to use the combine function using a c, parentheses, and inside the parentheses we add our values. What are the values we would place inside the combine functions? Would it be the names `glengths` and `species` surrounded by quotes?
+### Exercise
+
+Now, let's go through the exercise together. First, we need to create a new vector by combining the values of our `glengths` and `species` vectors. We need to use the combine function using a c, parentheses, and inside the parentheses we add our values. What are the values we would place inside the combine functions? Would it be the names `glengths` and `species` surrounded by quotes?
 
 ```r
 c("glengths", "species")
@@ -103,7 +109,7 @@ combined
 
 Since vectors can only be of a single data type, R will automatically coerce the numeric values to character values. There is no warning or asking if this is what you want done, R will just  automatically do it. This is a behavior of R that is important to be aware of as you start to code.
 
-### Factors
+## Factors
 
 The next data structure we'll explore is called a **factor**, which is really just a special type of vector used to **store categorical data**. We discussed in the introductory lessons, how R has powerful abilities for working with categorical data and this specialized data structure is the reason. Within a factor, each unique category is referred to as a **factor level**. Factors are built on top of integer vectors such that each **factor level** or category is assigned an **integer value**, creating value-label pairs. 
 
@@ -146,6 +152,8 @@ So now that we have an idea of what factors are, when would you ever want to use
 Factors are extremely valuable for many operations often performed in R. For instance, factors can give order to values with no intrinsic order. In the previous `expression` vector, if I wanted the low category to be less than the medium category, then we could do this using factors. Also, factors are necessary for many statistical methods. For example, descriptive statistics can be obtained for character vectors if you have the categorical information stored as a factor. Also, if you want to denote which category is your base level for a statistical comparison, then you would need to have your category variable stored as a factor with the base level assigned to 1. Anytime that it is helpful to have the categories thought of as a groups in an analysis, the factor function makes this possible. For instance, if you want to color your plots by treatment type, then you would need the treatment variable to be a factor.
 
 Let's practice using factors for categorical data with an exercise.
+
+### Exercise
 
 For the exercise, we need to create a vector with three samples for each of the different sample groups. Remember we can use the combine function or `c()` to create a vector. Inside the parentheses, we can write three of each of the values, CTL for control, KO for knock-out, and OE for overexpression. Don't forget that these are character values, so we need to surround each value with quotation marks.
 
