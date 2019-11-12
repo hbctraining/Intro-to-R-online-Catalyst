@@ -21,7 +21,7 @@ or logical values:
 
 **Note that all values in a vector must be of the same data type.** If you try to create a vector with values of different data types, R will automatically try to coerce it into a single data type. 
 
-For example, if you were to try to create the following vector, with values A, 9, C, 52:
+For example, if you were to try to create the following vector, with values A, 9, C, and 52:
 
 ![mixed vector](../img/vector3.png)
 
@@ -136,7 +136,7 @@ Let's print all values to the console by typing and running `expression`.
 expression
 ```
 
-Now we can convert this character vector into a *factor* using the `factor()` function. Inside the parentheses we give the vector of values that we would like to turn into a factor. We could assign the output to a new variable; however, we aren't really interested in keeping a character vector called `expression`, so we can just overwrite it be re-assigning the output to `expression`.
+Now we can convert this character vector into a *factor* using the `factor()` function. Inside the parentheses we give the vector of values that we would like to turn into a factor. We could assign the output to a new variable; however, we aren't really interested in keeping a character vector called `expression`, so we can just overwrite it be re-assigning the output to `expression`. 
 
 ```r
 expression <- factor(expression)
@@ -146,11 +146,13 @@ So, what exactly happened when we applied the `factor()` function?
 
 ![factor_new](../img/factors_new.png)
 
-The expression vector is categorical, in that all the values in the vector belong to a set of categories; in this case, the categories are `low`, `medium`, and `high`. By turning the expression vector into a factor, the **categories are assigned integers alphabetically**, with high equal to one, low equal to two, and medium equal to three. This in effect assigns the different factor levels. You can view the newly created factor variable in the **Environment** window. When you print the contents to the console by just typing and running `expression`, the factor levels are also output in order of the integers assigned. So we see high comes first because it recieves a 1, low second, and medium third.
+The expression vector is categorical, in that all the values in the vector belong to a set of categories; in this case, the categories are `low`, `medium`, and `high`. By turning the expression vector into a factor, the **categories are assigned integers alphabetically**, with high equal to one, low equal to two, and medium equal to three. You can view the newly created factor variable in the **Environment** window or by typing and running `expression`. 
 
 ```r
 expression
 ```
+
+When you print the contents to the console, the factor levels are also output in order of the integers assigned. So we see high comes first because it recieves a 1, low second, and medium third.
 
 So now that we have an idea of what factors are, when would you ever want to use them? 
 
