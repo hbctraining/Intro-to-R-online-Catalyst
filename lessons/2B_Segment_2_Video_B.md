@@ -6,7 +6,7 @@ In segment 2A, we learned that variables are like buckets where information is m
 
 ## Vectors
 
-A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a collection of values, and those values can be of any data type. For instance, we can see that this is a vector or collection of 4 values: 1, 50, 9, and 42.
+A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a collection of values, and those values can be of any data type. For instance, we can see that this is a vector or collection of 4 numeric values: 1, 50, 9, and 42.
 
 ![numeric vector](../img/vector2.png)
 
@@ -118,9 +118,9 @@ Since vectors can only be of a single data type, R will automatically coerce the
 
 The next data structure we'll explore is called a **factor**, which is really just a special type of vector used to **store categorical data**. We discussed in the introductory lessons, how R has powerful abilities for working with categorical data and this specialized data structure is the reason. Within a factor, each unique category is referred to as a **factor level**. Factors are built on top of integer vectors such that each **factor level** or category is assigned an **integer value**, creating value-label pairs. 
 
-For instance, if we have four animals and the first animal is female, the second and third are male, and the fourth is female, we could create a factor that appears like a vector, but has integer values stored under-the-hood. The integer value assigned is a one for females and a two for males. The numbers are assigned in alphabetical order, so because the f- in females comes before the m- in males in the alphabet, females get assigned a one and males a two. In later lessons we will show you how you could change these assignments.
-
 ![factors](../img/factors_sm.png)
+
+For instance, if we have four animals and the first animal is female, the second and third are male, and the fourth is female, we could create a factor that appears like a vector, but has integer values stored under-the-hood. The integer value assigned is a one for females and a two for males. The numbers are assigned in alphabetical order, so because the f- in females comes before the m- in males in the alphabet, females get assigned a one and males a two. In later lessons we will show you how you could change these assignments.
 
 Let's create a factor and explore a bit more.  We'll start by creating a character vector describing three different levels of expression. 
 
