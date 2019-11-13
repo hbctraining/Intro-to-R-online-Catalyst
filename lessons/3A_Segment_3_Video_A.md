@@ -2,7 +2,7 @@
 
 ### Introduction
 
-In this segment, we will define what a function is in R and how we use them with the use of arguments. We will also discuss ways in which you can find help on using functions in R. In other segments, we have used a few examples of basic functions yet we haven't really talked much about them - so now let's take the time to delve into functions in more detail.
+Welcome ot segment 3A. In this segment, we will define what a function is in R and how we use them with the use of arguments. We will also discuss ways in which you can find help on using functions in R. In other segments, we have used a few examples of basic functions yet we haven't really talked much about them - so now let's take the time to delve into functions in more detail.
 
 ### What are functions?
 
