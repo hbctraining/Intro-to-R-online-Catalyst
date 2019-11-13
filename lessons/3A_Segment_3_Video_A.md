@@ -2,7 +2,7 @@
 
 ### Introduction
 
-So far you have been introduced to R and RStudio, and you are now familiar with some basic syntax of the R programming language. We have also explored the different data types and data structures that you will encounter when working in R. Through all of this, we have used a few examples of basic functions yet we haven't really talked much about them - so now let's take the time to delve into functions in more detail.
+In this segment, we will define what a function is in R and hwo we use them with the use of arguments. We will also discuss ways in which you can find help on using functions in R. In previous segments, we have used a few examples of basic functions yet we haven't really talked much about them - so now let's take the time to delve into functions in more detail.
 
 ### What are functions?
 
