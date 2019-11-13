@@ -2,7 +2,7 @@
 
 In this lesson, we will introduce the different formats available for storing data within R. 
 
-So far we have learned that variables are like buckets where information is maintained and referenced, and we use the name on the outside of the bucket to refer to it. In the previous lesson, we only created variables or buckets filled with a single value, but **variables can store more than just a single value, they can store a multitude of values. These values can be stored in different formats or different data structures.** These include, but are not limited to, vectors, factors, matrices, data frames and lists. In this video, we will introduce the one-dimensional data structures, vectors and factors.
+In segment 2A, we learned that variables are like buckets where information is maintained and referenced, and we use the name on the outside of the bucket to refer to it. In that lesson, we only created variables or buckets filled with a single value, but **variables can store more than just a single value, they can store a multitude of values. These values can be stored in different formats or different data structures.** These include, but are not limited to, vectors, factors, matrices, data frames and lists. In this video, we will introduce the one-dimensional data structures, vectors and factors.
 
 ## Vectors
 
@@ -186,4 +186,4 @@ Which level received a 1? If we look at the levels in the output, we can see tha
 
 Hopefully, you are starting to get a bit comfortable with the idea of using vectors and factors as variables for storing your data. Vectors really are the basic building blocks for creating other data structures in R, so understanding what they are and how to create them will be important in understanding later concepts.
 
-To summarize, in this lesson, we explored the **vector** and **factor** data structures available to us in R for one-dimensional data. We learned how to create these data structures, as well as, explored when these data structures are useful. In the next lesson, we will learn about additional data structures for higher dimensional data.  
+To summarize, in this lesson, we explored the **vector** and **factor** data structures available to us in R for one-dimensional data. We learned how to create these data structures, as well as, explored when these data structures are useful. Other lessons are available to learn about additional data structures for higher dimensional data.  
