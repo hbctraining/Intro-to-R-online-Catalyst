@@ -140,13 +140,17 @@ It works without any additional arguments, but let's see what other arguments we
 ?mean
 ```
 
-(Scroll through the help documentation). We can see that at minimum the function requires a numeric vector `x`. We can also set the `trim` argument which would be a numeric value of 0 to 0.5 representing the fraction of observations to be trimmed from each end of x before the mean is computed. And finally there is a `na.rm` argument, this is an important feature of many functions in R that perform some statistical computation. The function accepts a logical value indicating whether NA values should be stripped before the computation proceeds.
+(Scroll through the help documentation to Arguments). 
 
-By default, all **R functions operating on vectors that contains missing data will return NA**. It's a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. When dealing with simple statistics like the mean, the easiest way to ignore `NA` (the missing data) is to use `na.rm=TRUE` (`rm` stands for remove).
+We can see that the `trim` argument (which defaults to zero) can be set to a numeric value of 0 to 0.5 representing the fraction of observations to be trimmed from each end of x before the mean is computed. There is also a `na.rm` argument, this is an important feature of many functions in R that perform some statistical computation. The function accepts a logical value indicating whether NA values should be ignored before the computation proceeds.
 
-In some cases, it might be useful to remove the missing data from the vector. For this purpose, R comes with the function `na.omit` to generate a vector that has NA's removed. For some applications, it's useful to keep all observations, for others, it might be best to remove all observations that contain missing data. The function `complete.cases()` is another option, which returns a logical vector indicating which rows have no missing values. 
+By default, all **R functions operating on vectors that contains missing data will return NA**. It's a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. 
+
+(Switch to slide)
+
+When dealing with simple statistics like the mean, the easiest way to ignore `NA` (the missing data) is to use `na.rm=TRUE` (`rm` stands for remove). However, not all functions will have this argument. In some cases, it might be useful to remove the missing data from the vector rather than just ignoring it. For this purpose, R comes with the function `na.omit` to generate a vector that has NA's removed. For other applications, it's useful to keep all observations, fand just note where the missing values are ocurring. The function `complete.cases()` is another option, which returns a logical vector indicating which rows have no missing values. 
 
 
 ### Conclusion
 
-In summary, we have defined for you what a function is in R and provided some instruction on using them by providing different types of arguments. We have presented some helpful tips on finding help when using functions that your are not familiar with, and made special note of an especially useful argument (and additional functions) when you are working with data that has missing values.
+In summary, we have defined for you what a function is in R and provided some instruction on using them by providing different types of arguments. We have presented some tips on finding help when using functions that your are not familiar with, and made special note of an especially useful argument (and additional functions) when you are working with data that has missing values.
