@@ -96,21 +96,45 @@ Similarly the `tail` function will display only the last 6 rows/items from a giv
 
 In addition to the functions we discussed above, there are many other functions that allow you to get a sense of the content/structure of data. 
 
-Some of these functions will work on all data structures, and we have already encountered most of these-
+Some of these functions will work on **all data structures**, and we have already encountered most of these:
 - **`str()`:** compact display of data contents (env.)
 - **`class()`:** data type (e.g. character, numeric, etc.) of vectors and data structure of dataframes, matrices, and lists.
 - **`summary()`:** detailed display, including descriptive statistics, frequencies
 - **`head()`:** will print the beginning entries for the variable
 - **`tail()`:** will print the end entries for the variable
 
-Some functions, like `length()` will work on one dimensional structures, specifically vectors and factors:
+Let's see what the `summary()` function returns for a vector and a data frame:
+
+```r
+summary(glengths)
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    4.6  1502.3  3000.0 17668.2 26500.0 50000.0 
+
+
+summary(metadata)
+
+ genotype  celltype   replicate
+ KO:6     typeA:6   Min.   :1  
+ Wt:6     typeB:6   1st Qu.:1  
+                    Median :2  
+                    Mean   :2  
+                    3rd Qu.:3  
+                    Max.   :3  
+```
+
+As you can see the summary function is very useful not just for numeric/integer values, but also for factors.
+
+Some functions, like `length()` will work on **one dimensional structures only**, i.e. vectors and factors:
 
 ```r
 length(glengths)
 
 [1] 3
 ```
-And some others will work on two dimensional structures like data frames and matrices:
+
+And some others will work on **two dimensional structures** like data frames and matrices:
+
 - **`dim()`:** returns dimensions of the dataset as a vector with two values
 - **`nrow()`:** returns the number of rows in the dataset as a vector with a single value
 - **`ncol()`:** returns the number of columns in the dataset as a vector with a single value
