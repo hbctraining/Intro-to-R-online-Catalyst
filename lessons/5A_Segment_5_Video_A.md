@@ -1,6 +1,6 @@
 ## Introduction
 
-In this segment we will be talking about functions for inspecting data structures. In other segments, we have discussed what functions are, as well as the different data types & data structures available in R; here we will discuss a few functions to enable you to get information from a data structure, including figuring out the exact data structure you may be working with.
+Welcome to segment 5A, in this segment we will be talking about functions for inspecting data structures. In other segments, we have discussed what functions are, as well as the different data types & data structures available in R; here we will discuss a few functions to enable you to get information from a data structure, including figuring out the exact data structure you may be working with.
 
 ## Inspecting data structures
 
