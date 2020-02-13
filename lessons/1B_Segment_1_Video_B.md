@@ -1,3 +1,6 @@
+## Introduction
+
+Welcome to segment 1B, Interacting with R in RStudio
 
 ## Interacting with data in R
 
@@ -34,20 +37,6 @@ Before we move on to more complex concepts and getting familiar with the languag
 * Code and workflow are more reproducible if we can document everything that we do. Our end goal is not just to "do stuff", but to do it in a way that anyone can easily and exactly replicate our workflow and results. **All code should be written in the script editor and saved to file, rather than working in the console.** 
 * The **R console** should be mainly used to inspect objects, test a function or get help. 
 * Use `#` signs to comment. **Comment liberally** in your R scripts. This will help future you and other collaborators know what each line of code (or code block) was meant to do. Anything to the right of a `#` is ignored by R. *A shortcut for this is `Ctrl + Shift + C` if you want to comment an entire chunk of text.*
-
----
-
-*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
-
-* *The materials used in this lesson are adapted from work that is Copyright © Data Carpentry (http://datacarpentry.org/). 
-All Data Carpentry instructional material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).*
-
----
-title: R Syntax and Data Structures
-authors: Meeta Mistry, Mary Piper
-date: "Friday, September 8, 2017"
----
-Approximate time: 70 min
 
 ## Learning Objectives
 
