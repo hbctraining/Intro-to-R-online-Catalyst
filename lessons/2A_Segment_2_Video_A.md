@@ -31,63 +31,79 @@ You should see that your environment is no longer empty. We have a variable, x, 
 
 ## Variables
 
-So we have created the variable xA variable is a symbolic name for (or reference to) information. Variables in computer programming are analogous to "buckets", where information can be maintained and referenced. On the outside of the bucket is a name. When referring to the bucket, we use the name of the bucket, not the data stored in the bucket.
+So far we have created the variable x that has the value 3, but what exactly is a variable? A variable is a symbolic name for information. You can think of variables in computer programming as being analogous to "buckets", where information can be maintained and referenced. On the outside of the bucket is a name, and when referring to the bucket, we use the name on the outside of the bucket, not the data stored inside.
 
-In the example above, we created a variable or a 'bucket' called `x`. Inside we put a value, `3`. 
+Therefore, for the variable `x` we created previously, 'x' is the name on the outside of the bucket, and 3 is the value stored inside.
 
 Let's create another variable called `y` and give it a value of 5. 
 
 ```r
+# Assign the value 5 to a variable named y
 y <- 5
 ```
-Note that you can create the assignment operator, or arrow, with a shortcut by pushing the `Alt`  and minus keys at the same time.
 
-When assigning a value to an variable, R does not print anything to the console. You can force to print the value by using parentheses or by typing the variable name.
+We now see the variable `y` appear in our `Environment` window with the value 5. When assigning a value to an variable, R does not print anything to the console. However, you can force to print the value by using parentheses or by typing the variable name.
 
 ```
+# Print to console contents of a variable by typing it's name
 y
 ```
 
-You can also view information on the variable by looking in your `Environment` window in the upper right-hand corner of the RStudio interface.
 
 ![Viewing your environment](../img/environment.png)
 
-Now we can reference these buckets by name to perform mathematical operations on the values contained within. What do you get in the console for the following operation: 
+Now we can reference these buckets by name to perform mathematical operations on the values contained within. What do you get in the console when typing x + y? 
 
 ```r
+# Adding contents of variables
 x + y
 ```
 
-Try assigning the results of this operation to another variable called `number`. 
+Let's assign the output to another variable. We can call the variable just about anything we would like, but we are going to choose to call it `number`. To assign the output of x + y to number, we can type: number, arrow, x + y.
 
 ```r
 number <- x + y
 ```
 
 ***
-**Exercises**
 
-1. Try changing the value of the variable `x` to 5. What happens to `number`?
-2. Now try changing the value of variable `y` to contain the value 10. What do you need to do, to update the variable `number`?
+**Exercises**
+1.	Try changing the value of the variable `x` to 5 and the value of variable `y` to 10. 
+2.	Does anything happen to the variable `number`? If not, try to update `number`.
 
 ***
 
+Let's go through the exercises together. To change the value of x to 5, we can type x, arrow, 5:
+
+```
+x <- 5
+```
+
+Similarly, to change the value of y to 10, we can type, y, arrow, 10:
+
+```
+y <- 10
+```
+
+Now let's look at `number` in our Environment. Has `number` updated? No. This is one feature of R to keep in mind when working through your analyses. If you update the dependencies for a variable, the variable will not automatically update. What do we need to do to update `number`? We need to reassign number to be x + y using the current values of x and y. So, we will type: number, arrow, x + y.
+
+```
+number <- x + y
+```
+
 ### Tips on variable names
-Variables can be given almost any name, such as `x`, `current_temperature`, or
+
+We mentioned earlier that you could name variables just about any name you would like; however, there are a few restrictions and a few suggestions for naming variables. Variables can be given almost any name, such as `x`, `current_temperature`, or
 `subject_id`. However, there are some rules / suggestions you should keep in mind:
 
-- Make your names explicit and not too long.
 - Avoid names starting with a number (`2x` is not valid but `x2` is)
-- Avoid names of fundamental functions in R (e.g., `if`, `else`, `for`, see [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) for a complete list). In general, even if it's allowed, it's best to not use other function names (e.g., `c`, `T`, `mean`, `data`) as variable names. When in doubt
-check the help to see if the name is already in use. 
-- Avoid dots (`.`) within a variable name as in `my.dataset`. There are many functions
-in R with dots in their names for historical reasons, but because dots have a
-special meaning in R (for methods) and other programming languages, it's best to
-avoid them. 
-- Use nouns for object names and verbs for function names
+- Avoid names of fundamental functions in R (e.g., `if`, `else`, `for`, see [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) for a complete list). In general, even if it's allowed, it's best to not use other function names (e.g., `c`, `T`, `mean`, `data`) as variable names. When in doubt check the help to see if the name is already in use. 
+- Make your names explicit and not too long.
 - Keep in mind that **R is case sensitive** (e.g., `genome_length` is different from `Genome_length`)
+- Avoid dots (`.`) within a variable name as in `my.dataset`. There are many functions in R with dots in their names for historical reasons, but because dots have a special meaning in R (for methods) and other programming languages, it's best to avoid them. 
+- Use nouns for object names and verbs for function names
 - Be consistent with the styling of your code (where you put spaces, how you name variable, etc.). In R, two popular style guides are [Hadley Wickham's style guide](http://adv-r.had.co.nz/Style.html) and [Google's](http://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html).
 
-
+Names starting with numbers are not allowed in base R, nor should you use the names of fundamental functions. You won’t know these functions yet, but we have provided a link to them in the slides. A general rule of thumb is to not name a variable with a name of a function that you use in your analysis. Make your variable name explicit and not too long. Make the names intuitive, so that it is easy to figure out what the contents of the variable are. Keep in mind that R is case sensitive, so genome lengths in all lower case is not the same as genome lengths with a capital G.Try to avoid dots in variable names, like my.dataset, because dots have special meaning in R and in other programming languages, so even though it’s unlikely to cause you issues, it’s best to avoid them. Be consistent with the styling of your code, where you put spaces, how you name variables, ecetera. We have provided the links to two popular styling guides that we encourage you to look through to get an idea on how you may want to style your code for optimal readability and reproducibility.
 
 
