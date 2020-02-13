@@ -1,7 +1,3 @@
-## Introduction
-
-Welcome to segment 1B, Interacting with R in RStudio
-
 ## Interacting with data in R
 
 R is commonly used for handling big data, and so it only makes sense that we learn about R in the context of some kind of relevant data. Let's take a few minutes to add files to the folders we created and familiarize ourselves with the data.
