@@ -12,9 +12,7 @@ The next data type is the `integer`, which is for whole numbers. It behaves very
 
 The last data type we will discuss in much detail is the `logical` data type. This data type is for `TRUE` and `FALSE` values, and represents the Boolean data type. The `logical` data type can be specified using four values, `TRUE` in all capital letters, `FALSE` in all capital letters, a single capital `T` or a single capital `F`. 
 
-There are two additional basic data types in R; the `complex` data type is for complex numbers with real and imaginary parts, but most of us do not need to use this data type unless we work with complex numbers. The last data type is `raw`, but we aren't going to go into details on this data type.
-
-The table below provides examples of each of the commonly used data types:
+There are two additional basic data types in R; the `complex` data type is for complex numbers with real and imaginary parts, but most of us do not need to use this data type, so we will not cover it here. The last data type is `raw`, but we aren't going to go into details on this data type, either.
 
 | Data Type  | Examples|
 | -----------:|:-------------------------------:|
@@ -23,13 +21,16 @@ The table below provides examples of each of the commonly used data types:
 | Integer:  | 2L, 500L, -17L|
 | Logical:  | TRUE, FALSE, T, F|
 
-The type of data will determine what you can do with it. For example, if you want to perform mathematical operations, then your data type cannot be character or logical. Whereas if you want to search for a word or pattern in your data, then you data should be of the character data type. The task or function being performed on the data will determine what type of data can be used.
+The type of data will determine what you can do with it. For example, if you want to perform mathematical operations, then your data type cannot be character or logical. Whereas if you want to search for a word or pattern in your data, then your data should be of the character data type. The task or function being performed on the data will determine what type of data can be used.
 
 ## Assignment operator
 
 Now that we know what type of values are available to use in R, let's explore how we can use them. To do useful and interesting things in R, we need to assign _values_ to _variables_ using the assignment operator, which is denoted by a 'less than sign', followed by a dash or minus sign.  For example, we can use the assignment operator to assign the numeric value `3` to `x` by typing x, assignment operator, then 3. The assignment operator (`<-`) assigns **values on the right** to **variables on the left**. After we finishing typing, we need to run the code. Remember, the shortcut to run a line of code is pressing the ‘command’ or ‘control’ key at the same time as the ‘enter’ key. 
 
 ```r
+# Assignment operator
+<-
+
 # Assign the value 3 to a variable named x
 x <- 3
 ```
