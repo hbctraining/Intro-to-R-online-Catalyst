@@ -31,6 +31,8 @@ The next two-dimensional data structure we will explore is the data frame. A `da
 
 ![dataframe](../img/dataframe.png)
 
+In this data frame, the first column is character, the second column is numeric, the third is character, and the fourth is logical.
+
 A data frame is the most common way of storing data in R, and if used systematically makes data analysis easier. 
 
 We can create a dataframe by bringing **vectors** together to **form the columns**. We do this using the `data.frame()` function, and giving the function the different vectors we would like to bind together. *This function will only work for vectors of the same length.*
@@ -38,6 +40,7 @@ We can create a dataframe by bringing **vectors** together to **form the columns
 Let's create a data frame called `df`. We can do this by typing `data.frame`, parentheses, and inside the parentheses adding the names of the vectors that we would like to turn into columns, in the order we would like them to appear. So we will type `species`, comma, `glengths`. Then we can use the assignment operator to create a variable called `df`. 
 
 ```r
+# Create data frame
 df <- data.frame(species, glengths)
 ```
 
@@ -47,9 +50,7 @@ Note that the species column is now a factor even though we added it as a charac
 
 Another handy feature in RStudio is that if we hover the cursor over the variable name, `df`, it will turn into a pointing finger. If you click on `df`, it will open the data frame as it's own tab next to the script editor. We can explore the table interactively within this window. To close, just click on the X on the tab.
 
-As with any variable, we can print the values stored inside to the console if we type it's name and run.
-
-Type and run `df`.
+As with any variable, we can print the values stored inside to the console if we type the variable's name and run. Let's type and run `df`.
 
 ```r
 df
@@ -57,41 +58,31 @@ df
 
 ### Lists
 
-Lists are a data structure in R that can be perhaps a bit daunting at first, but soon become amazingly useful. A list is a data structure that can hold any number of any types of other data structures.
+Now we'll move on to the list data structure. Lists are a data structure in R that can be perhaps a bit daunting at first, but soon become amazingly useful. A list is a data structure that can hold any number of any types of other data structures.
 
 ![list](../img/list.png)
 
 
-If you have variables of different data structures you wish to combine, you can put all of those into one list object by using the `list()` function and placing all the items you wish to combine within parentheses:
+If you have variables of different data structures you wish to combine, you can put all of those into one list object by using the `list()` function and placing all the items you wish to combine within parentheses. 
+
+Let's create a list called `list1`, which contains as components the `species` vector, the `df` data frame, and the single value, `number`. We'll type `list1`, arrow, then the `list()` function. In parentheses, include `species`, `df`, and `number`.
 
 ```r
+# Create a list
 list1 <- list(species, df, number)
 ```
-Print out the list to screen to take a look at the components:
+
+We see `list1` appear within the Data section of our environment as a list of 3 components or variables. If we click on the blue circle with a triangle in the middle, it's not quite as interpretable as it was for data frames. Essentially, each component is preceded by a colon. The first colon give the `species` vector, the second colon preceeds the `df` data frame, with the dollar signs indicating the different columns, the last colon gives the single value, `number`.
+
+If I click on `list1`, it opens a tab where you can explore the contents a bit more, but it's still not super intuitive. The easiest way to view small lists is to print to the console. 
+
+Let's type list1 and print to the console by running it.
 
 ```r
 list1
-	
-[[1]]
-[1] "ecoli" "human" "corn" 
-
-[[2]]
-  species glengths
-1   ecoli      4.6
-2   human   3000.0
-3    corn  50000.0
-
-[[3]]
-[1] 5
-
 ```
 
-There are three components corresponding to the three different variables we passed in, and what you see is that structure of each is retained. Each component of a list is referenced based on the number position. We will talk more about how to inspect and manipulate components of lists in later lessons.
-
-***
-**Exercise**
-
-Create a list called `list2` containing `species`, `glengths`, and `number`.
+There are three components corresponding to the three different variables we passed in, and what you see is that structure of each is retained. We can see that the first component of the list, `species`, is denoted by a double-bracket 1. The second component with double-bracket 2, and the third component with double-bracket 3. 
 
 ---
 
