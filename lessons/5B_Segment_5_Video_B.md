@@ -1,61 +1,96 @@
-## Selecting data using indices and sequences
+## Selecting data using indices and sequences - Introduction
 
-When analyzing data, we often want to **partition the data so that we are only working with selected columns or rows.** A data frame or data matrix is simply a collection of vectors combined together. So let's begin with vectors and how to access different elements, and then extend those concepts to dataframes.
+When analyzing data, we often want to **partition the data so that we are only working with selected columns or rows.** In this segment we will begin with how to subset a one-dimensional data structure, specifically vectors, using indices and sequences. This segment is a precursor to segment 5C and 5D.
 
-### Vectors
+### Indices
 
-#### Selecting using indices
+When we have displayed the contents of vectors previously, you may have noticed a notation to the left, the number one in a set of brackets. Let's take a look:
 
-If we want to extract one or several values from a vector, we must provide one or several indices using square brackets `[ ]` syntax. The **index represents the element number within a vector** (or the compartment number, if you think of the bucket analogy). R indices start at 1. Programming languages like Fortran, MATLAB, and R start counting at 1, because that's what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because that's simpler for computers to do.
+```r
+glengths
+```
 
-Let's start by creating a vector called age:
+This notation is called an **index**, and it is telling us that the first element in the `glengths` vector is 4.6, and the ones after are the 2nd and 3rd elements.
+
+Let's create a new vector called `age` to learn more about indices:
 
 ```r
 age <- c(15, 22, 45, 52, 73, 81)
+
+age
 ```
+
+If we look at this vector now, it will show that the first element in `age` is 15, and so on.
 
 ![vector indices](../img/vector-index.png)
 
-Suppose we only wanted the fifth value of this vector, we would use the following syntax:
+The **index represents the element number within a vector** (or the compartment number, if you think of the bucket analogy). R indices start at 1.
+
+If we want to extract one or several values from a vector, we can use this index notation along with the name of the vector. Suppose we only wanted the fifth value of this vector, we would say:
 
 ```r
 age[5]
 ```
 
-If we wanted all values except the fifth value of this vector, we would use the following:
+Note that there cannot be a space between the vector name and the open bracket.
+
+We can even use this syntax to select more than one element. Say we were interested in extracting the 3rd, 5th and 6th elements from the vector `age`. Our intuition would be to list multiple values within the brackets, but this won't work:
 
 ```r
-age[-5]
+age[3,5,6]
 ```
 
-If we wanted to select more than one element we would still use the square bracket syntax, but rather than using a single value we would pass in a *vector of several index values*:
+`"Error in age[3, 5, 6] : incorrect number of dimensions"` 
 
+It will give us an error message saying that we have listed the incorrect numebr of dimensions. 
+
+This is because a vector is one-dimensional so R can only take one number or one *"thing"* as input within the brackets. 
+This *"thing"* can be a vector of values, essentially the indices we are interested in, or a function that outputs a vector of values.
+
+Let's first create a vector called `idx` that had the 3 indices we are interested in:
 ```r
-age[c(3,5,6)]   ## nested
-
-# OR
-
-## create a vector first then select
 idx <- c(3,5,6) # create vector of the elements of interest
+```
+
+To subset these out of the `age` vector we can now place that idx object inside the brackets
+```
 age[idx]
 ```
 
-To select a sequence of continuous values from a vector, we would use `:` which is a special function that creates numeric vectors of integer in increasing or decreasing order. Let's select the *first four values* from age:
+Voila! we have now successfully extracted the 3rd, 5th and 6th elements from `age`
+
+We could have also done this with a single line of code, where the combine function that creates the vector with 3 values is within the brackets:
+
+```r
+age[c(3,5,6)]
+```
+
+This is called ***nesting***, i.e. we have nested a function within another syntactical component of R.
+
+#### Subsetting with indices and sequence
+
+In R, if you want to create a continuous sequence of numbers you can do so using the `:`. Say we wanted a vector with all the numbers from 6 to 23, we could say 6:23.
+
+```r
+6:23
+```
+
+We could also get them in reverse order with 23:6
+
+```r
+23:6
+```
+
+This is a handy functionality that can be used together with the index notation. For example, if we want to extract the first 4 elements from the `age` vector, we can say:
 
 ```r
 age[1:4]
 ```
 
-Alternatively, if you wanted the reverse could try `4:1` for instance, and see what is returned. 
+In addition to these using minus within the brackets works like you might expect; if we wanted all values except the fifth value, we could use -5 within the brackets instead of writing out the ones we want:
 
-***
-**Exercises** 
+```r
+age[-5]
+```
 
-1. Create a vector called alphabets with the following letters, C, D, X, L, F.
-2. Use the associated indices along with `[ ]` to do the following:
-	* only display C, D and F
-	* display all except X
-	* display the letters in the opposite order (F, L, X, D, C)
-
-***
-
+## Conclusion
