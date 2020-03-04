@@ -94,3 +94,5 @@ age[-5]
 ```
 
 ## Conclusion
+
+We hope this gives you a good understanding of how to use a basic but important functionality within R. We will be going through using indices to extract data from two-dimensional objects in segment 5D. Thanks for your attention.
