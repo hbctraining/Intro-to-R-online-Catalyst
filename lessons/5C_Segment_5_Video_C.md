@@ -1,6 +1,12 @@
+## Introduction
+
+In this segment we will extend on the lesson from segment 5B and talk about additional functionality in R to subset data from one-dimensional objects.
+
 #### Selecting using indices with logical operators
 
-We can also use indices with logical operators. Logical operators include greater than (>), less than (<), and equal to (==). A full list of logical operators in R is displayed below:
+R has a set of logical operators available that can be used to assess data within objects. E.g. if one is interested in extracting all the elements from age that were greater than or equal to a certain value, we can do that fairly easily. 
+
+This is the full list of logical operators available in R. It includes "and" `&` and "or" `\|`, which are used to combine two or more of the operators together.
 
 | Operator | Description |
 | :-----------:|:----------------|
@@ -13,59 +19,69 @@ We can also use indices with logical operators. Logical operators include greate
 | & | and |
 | \| |or |
 
-We can use logical expressions to determine whether a particular condition is true or false. For example, let's use our age vector: 
+
+Let's use some of these with the `age` vector to get all the elements that are greater than 50.
 	
 ```r
 age
-```
 
-If we wanted to know if each element in our age vector is greater than 50, we could write the following expression:	
-
-```r
 age > 50
 ```
 
-Returned is a vector of logical values the same length as age with TRUE and FALSE values indicating whether each element in the vector is greater than 50.
+Instead of returning the 3 elements that are actually greater than 50, we get a vector of TRUE and FALSE values. Let's take a closer look at this output.
+
+* What is the data type of this output? It is logical
+* What is the data structure of this output? It is a vector
+* How many elements in the logical vector? 6
+* Why are there 6 elements in this logical vector? Because the vector `age` has 6 elements
+
+In conclusion, the output of `age > 50` is a logical vector of the same length as `age`. Every FALSE here corresponds to elements that are NOT greater than 50, and every TRUE corresponds to elements that are greater than 50.
 
 ```r
 [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE
 ```
 
-We can use these logical vectors to select only the elements in a vector with TRUE values at the same position or index as in the logical vector.
+Great, we can now use logical operators and understand the output. But we still need to extract the elements that are greater than 50 from the `age` vector. So how do we do this?
 
-Select all values in the `age` vector over 50 **or** `age` less than 18:
+In addition to being able to place a vector of numeric values within the brackets to extract specific elements, we can also place a vector of logical values of the same length as the object being subsetted, within the brackets. Let's say we want to extract the values in the `age` vector that are either greater than 50 **or** less than 18.
+
+We could write out the logical expression as follows with age greater than 50 separated from age less than 18 by a "pipe" which denotes "or" and save the logical vector output to a new object:
 
 ```r
-age > 50 | age < 18
+logi_idx <- age > 50 | age < 18
 
-age
+logi_idx 
+```
+Then we can use this object to subset from the age vector
 
-age[age > 50 | age < 18]  ## nested
+```r
+age[logi_idx]
+```
 
-# OR
+You could have also used nesting to do this with a single line of code
 
-## create a vector first then select
-idx <- age > 50 | age < 18
-age[idx]
+```r
+age[age > 50 | age < 18]
 ```
 
 ##### Indexing with logical operators using the `which()` function
 
-While logical expressions will return a vector of TRUE and FALSE  values of the same length, we could use the `which()` function to output the indices where the values are TRUE. Indexing with either method generates the same results, and personal preference determines which method you choose to use. For example:
+While logical expressions will return a vector of TRUE and FALSE  values of the same length, there is a function within base R called `which()` that takes a logical vector as input and returns the numeric index associated with each TRUE value.
 
 ```r
 which(age > 50 | age < 18)
-
-age[which(age > 50 | age < 18)]  ## nested
-
-# OR
-
-## create a vector first then select
-idx_num <- which(age > 50 | age < 18)
-age[idx_num]
 ```
 
-Notice that we get the same results regardless of whether or not we use the `which()`. Also note that while `which()` works the same as the logical expressions for indexing, it can be used for multiple other operations, where it is not interchangeable with logical expressions.
+Since the output of which is a numeric vector of indices, it can also be used within the brackets.
+
+```r
+age[which(age > 50 | age < 18)]
+```
+
+`which()` stands for "which is true" and is useful when dealing with NA values.
+
+***
+***
 
 ### Factors
 
