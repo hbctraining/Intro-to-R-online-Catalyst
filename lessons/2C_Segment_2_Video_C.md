@@ -27,15 +27,15 @@ While matrices are usually numeric, they can also be created using any of the ot
 
 ### Data Frame
 
-The next two-dimensional data structure we will explore is the data frame. A `data.frame` is the _de facto_ data structure for most tabular data and what we use for statistics and plotting. A `data.frame` is similar to a matrix in that it's a collection of vectors of the **same length** and each vector represents a column. However, in a dataframe **each vector can be of a different data type** (e.g., characters, integers, factors). 
+The next two-dimensional data structure we will explore is the data frame. A `data.frame` is the _de facto_ data structure for most tabular data and what we use for statistics and plotting. A `data.frame` is similar to a matrix in that it's a collection of vectors of the **same length** and each vector represents a column. However, in a data frame **each vector can be of a different data type** (e.g., characters, integers, factors). 
 
 ![dataframe](../img/dataframe.png)
 
-In this data frame, the first column is character, the second column is numeric, the third is character, and the fourth is logical.
+In this data frame, the first column is of the `character` data type, the second column is numeric, the third is character, and the fourth is logical.
 
 A data frame is the most common way of storing data in R, and if used systematically makes data analysis easier. 
 
-We can create a dataframe by bringing **vectors** together to **form the columns**. We do this using the `data.frame()` function, and giving the function the different vectors we would like to bind together. *This function will only work for vectors of the same length.*
+We can create a data frame by bringing **vectors** together to **form the columns**. We do this using the `data.frame()` function, and giving the function the different vectors we would like to bind together. *This function will only work for vectors of the same length.*
 
 Let's create a data frame called `df`. We can do this by typing `data.frame`, parentheses, and inside the parentheses adding the names of the vectors that we would like to turn into columns, in the order we would like them to appear. So we will type `species`, comma, `glengths`. Then we can use the assignment operator to create a variable called `df`. 
 
