@@ -19,7 +19,7 @@ mx <- matrix(top_num, nrow = 2, ncol = 3)
 mx
 ```
 
-Once the matrix is created, each row and each column could be thought of as a vector of values. However, in a matrix, all of the columns and rows have the same data type. 
+Once the matrix is created, each row and each column could be thought of as a vector of values of the same length with all of the columns and rows having the same data type.
 
 Matrices are used commonly as part of the mathematical machinery of statistics. They are usually of numeric or integer data type and used in computational algorithms to serve as a checkpoint. For example, if input data is not of identical data type (numeric, character, etc.), the `matrix()` function will throw an error and stop any downstream code execution.
 
