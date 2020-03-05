@@ -17,7 +17,7 @@ metadata[1, 1]
 
 ![metadata](../img/metadata.png)
 
-Now let's try extracting the one value, which is also in the first row, but the third column. To do this, we would type metadata, square brackets, one in the rows space, for the value being in the first row, then a comma, and a three in the column space, for the value being in the third column. When we run it, we should return the value one.
+Now let's try extracting the value one, which is also in the first row, but the third column. To do this, we would type metadata, square brackets, one in the rows space, for the value being in the first row, then a comma, and a three in the column space, for the value being in the third column. When we run it, we should return the value one.
 
 ```r  
 # extract element in the first row in the 3rd column
@@ -72,28 +72,27 @@ If we want to return the first three rows of the cell type column, we could type
 metadata[1:3 , "celltype"] 
 ```
 
-We could have used row names for the row values instead of the indices, for instance in the rows position, we could use the combine function and type the row names for the rows: in quotes, Sample1, Sample2, Sample3. This would have been correct, as well, and returned the same values.
+If only a single column is to be extracted from a data frame, there is a useful shortcut using the `$` sign. In this case, the entire column is a vector. For instance, to extract all the genotypes from our dataset, we can use: metadata and $. At this point RStudio gives you an option to choose which column you would like to return. We will choose genotype.
 
 ```r
-# elements of the celltype column corresponding to the first three samples
-metadata[c("Sample1", "Sample2", "Sample3") , "celltype"] 
-```
-
-
-You can do operations on a particular column, by selecting it using the `$` sign. In this case, the entire column is a vector. For instance, to extract all the genotypes from our dataset, we can use: 
-
-```r
+# Extract genotype column from metadata
 metadata$genotype 
 ```
-You can use `colnames(metadata)` or `names(metadata)` to remind yourself of the column names. We can then supply index values to select specific values from that vector. For example, if we wanted the genotype information for the first five samples in `metadata`:
+
+The output of this is a vector, and we can then supply index values to select specific values from that vector. For example, if we wanted the genotype information for the first five samples in `metadata`, we could type: metadata, $, genotype, square brackets, 1, colon, 5.
 
 ```r
-colnames(metadata)
-
+# Extract first five values from genotype column vector
 metadata$genotype[1:5]
 ```
 
-The `$` allows you to select a single column by name. To select multiple columns by name, you need to  concatenate a vector of strings that correspond to column names: 
+The `$` allows you to select a single column by name. To select multiple columns by name, you need to combine a vector of values that correspond to the column names. To remind ourselves of that the column names are, we could use the colnames() function by typing colnames, and inside parentheses giving the dataframe, so in our case, we would add `metadata`.
+
+```r
+colnames(metadata)
+```
+
+To extract the genotype and celltype columns, we would extract as we normaly would by typing: metadata, square brackets. Then in the column position, adding the combine function by typing: c, parentheses, then adding the names of the columns in quotes, so: quotation marks, genotype, comma, quotation marks, celltype.
 
 ```r
 metadata[, c("genotype", "celltype")]
@@ -119,7 +118,10 @@ While there is no equivalent `$` syntax to select a row by name, you can select 
 
 ```r
 rownames(metadata)
+```
+To select the rows for sample 10 and 12, we could combine these names and add to the row position:
 
+```r
 metadata[c("sample10", "sample12"),]
 ```
 
@@ -134,23 +136,41 @@ metadata[idx, ]
 ```
 
 ##### Selecting indices with logical operators using the `which()` function
-As you might have guessed, we can also use the `which()` function to return the indices for which the logical expression is TRUE. For example, we can find the indices where the `celltype` is `typeA` within the `metadata` dataframe:
+Similar to selecting indices with vectors, we can also use the `which()` function to return the indices for which values the logical expression is TRUE. For example, we can find the indices where the `celltype` is `typeA` within the `metadata` dataframe. We would start by creating our logical expression. We are interested in the celltype column being typeA, so we can extract the celltype column using the $ notation: metadata, $, celltype. We want to know which rows or values in this vector are equal to typeA, so we can use the double equal to sign, then give the value that we would like to return, which we would type: quotation marks, typeA.
+
+The output of this will give a TRUE or FALSE for whether each value of the cell type vector is equal to typeA. The first six samples are true, so are typeA, while the last six are false. Remember, the first value of this cell type vector corresponds to the first row in the metadata data frame, and the second value corresponds to the second row, and so on and so forth. 
+
+We can use the which() function to determine which values or which rows correspond to the TRUE values. This returns the values one through six, indicating that the first 6 values are true, or equal to typeA. 
+
+We can use this information to subset or extract the rows of our metadata dataframe corresponding to the true values. To do this we can save our indices for which rows the logical expression is true to a variable we'll call `idx`, but you could call it anything you want.
 
 ```r
 idx <- which(metadata$celltype == "typeA")
-	
+```
+
+Then, we can use these indices to indicate the **rows** that we would like to return by extracting that data as we normally would by typing the name of the data frame we would like to extract the data from: metadata, square brackets, then we would put the indices for the rows we would like to return in the rows position, which are stored in our idx variable, so we type idx, followed by a comma. Finally, we will leave the columns space blank to return all of the columns.
+
+```r
 metadata[idx, ]
 ```
 
-Or we could find the indices for the metadata replicates 2 and 3:
+Now, let's try returning the rows of the metadata that are replicates 2 or 3. We can create the logical expression by typing: which, metadata, $, replicate, greater than sign, 1. We can assign this to a variable, we'll just call it idx again. 
 
 ```r
 idx <- which(metadata$replicate > 1)
-	
+```
+If we type idx, we can see the indices for the rows in metadata that have a value of 2 or 3. 
+
+```r
+idx
+```
+Now we can use these indices to extract those rows from the metadata data frame by typing: metadata, square brackets, idx, comma. Again, we want to return all columns so we leave the column space blank.
+
+```r
 metadata[idx, ]
 ```
 
-Let's save this output to a variable:
+Let's save this output to a variable. Let's call it sub, underscore, meta:
 
 ```r
 sub_meta <- metadata[idx, ]
@@ -164,5 +184,21 @@ Subset the `metadata` dataframe to return only the rows of data with a genotype 
 	
 ***
 
-> **NOTE:** There are easier methods for subsetting **dataframes** using logical expressions, including the `filter()` and the `subset()` functions. These functions will return the rows of the dataframe for which the logical expression is TRUE, allowing us to subset the data in a single step. We will explore the `filter()` function in more detail in a later lesson.
+Let's go through the exercise together. To return only the rows of metadata with genotype KO, we can create the logical expression by typing: metadata, $, genotype, double equals to sign, and KO in quotes. We can put it inside the which() function to determine the indices for the rows that are KO. We can assign it to a variable named anything we would like, and I will call it exercise_idx.
+
+```r
+exercise_idx <- which(metadata$genotype == "KO")
+```
+Now to extract those rows from the metadata, we type: metadata, square brackets, and add exercise_idx to the rows position, and leave the column position blank to return all columns.
+
+```r
+metadata[exercise_idx, ]
+```
+This should return only those rows with genotypes of KO. Note that there are easier methods for subsetting **dataframes** using logical expressions, including the `filter()` and the `subset()` functions. We explore the `filter()` function in more detail in the tidyverse section.
+
+## Conclusion
+
+In this section, we learned how to extract values from two-dimensional data structures, specifically data frames. This is the first step to becoming competent at wrangling the data within these data structures in R. 
+
+To summarize, in this lesson, we explored how to extract values using their positions within the rows and columns of the data structure, using row and column names, in addition to using logical expressions. 
 
