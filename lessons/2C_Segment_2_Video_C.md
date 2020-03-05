@@ -12,7 +12,7 @@ For instance, we could create a matrix using the `matrix()` function, and have a
 
 ```r
 # Create a vector to be turned into a matrix
-top_num <- c(90,)
+top_num <- c(1,2,3,4,5,6)
 
 # Turn vector into matrix
 mx <- matrix(top_num, nrow = 2, ncol = 3)
