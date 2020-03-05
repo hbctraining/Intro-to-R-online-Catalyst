@@ -50,7 +50,7 @@ Note that the species column is now a factor even though we added it as a charac
 
 Another handy feature in RStudio is that if we hover the cursor over the variable name, `df`, it will turn into a pointing finger. If you click on `df`, it will open the data frame as it's own tab next to the script editor. We can explore the table interactively within this window. To close, just click on the X on the tab.
 
-As with any variable, we can print the values stored inside to the console if we type the variable's name and run. Let's type and run `df`.
+As with any variable, if we type the variable's name and run, we can print the values stored inside to the console . Let's type and run `df`.
 
 ```r
 df
@@ -58,7 +58,9 @@ df
 
 ### Lists
 
-Now we'll move on to the list data structure. Lists are a data structure in R that can be perhaps a bit daunting at first, but soon become amazingly useful. A list is a data structure that can hold any number of any types of other data structures.
+Now we'll move on to the list data structure. Lists are a data structure in R that can be perhaps a bit daunting at first, but soon become amazingly useful. We will discuss how lists can be useful after we understand a bit more about how they are structured.
+
+A list is a data structure that can hold any number of any types of other data structures.
 
 ![list](../img/list.png)
 
@@ -72,17 +74,27 @@ Let's create a list called `list1`, which contains as components the `species` v
 list1 <- list(species, df, number)
 ```
 
-We see `list1` appear within the Data section of our environment as a list of 3 components or variables. If we click on the blue circle with a triangle in the middle, it's not quite as interpretable as it was for data frames. Essentially, each component is preceded by a colon. The first colon give the `species` vector, the second colon preceeds the `df` data frame, with the dollar signs indicating the different columns, the last colon gives the single value, `number`.
+We see `list1` appear within the Data section of our environment as a list of 3 components or variables. If we click on the blue circle with a triangle in the middle, it's not quite as interpretable as it was for data frames. Essentially, each component is preceded by a colon. The first colon gives the `species` vector, the second colon precedes the `df` data frame, with the dollar signs indicating the different columns, the last colon gives the `number` variable.
 
-If I click on `list1`, it opens a tab where you can explore the contents a bit more, but it's still not super intuitive. The easiest way to view small lists is to print to the console. 
+If I click on `list1`, it opens a tab where you can explore the contents a bit more, but it's still not super intuitive. The easiest way to view small lists is to print them to the console. 
 
-Let's type list1 and print to the console by running it.
+Let's type `list1` and print out the contents to the console by running it.
 
 ```r
 list1
 ```
 
 There are three components corresponding to the three different variables we passed in, and what you see is that structure of each is retained. We can see that the first component of the list, `species`, is denoted by a double-bracket 1. The second component with double-bracket 2, and the third component with double-bracket 3. 
+
+Now that we know what lists are, why would we ever want to use them? When getting started with R, you will most likely encounter lists with different tools or functions that you use. Oftentimes a tool will need a list as input, so that all the information needed to run the tool is present in a single variable. Sometimes a tool will output a list when working through an analysis. Knowing how to work with them and extract necessary information will be critically important. 
+
+As you become more comfortable with R, you will find yourself using lists more often. One common use of lists is to make iterative processes more efficient. For example, let's say you had multiple data frames containing the same weather information from different cities throughout North America. You wanted to perform the same task on each of the data frames, but that would take a long time to do individually. Instead you could create a list where each data frame is a component of the list. Then, you could perform the task on the list instead, which would be applied to each of the components.
+
+## Conclusion
+
+Understanding the fundamentals of the most basic data structures in R will be helpful when performing many of the most basic data science operations, such as reading in, exploring, and wrangling data within R. Hopefully, you have a basic understanding of the structure of matrices, data frames, and lists and why we would use them. Also, hopefully, you have can describe the similarities and differences between the two-dimensional data structures, matrices and data frames. 
+
+To summarize, in this lesson, we explored the **matrix**, **data frame**, and **list** data structures available to us in R. We learned how to create these data structures, as well as, explored when these data structures are useful. 
 
 ---
 
