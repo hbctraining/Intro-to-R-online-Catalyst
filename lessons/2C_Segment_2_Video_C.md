@@ -92,7 +92,7 @@ As you become more comfortable with R, you will find yourself using lists more o
 
 ## Conclusion
 
-Understanding the fundamentals of the most basic data structures in R will be helpful when performing many of the most basic data science operations, such as reading in, exploring, and wrangling data within R. Hopefully, you have a basic understanding of the structure of matrices, data frames, and lists and why we would use them. Also, hopefully, you have can describe the similarities and differences between the two-dimensional data structures, matrices and data frames. 
+Understanding the fundamentals of the most basic data structures in R will be helpful when performing many of the most basic data science operations, such as reading in, exploring, and wrangling data within R. Hopefully, you have a basic understanding of the structure of matrices, data frames, and lists and why we would use them. Also, hopefully, you can describe the similarities and differences between the two-dimensional data structures, matrices and data frames. 
 
 To summarize, in this lesson, we explored the **matrix**, **data frame**, and **list** data structures available to us in R. We learned how to create these data structures, as well as, explored when these data structures are useful. 
 
