@@ -1,6 +1,6 @@
 ## Introduction
 
-Welcome to segment 2C, Data Structures for Higher Dimensional Data (2D and beyond). In segment 2B, we got comfortable with the idea of using vectors and factors as variables for storing one-dimensional data, and we discussed how they can be used as building blocks for creating other, higher dimensional, data structures in R. In this lesson, we will explore the data structures for two-dimensional data, including matrices and data frames. In addition to the two-dimensional data structures, we will introduce a data structure called a list.
+Welcome to segment 2C, Data Structures for Multi-dimensional Data. In segment 2B, we got comfortable with the idea of using vectors and factors as variables for storing one-dimensional data, and we discussed how they can be used as building blocks for creating other, higher dimensional, data structures in R. In this lesson, we will explore the data structures for two-dimensional data, including matrices and data frames. In addition to the two-dimensional data structures, we will introduce a data structure called a list.
 
 ## Matrix
 
