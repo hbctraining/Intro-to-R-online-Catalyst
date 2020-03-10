@@ -1,25 +1,16 @@
----
-title: Plotting and data visualization in R
-author: Mary Piper, Meeta Mistry, Radhika Khetani
-date: "Wednesday, September 8, 2017"
----
+# Introduction
 
-Approximate time: 60 minutes
-
-## Learning Objectives 
-
-* Plot graphs using the external package "ggplot2".
-* Use the "map" function for iterative tasks on data structures.
-* Export plots for use outside of the R environment.
+Welcome to segment 7A. In this segment we will be learning a few new functions and using them to set up for learning the basics of plotting with ggplot.
 
 ## Setting up a data frame for visualization
 
-In this lesson we want to make various plots related to the average expression in each sample. When we make the plots, we also want to use all the metadata available to appropriately annotate the plots. 
+We already have a metadata data frame with information about each of the samples. We want to add two more columns, the first one is the average gene expression in a sample, and the second one is the age of each of the mice that make up each of our samples.
 
-Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. We want to compute **the average value of expression** for each sample eventually. Taking this one step at a time, what would we do if we just wanted the average expression for Sample 1 (across all transcripts)? We can use the R base package provided function called 'mean()`:
+So, let's talk about getting the average expression for each sample. We can get this information from the counts data frame that we created using read.csv() in segment \_\_\_. Each column in the counts data frame has the gene expression for a sample in our experiment, and we can use the mean function to get the average expression. 
 
+This is how we would get the average expression in sample1:
 ```r
-mean(rpkm_ordered[,"sample1"])
+mean(rpkm_ordered$sample1)
 ```
 
 That is great, if we only wanted the average from one of the samples (1 column in a data frame), but we need to get this information from all 12 samples, so all 12 columns. What is the best way to do this?
