@@ -1,41 +1,71 @@
+# Introduction
+
+Welcome to segment 7B. You will need to have worked through Segment 7A prior to starting this segment. 
+
+Here, we will be going through the fundamentals of using ggplot2 to create plots.
+
 ## Data Visualization with `ggplot2`
 
-When we are working with large sets of numbers it can be useful to display that information graphically to gain more insight. Visualization deserves an entire course of its own (there is that much to know!). If you are interested in learning about plotting with base R functions, we have a short lesson [available here](basic_plots_in_r.md). In this lesson we will be plotting with the popular Bioconductor package [`ggplot2`](http://docs.ggplot2.org/).
+When we are working with large sets of numbers it can be useful to display that information graphically to gain more insight. Here are some plots drawn with ggplot2 that are very effectively communicating complex results or ideas.
 
-More recently, R users have moved away from base graphic options towards `ggplot2` since it offers a lot more functionality as compared to the base R plotting functions. The `ggplot2` syntax takes some getting used to, but once you get it, you will find it's extremely powerful and flexible. We will start with drawing a simple x-y scatterplot of `samplemeans` versus `age_in_days` from the `new_metadata` data frame. `ggplot2` assumes that the input is a  data frame.
+[[[[ADD IMAGES OF PLOTS MADE WITH ggplot2]]]]
 
-Let's start by loading the `ggplot2` library, you downloaded and installed this library as part of the `tidyverse` package.
+
+More recently, R users have moved away from graphing functions in base R towards `ggplot2`. This is because ggplot2 offers a lot more functionality and easier syntax. This syntax is what we will be covering in this segment. It uses functions, but differs from base R in how the functions are combined together.
+
+Let's start by loading the `ggplot2` library.
 
 ```r
 library(ggplot2)
 ```
 
-The `ggplot()` function is used to **initialize the basic graph structure**, then we add to it. The basic idea is that you specify different parts of the plot, and add them together using the `+` operator. These parts are often referred to as layers.
 
-Let's start: 
+The first plot we will draw is a simple X-Y scatterplot of `samplemeans` versus `age_in_days` from the `new_metadata` data frame you created in Segment 7A.
+
+[[[SHOW IMAGE OF THE FINAL PLOT]]]
+
+The `ggplot()` function is used to **initialize the basic graph structure**, then we add information and customizations by adding additional functions using the `+` operator. 
+
+[[[SHOW IMAGE OF THE FINAL code for the plot]]]
+
+Each function that is added is called a layer. So we will be building a chunk of code, with multiple layers for plotting with ggplot2.
+
+It is important to note that ggplot2 will only accept data frames or tibbles as input. It does not work with other data structures such as matrices, lists or single dimensional objects.
+
+Let's start by initializing the plot with the ggplot function and the new_metadata data frame as input: 
 
 ```r
-ggplot(new_metadata) # what happens? 
+ggplot(new_metadata)
 ```
 
-You get an blank plot, because you need to **specify layers** using the `+` operator.
+You will get a blank plot, because you need to specify layers with information about what you want to plot.
 
-One type of layer is **geometric objects**. These are the actual marks we put on a plot. Examples include:
+One type of layer is called **geometric object**, or a geom layer in short. You need to specify at least one geom layer, since this is how you specify the kind of plot being drawn. i.e do you want to box plot? or an X-Y scatterplot? os do you want an histogram?
+
+[[[Following list needs to be displayed on a slide]]]
 
 * points (`geom_point`, `geom_jitter` for scatter plots, dot plots, etc)
 * lines (`geom_line`, for time series, trend lines, etc)
 * boxplot (`geom_boxplot`, for, well, boxplots!)
 
-For a more exhaustive list on all possible geometric objects and when to use them check out [Hadley Wickham's RPubs](http://rpubs.com/hadley/ggplot2-layers) or the [RStudio cheatsheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf). 
+Listed are some examples of plots and geom functions that would create them.
+
+For a more exhaustive list on all possible geometric objects and when to use them check out [Hadley Wickham's RPubs](http://rpubs.com/hadley/ggplot2-layers) or the [RStudio cheatsheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf). Both these are linked ...
 
 A plot **must have at least one `geom`**; there is no upper limit. You can add a `geom` to a plot using the `+` operator
 
+Since we are plotting a simple scatterplot, we will be using the geom_point() function as our geom layer.
+
 ```r
 ggplot(new_metadata) +
-  geom_point() # note what happens here
+  geom_point() 
 ```
 
-You will find that even though we have added a layer by specifying `geom_point`, we get an error. This is because each type of geom usually has a **required set of aesthetics** to be set. Aesthetic mappings are set with the aes() function and can be set inside `geom_point()` to be specifically applied to that layer. If we supplied aesthetics within `ggplot()`, they will be used as defaults for every layer. Examples of aesthetics include:
+Running this code will give an error because we have not specified which column within new_metadata should be used as the X axis and which one should be used as the Y axis.
+
+Anytime information from a column in the input dataframe is used, it has to be within a function called aes(). Aes stands for aesthetics or aesthetic mappings. 
+
+[[[Following list needs to be displayed on a slide]]]
 
 * position (i.e., on the x and y axes)
 * color ("outside" color)
@@ -44,14 +74,17 @@ You will find that even though we have added a layer by specifying `geom_point`,
 * linetype
 * size
 
-To start, we will add position for the x- and y-axis since `geom_point` requires the most basic information about a scatterplot, i.e. what you want to plot on the x and y axes. All of the others mentioned above are optional.
+To start, we will add the position for the x- and y-axis within the aes function. And in turn place the aes function within `geom_point`. In this case x is age in days and y is samplemeans.
 
 ```r
 ggplot(new_metadata) +
      geom_point(aes(x = age_in_days, y= samplemeans))
 ```
 
- ![ggscatter1](../img/ggscatter-1.png) 
+
+
+
+
 
 
 Now that we have the required aesthetics, let's add some extras like color to the plot. We can **`color` the points on the plot based on genotype**, by specifying the column header. You will notice that there are a default set of colors that will be used so we do not have to specify. Also, the **legend has been conveniently plotted for us!**
