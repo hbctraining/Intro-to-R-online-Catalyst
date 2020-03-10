@@ -4,11 +4,11 @@ Welcome to segment 5D, Wrangling of Complex Data Structures. In segment 5C, we e
 
 ### Dataframes
 
-Data frames (and matrices) have 2 dimensions (rows and columns), so if we want to extract from them specific data, we need to specify the "coordinates" for the data of interest. We use the same square bracket notation as for one-dimensional objects, but rather than providing a single index, there are *two indices required*. Within the square bracket, **row numbers come first, followed by column numbers and the two are separated by a comma**. Let's explore the `metadata` dataframe, with the image showing the first six samples:
+Data frames and matrices have 2 dimensions with rows and columns, so if we want to extract from them specific data, we need to specify the "coordinates" for the data of interest. We use the same square bracket notation as for one-dimensional objects, but rather than providing a single index, there are *two indices required*. Within the square bracket, **row numbers come first, followed by column numbers and the two are separated by a comma**. Let's explore a data frame called metadata.
 
 ![metadata](../img/metadata.png)
 
-Let's say we wanted to extract the wild type value that is present in the first row and the first column. To extract it, just like with vectors, we give the name of the data frame that we want to extract from, followed by the square brackets. Now inside the square brackets we give the coordinates or indices for the rows in which the values are present, followed by a comma, then the coordinates or indices for the columns in which the values are present. So we will type `metadata`, square brackets, then we know the wild type value is in the first row if we count from the top, so we put a one, then a comma. The wild type value is also in the first column, counting from left to right, so we put a one in the columns space too. When we run the line of code, we should return the `Wt` value.
+To extract it, just like with vectors, we give the name of the data frame that we want to extract from, followed by the square brackets. Now inside the square brackets we give the coordinates or indices for the rows in which the values are present, followed by a comma, then the coordinates or indices for the columns in which the values are present. So we will type metadata, square brackets, then we know that the wild type value is in the first row if we count from the top, so we put a one, then a comma. The wild type value is also in the first column, counting from left to right, so we put a one in the columns space too. When we run the line of code, we should return the `Wt` value.
 
 ```r
 # element from the first row in the first column of the data frame
@@ -24,7 +24,7 @@ Now let's try extracting the value one, which is also in the first row, but the 
 metadata[1, 3]  
 ```
 
-Now if you only wanted to select based on rows, you would provide the index for the rows and leave the columns index blank. The key here is to include the comma, to let R know that you are accessing a 2-dimensional data structure. So if we wanted to return only the third row, we would type: metadata, square brackets, 3, comma, then we would leave the column space blank to return all columns.
+Now if you only wanted to select entire rows, you would provide the index for the rows and leave the columns index blank. The key here is to include the comma, to let R know that you are accessing a 2-dimensional data structure. So if we wanted to return only the third row, we would type: metadata, square brackets, 3, comma, then we would leave the column space blank to return all columns.
 
 ```r
 # extract all elements in the 3rd row
@@ -86,7 +86,7 @@ The output of this is a vector, and we can then supply index values to select sp
 metadata$genotype[1:5]
 ```
 
-The `$` allows you to select a single column by name. To select multiple columns by name, you need to combine a vector of values that correspond to the column names. To remind ourselves of that the column names are, we could use the colnames() function by typing colnames, and inside parentheses giving the dataframe, so in our case, we would add `metadata`.
+The `$` allows you to select a single column by name. To select multiple columns by name, you need to combine a vector of values that correspond to the column names. To remind ourselves of what the column names are, we could use the colnames() function by typing colnames, and inside parentheses giving the dataframe, so in our case, we would add `metadata`.
 
 ```r
 colnames(metadata)
@@ -129,28 +129,43 @@ metadata[c("sample10", "sample12"),]
 
 With dataframes, similar to vectors, we can use logical vectors for specific columns in the dataframe to select only the rows in a dataframe with TRUE values at the same position or index as in the logical vector. We can then use the logical vector to return all of the rows in a dataframe where those values are TRUE.
 
+For instance, let’s return only those rows with a cell type of type A.
+
+We would start by creating our logical expression. We are interested in the celltype column being typeA, so we can extract the celltype column using the $ notation: metadata, $, celltype. We want to know which rows or values in this vector are equal to typeA, so we can use the double equal to sign, then give the value that we would like to return, which we would type: quotation marks, typeA.
+
+The output of this will give a TRUE or FALSE for whether each value of the cell type vector is equal to typeA. The first six samples are true, so are typeA, while the last six are false. Remember, the first value of this cell type vector corresponds to the first row in the metadata data frame, and the second value corresponds to the second row, and so on and so forth.
+
+To do this we can save these TRUE and FALSE values indicating which rows are typeA to a variable we'll call idx, but you could call it anything you want.
+
 ```r
+# Saving logical expression output to variable
 idx <- metadata$celltype == "typeA"
-	
+```
+
+Then, we can use these TRUE values that indicate the rows in the metadata data frame that we would like to return by extracting that data as we normally would by typing:
+
+ the name of the data frame we would like to extract the data from, which is metadata, square brackets, then we would put the TRUE and FALSE values in the rows position, since they represent the rows for whether the cell type variable is typeA. The TRUE and FALSE values are stored in our idx variable, so we type idx, followed by a comma. Finally, we will leave the columns space blank to return all of the columns.
+
+```r
+# Subset metadata for rows with celltype of typeA
 metadata[idx, ]
 ```
 
 ##### Selecting indices with logical operators using the `which()` function
-Similar to selecting indices with vectors, we can also use the `which()` function to return the indices for which values the logical expression is TRUE. For example, we can find the indices where the `celltype` is `typeA` within the `metadata` dataframe. We would start by creating our logical expression. We are interested in the celltype column being typeA, so we can extract the celltype column using the $ notation: metadata, $, celltype. We want to know which rows or values in this vector are equal to typeA, so we can use the double equal to sign, then give the value that we would like to return, which we would type: quotation marks, typeA.
 
-The output of this will give a TRUE or FALSE for whether each value of the cell type vector is equal to typeA. The first six samples are true, so are typeA, while the last six are false. Remember, the first value of this cell type vector corresponds to the first row in the metadata data frame, and the second value corresponds to the second row, and so on and so forth. 
-
-We can use the which() function to determine which values or which rows correspond to the TRUE values. This returns the values one through six, indicating that the first 6 values are true, or equal to typeA. 
-
-We can use this information to subset or extract the rows of our metadata dataframe corresponding to the true values. To do this we can save our indices for which rows the logical expression is true to a variable we'll call `idx`, but you could call it anything you want.
+Similar to selecting indices with vectors, we can also use the `which()` function to return the indices for which values the logical expression is TRUE. For example, we can find the indices where the `celltype` is `typeA` within the `metadata` dataframe. We would start by creating our logical expression the same as we did previously. However, we would add this logical expression inside the which() function to determine the indices for the values that are TRUE or the rows that correspond to the TRUE values.
 
 ```r
-idx <- which(metadata$celltype == "typeA")
+# Return the indices for which values are TRUE
+which(metadata$celltype == "typeA")
 ```
 
-Then, we can use these indices to indicate the **rows** that we would like to return by extracting that data as we normally would by typing the name of the data frame we would like to extract the data from: metadata, square brackets, then we would put the indices for the rows we would like to return in the rows position, which are stored in our idx variable, so we type idx, followed by a comma. Finally, we will leave the columns space blank to return all of the columns.
+This returns the values one through six, indicating that the first 6 values or rows are true, or equal to typeA. We can save our indices for which rows the logical expression is true to a variable we'll call idx, but, again, you could call it anything you want.
+
+We can use these indices to subset or extract the rows of our metadata dataframe corresponding to the true values by typing the name of the data frame we would like to extract the data from: metadata, square brackets, then we would put the indices for the rows we would like to return in the rows position, which are stored in our idx variable, so we type idx, followed by a comma. Finally, we will leave the columns space blank to return all of the columns.
 
 ```r
+# Subset metadata for rows with celltype of typeA
 metadata[idx, ]
 ```
 
@@ -175,6 +190,8 @@ Let's save this output to a variable. Let's call it sub, underscore, meta:
 ```r
 sub_meta <- metadata[idx, ]
 ```
+
+Now let’s practice with a quick exercise. Please pause the video and complete the exercise.
 
 ***
 
