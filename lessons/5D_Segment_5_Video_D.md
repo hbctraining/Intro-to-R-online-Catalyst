@@ -1,6 +1,6 @@
 ## Introduction
 
-Welcome to segment 5D, Wrangling of Complex Data Structures. In segment 5C, we explored how to select and extract data from simple, one-dimensional data structures. In this segment, we will extend on what we learned to select and extract data from more complex data structures such as matrices, data frames and lists. Please see segment 2C for more detailed information about these data structures.
+Welcome to segment 5D, Wrangling of Two-Dimensional Data Structures. In segment 5C, we explored how to select and extract data from simple, one-dimensional data structures. In this segment, we will extend on what we learned to select and extract data from more complex data structures such as matrices, data frames and lists. Please see segment 2C for more detailed information about these data structures.
 
 ### Dataframes
 
