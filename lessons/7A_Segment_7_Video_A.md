@@ -64,31 +64,30 @@ map_dbl(rpkm_ordered, mean)
 
 The output of this function is a vector of 12 values. This is a named vector, and this is why it looks a little different than other vectors we have encountered before.
 
-Now, let's run it again and this time we can save the our output in an object called samplemeans.
+Now, let's run it again save the output in an object called samplemeans.
 
 ```r
 samplemeans <- map_dbl(rpkm_ordered, mean) 
 ```
 
-
-
-
-
-
-We can add this 12 element containing vector as a column to our metadata data frame, thus combining the average expression with experimental metadata. The `cbind()` or "column bind" function allows us to do this very easily.
-	
-```r
-new_metadata <- cbind(metadata, samplemeans)
-```
-
-Before we start to plot, we also want to add an additional metadata column to `new_metadata`, this new column lists the age of each of the mouse samples in days.
+Let's create another vector with 12 elements that we want to add to metadata. This is the vector that represents the age in days of the mice in the dataset. You should copy this line of code from ..... [[[]]]
 
 ```r
 age_in_days <- c(40, 32, 38, 35, 41, 32, 34, 26, 28, 28, 30, 32)    
-# Create a numeric vector with ages. Note that there are 12 elements here.
-	
-new_metadata <- cbind(new_metadata, age_in_days)    
-# add the new vector as the last column to the new_metadata dataframe
 ```
 
-We are now ready for plotting and data visualization!
+Now, we can add both of these 12 element vectors as columns to our existing metadata data frame, let's take a quick look at it before adding anything:
+
+```r
+metadata
+```
+
+Great, looks like we have 3 columns and 12 rows of data. We can now use the `data.frame()` function to add the new column to the existing information.
+	
+```r
+new_metadata <- data.frame(metadata, samplemeans, age_in_days)
+
+new_metadata
+```
+
+Now you should have a dataframe that is ready for the next segment, Segment 7B, where we will cover plotting with ggplot2!
