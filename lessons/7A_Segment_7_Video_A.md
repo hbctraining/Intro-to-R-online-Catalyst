@@ -6,6 +6,8 @@ Welcome to segment 7A. In this segment we will be learning a few new functions a
 
 We already have a metadata data frame with information about each of the samples. We want to add two more columns, the first one is the average gene expression in a sample, and the second one is the age of each of the mice that make up each of our samples.
 
+[[[ADD IMAGE OF FINISHED DATA FRAME]]]
+
 So, let's talk about getting the average expression for each sample. We can get this information from the counts data frame that we created using read.csv() in segment \_\_\_. Each column in the counts data frame has the gene expression for a sample in our experiment, and we can use the mean function to get the average expression. 
 
 This is how we would get the average expression in sample1:
@@ -13,13 +15,21 @@ This is how we would get the average expression in sample1:
 mean(rpkm_ordered$sample1)
 ```
 
-That is great, if we only wanted the average from one of the samples (1 column in a data frame), but we need to get this information from all 12 samples, so all 12 columns. What is the best way to do this?
+This method is great for a single sample, or a single column, but we need to get this information for all 12 samples. What is the best way to do this without having to run the mean function 12x times and accurately representing that information?
 
-Programming languages typically have a way to allow the execution of a single line of code or several lines of code multiple times, or in a "loop". While "loops" are possible in R, there are functions that more directly achieve this purpose, such as the `apply()` family of functions and the `map()` family of functions. The `map()` family is a bit more intuitive to use than `apply()`, so we will explore this family in more detail. However, we have [similar materials available](https://hbctraining.github.io/Intro-to-R/lessons/apply_functions.html) using the `apply()` function if you would like to explore more on your own.
+Programming languages typically have a way to loop through the same few lines of code multiple times. R has many ways to do this type of looping - one can write out a "for loop" or use functions belonging to either the `apply()` or the `map()` families to achieve looping. 
+
+Here we are going to use the map family of functions from the purrr package (purr with 3 rs), which is part of the tidyverse suite of packages.
 
 ### The `map` family of functions
 
-The `map()` family of functions is available from the **`purrr`** package, which is part of the tidyverse suite of packages. More detailed information is available in the [R for Data Science](http://r4ds.had.co.nz/iteration.html#the-map-functions) book. This family includes several functions, each taking a vector as input and outputting a vector of a specified type. For example, we can use these functions to execute some task/function on every element in a vector, or every column in a dataframe, or every component of a list, and so on. 
+We have linked the [R for Data Science](http://r4ds.had.co.nz/iteration.html#the-map-functions) book in the "resources" (??), which goes into a detailed information about the map family of functions. 
+
+Simply, this family includes several functions, each has a very specific input and output.
+
+For example, we can use these functions to execute some task/function on every element in a vector, or every column in a dataframe, or every component of a list, and so on. 
+
+[[[ADD IMAGE OF the list below]]]
 
 - `map()` creates a list.
 - `map_lgl()` creates a logical vector.
@@ -27,23 +37,43 @@ The `map()` family of functions is available from the **`purrr`** package, which
 - `map_dbl()` creates a "double" or numeric vector.
 - `map_chr()` creates a character vector.
 
-The syntax for the `map()` family of functions is: 
+[[[ADD IMAGE OF the code below]]]
+
+these functions have 2 arguments, first is the input object and second is the name of the function you want to use to iteratively use on the input object.
 
 ```r
 ## DO NOT RUN
 map(object, function_to_apply)
 ```
 
-If you would like to practice with the `map()` family of functions, we have [additional materials](https://hbctraining.github.io/Intro-to-R/lessons/map_purrr.html) available.
 ### Wrangling our data with `map_dbl()`
 
-To obtain **mean values for all samples** we can use the `map_dbl()` function which generates a numeric vector. 
+We need to get a vector of numeric values with the mean function, so we will be using the map_dbl() function. This function takes in a data frame or a matrix and performs the given function on each column. It is important to note that if you want to iterate over the rows, you might want to use the apply function.
+
+First, we need to load the library.
 
 ```r
 library(purrr)  # Load the purrr
+```
 
+Next, we will run the map_dbl function on the counts data, such that we get the average for each column.
+
+```r
+map_dbl(rpkm_ordered, mean) 
+```
+
+The output of this function is a vector of 12 values. This is a named vector, and this is why it looks a little different than other vectors we have encountered before.
+
+Now, let's run it again and this time we can save the our output in an object called samplemeans.
+
+```r
 samplemeans <- map_dbl(rpkm_ordered, mean) 
 ```
+
+
+
+
+
 
 We can add this 12 element containing vector as a column to our metadata data frame, thus combining the average expression with experimental metadata. The `cbind()` or "column bind" function allows us to do this very easily.
 	
