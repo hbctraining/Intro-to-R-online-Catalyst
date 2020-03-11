@@ -139,31 +139,56 @@ second[match(first, second)]
 
 ### Reordering genomic data using `match()` function
 
-Using the `match` function, we now would like to match the row names of our metadata to the column names of our expression data*, so these will be the arguments for `match`. Using these two arguments we will retrieve a vector of match indices. The resulting vector represents the re-ordering of the column names in our data matrix to be identical to the rows in metadata:
- 
+While the input to the match() function is always going to be to vectors, often we need to use these vectors to reorder the rows or columns of a data frame to match the rows or columns of another dataframe. Let's explore how to do this with a common use case for RNA-seq data. To perform differential gene expression analysis, we have a data frame with the expression data or counts for every sample and another data frame with the information about to which condition each sample belongs. For the tools doing the analysis, the samples in the counts data, which are the column names, need to be the same and in the same order as the samples in the metadata data frame, which are the rownames.
+
+We can take a look at these samples in each dataset by using the rownames() and colnames() functions.
+
  ```r
 rownames(metadata)
 	
 colnames(rpkm_data)
-	
+```
+
+We see the row names of the metadata are in a nice order starting at sample1 and ending at sample12, while the column names of the counts data look to be the same samples, but are randomly ordered. Therefore, we will reorder the columns of the counts data to match the order of the row names of the metadata.
+
+To do so, we will use the `match` function to match the row names of our metadata with the column names of our counts data, so these will be the arguments for `match`. Within the match function, the rownames of the metadata is the vector in the order that we want, so this will be the first argument, while the colnames of the count or rpkm data is the vector to be reordered. We will save these indices for how to reorder the colnames of the count data such that it matches the rownames of the metadatato a variable called genomic idx.
+
+```r
 genomic_idx <- match(rownames(metadata), colnames(rpkm_data))
 genomic_idx
 ```
 
-Now we can create a new data matrix in which columns are re-ordered based on the match indices:
+The resulting vector represents how to re-order the column names in our counts data to be identical to the row names in metadata. Now we can create a new counts data frame in which the columns are re-ordered based on the match indices. Remember to reorder the rows or columns in a data frame we give the name of the data frame followed by square brackets, and then the indices for how to reorder the rows or columns. 
+
+Our genomic idx represents how we would need to reorder the columns of our count data such that the column names would be in the same order as the row names of our metadata. Therefore, we need to add our genomic idx to the columns position. We are going to save the output of the reordering to a new data frame called rpkm ordered.
 
 ```r
-rpkm_ordered  <- rpkm_data[,genomic_idx]
+rpkm_ordered  <- rpkm_data[, genomic_idx]
 ```
 
-Check and see what happened by using `head`. You can also verify that column names of this new data matrix matches the metadata row names by using the `all` function:
+Let's take a quick check of the new data frame using View(). 
 
 ```r
-head(rpkm_ordered)
+View(rpkm_ordered)
+```
+
+We can see that it appears that the sample names are now in a nice order from Sample1 to 12, just like the metadata. One thing to note is that you would never want to rearrange just the column names without the rest of the column because that would dissociate the sample name from it's values.
+
+You can also verify that column names of this new data frame matches the metadata row names by using the `all` function that we learned about in segment 6A:
+
+```r
 all(rownames(metadata) == colnames(rpkm_ordered))
 ```
 
+We get TRUE, meaning that all of the elements in the row names of the metadata are the same and in the same order as the column names in the count data.
+
 Now that our samples are ordered the same in our metadata and counts data, **if these were raw counts** we could proceed to perform differential expression analysis with this dataset.
+
+## Conclusion
+
+Understanding how to reorder and match datasets can be necessary for many different types of analyses and is a useful skill for even basic data wrangling.
+
+To summarize, in this lesson, we explored the how to reorder data using indices and how to match data using the match() function. 
 
 
 ---
