@@ -1,34 +1,54 @@
+## Introduction
+
+Welcome to segment 6B, Reordering and Matching Datasets. Oftentimes, we encounter different analysis tools that require multiple input datasets. It is not uncommon for these inputs to need to have the same row names, column names, or unique identifiers in the same order to perform the analysis. Therefore, knowing how to reorder datasets and determine whether the data matches is an important skill.
+
+In segment 6A, we learned how to determine whether the same data is present in two datasets, in addition to, whether it is in the same order. In this segment, we will explore how to reorder the data such that the datasets are matching.
+
 ## Reordering data using indices
-Indexing `[ ]` can be used to extract values from a dataset as we saw earlier, but we can also use it to rearrange our data values. 
+
+Indexing `[ ]` can be used to extract values from a dataset as discussed in segment 5, but we can also use it to rearrange our data values. Let's explore reordering with indices by creating a vector called teaching team that has the values Mary first, Meeta second, and Radhika third.
 
 ```r
 teaching_team <- c("Mary", "Meeta", "Radhika")
 ```
 ![reordering](../img/teachin-team.png)
 
-Remember that we can return values in a vector by specifying it's position or index:
+Remember that we can return values in a vector by specifying it's position or index. So, if wanted to return Meeta and Radhika, I could do so by typing teaching team, square brackets, and inside the combine function giving the indices for Meeta and Radhika. Meeta is in the second position, so the index is 2 while Radhika is in the third position, so the index is 3.
 
 ```r
 teaching_team[c(2, 3)] # Extracting values from a vector
+```
+
+Note that we return Meeta and Radhika; however, if we look at the teaching team variable it hasn't changed. If we wanted to save or store the output, then we would need to reassign the output to teaching team or assign it to a different variable.
+
+```r
 teaching_team
 ```
 
-We can also extract the values and reorder them:
+We can also extract the values and reorder them. The order of the indices is the order in which the values are returned. So, if we extract Meeta and Radhika, but would like Radhika to be output first, then Meeta, we can give Radhika's index first, which is 3, then Meeta's, which is 2.
 
 ```r
 teaching_team[c(3, 2)] # Extracting values and reordering them
 ```
 
-Similarly, we can extract all of the values and reorder them:
+Now we see in the output Radhika then Meeta.
+
+Similarly, we can extract all of the values and reorder them. Let's say we would like Radhika to be output first, followed by Mary and Meeta. We could type teaching team, square brackets, then inside the combine function, 3, comma, 1, comma, 2.
 
 ```r
 teaching_team[c(3, 1, 2)]
 ```
 
-If we want to save our results, we need to assign to a variable:
+Let's save our results by assigning to a variable, we'll call it reorder teach:
 
 ```r
 reorder_teach <- teaching_team[c(3, 1, 2)] # Saving the results to a variable
+```
+
+Now we can see our reordered teaching team vector is saved as this new variable.
+
+```r
+reorder_teach
 ```
 
 ## The `match` function
