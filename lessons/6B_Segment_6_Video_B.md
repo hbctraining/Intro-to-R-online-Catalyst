@@ -53,14 +53,7 @@ reorder_teach
 
 ## The `match` function
 
-Now that we know how to reorder using indices, we can use the `match()` function to match the values in two vectors. We'll be using it to evaluate which samples are present in both our counts and metadata dataframes, and then to re-order the columns in the counts matrix to match the row names in the metadata matrix. 
-
-`match()` takes at least 2 arguments: 
-
-1. a vector of values in the order you want
-2. a vector of values to be reordered
-
-The function returns the position of the matches (indices) with respect to the second vector, which can be used to re-order it so that it matches the order in the first vector.  Let's create vectors `first` and `second` to demonstrate how it works:
+Now that we know how to reorder using indices, let's try to use it to reorder the contents of one vector to match the contents of another. Let's create vectors `first` and `second`.
 
 ```r
 first <- c("A","B","C","D","E")
@@ -70,28 +63,56 @@ second <- c("B","D","E","A","C")  # same letters but different order
 
 ***How would you reorder `second` vector to match `first` using indices?***
 
-If we had large datasets, it would be difficult to reorder them by searching for the indices of the matching elements. This is where the `match` function comes in really handy:
+We can start by giving the name of the vector to reorder, second, then square brackets. Inside the square brackets we can add the combine function to put the indices in the order we would like the values of second output. Since A comes first in the first vector, we need to give the index for A in the second vector as the first value, which is 4, since A is in the fourth position. Then we want B, which is 1, followed by C, which is 5, then D and E give 2 and 3.
+
+```r
+second[c(4, 1, 5, 2, 3)]
+```
+
+When we run this, we can see the output is the letters ordered in the same order as the first vector. If we had large datasets, it would be difficult to reorder them by searching for the indices of the matching elements, and it would be quite easy to make a typo or mistake. To help with matching datasets, there is a function called match(). 
+
+We can use the `match()` function to match the values in two vectors. We'll be using it to evaluate which values are present in both vectors, then reorder the elements to make the values match. 
+
+`match()` takes 2 arguments. The first argument is a vector of values in the order you want, while the second argument is the vector of values to be reordered such that it will match the first. 
+
+1. a vector of values in the order you want
+2. a vector of values to be reordered
+
+The function returns the position of the matches (indices) with respect to the second vector, which can be used to re-order it so that it matches the order in the first vector.  
+
+Let's use match() on the first and second vectors we created. We can type match, then inside the parentheses, we give the vector of values in the order we want, which is first, then the vector of values to be reordered, which is second.
 	
 ```r
-match(first,second)
+match(first, second)
 [1] 4 1 5 2 3
 ```
 
+The output is the indices for how to reorder the second vector to match the first. These indices match the indices that we derived manually before. 
+
 The function should return a vector of size `length(first)`. Each number that is returned represents the index of the `second` vector where the matching value was observed. 
 
-Now, we can just use the indices to reorder the elements of the `second` vector to be in the same positions as the matching elements in the `first` vector:
+Now, we can just use the indices to reorder the `second` vector to be in the same positions as the matching elements in the `first` vector. Let's save the indices to a variable we'll call reorder idx. 
 
 ```r
 reorder_idx <- match(first,second) # Saving indices for how to reorder `second` to match `first`
+```
 
+Then, use those indices to reorder the second vector by typing second, square brackets, reorder idx, similar to how we ordered with the manually derived indices.
+
+```r
 second[reorder_idx]  # Reordering the second vector to match the order of the first vector
+```
+
+Let's save this output to a variable called second reordered.
+
+```r
 second_reordered <- second[reorder_idx]  # Reordering and saving the output to a variable
 ```
 
 ![matching7](../img/match3-reordered.png)
 
 
-Now that we know how `match()` works, let's change vector `second` so that only a subset are retained:
+Now that we know how `match()` works, let's change vector `second` so that only a subset are retained. 
 
 ```r	
 first <- c("A","B","C","D","E")
@@ -100,15 +121,21 @@ second <- c("D","B","A")  # remove values
 
 ![matching5](../img/match2.png)
 
-And try to `match()` again:
+We are missing C and E in second. Let's explore how match() deals with the missing values.
 
 ```r
-match(first,second)
+match(first, second)
 
 [1]  3  2 NA  1 NA
 ```
 
->**NOTE:** For values that don't match by default return an `NA` value. You can specify what values you would have it assigned using `nomatch` argument. Also, if there is more than one matching value found only the first is reported.
+We see that the match() function takes every element in the first vector and finds the position of that element in the second vector, and if that element is not present, will return a missing value of NA. The value NA represents missing data for any data type within R. In this case, we can see that the match function output represents the value at position 3 as first, which is A, then position 2 is next, which is B, the value coming next is supposed to be C, but it is not present in the second vector, so NA is returned, so on and so forth. 
+
+If we rearrange second using these indices, then we should see that all the values present in both vectors are in the same positions and NAs are present for any missing values.
+
+```r
+second[match(first, second)]
+```
 
 ### Reordering genomic data using `match()` function
 
