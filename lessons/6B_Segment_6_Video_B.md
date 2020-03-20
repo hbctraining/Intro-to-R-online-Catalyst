@@ -63,9 +63,12 @@ second <- c("B","D","E","A","C")  # same letters but different order
 
 ***How would you reorder `second` vector to match `first` using indices?***
 
-We can start by giving the name of the vector to reorder, second, then square brackets. Inside the square brackets we can add the combine function to put the indices in the order we would like the values of second output. Since A comes first in the first vector, we need to give the index for A in the second vector as the first value, which is 4, since A is in the fourth position. Then we want B, which is 1, followed by C, which is 5, then D and E give 2 and 3.
+Since A comes first in the first vector, we need to give the index for A in the second vector as the first value, which is 4, since A is in the fourth position. Then we want B, which is 1, followed by C, which is 5, then D and E give 2 and 3.
+
+To extract these values and reorder them, we start by giving the name of the vector to reorder, second, then square brackets. Inside the square brackets we can use the combine function and put the indices in the order we would like the values of second output, which we decided was 4, 1, 5, 2, and 3.
 
 ```r
+# Reordering second vector to match first
 second[c(4, 1, 5, 2, 3)]
 ```
 
