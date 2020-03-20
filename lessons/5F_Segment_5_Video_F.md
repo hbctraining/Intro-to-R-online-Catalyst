@@ -28,6 +28,8 @@ comp2 <- list1[[2]]
 class(comp2)
 ```
 
+We can see that the second component is a data frame, which is the same data structure as the object when we added it to the list.
+
 You can also extract from inside the component by subsetting that data structure as you normally would. For example, in the first component we have a vector stored. 
 
 ```r
