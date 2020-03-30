@@ -174,7 +174,53 @@ ggplot(new_metadata) +
   ggtitle("Expression with Age")
 ```
 
-## Color from training modules
+### Customizing data point colors
+
+The plot is looking better, but it is hard to distinguish differences in significance based on the colors used. There are cheatsheets available for specifying the base R colors by [name](https://greggilbertlab.sites.ucsc.edu/teaching/rtransition/) or [hexadecimal](http://www.r-graph-gallery.com/41-value-of-the-col-function/) code. We could specify other colors available or use pre-created color palettes from an external R package. 
+
+To make additional color palettes available for plotting, we can load the RColorBrewer library, which contains color palettes designed specifically for the different types of data being compared.
+
+```r
+# Load the RColorBrewer library
+library(RColorBrewer)
+
+# Check the available color palettes
+display.brewer.all()
+```
+
+![rcolorbrewer_palettes](../img/Rcolorbrewer_palettes.png)
+
+The output is separated into three sections based on the suggested palettes for sequential, qualitative, and diverging data. 
+
+- **Sequential palettes (top):** For sequential data, with lighter colors for low values and darker colors for high values.
+- **Qualitative palettes (middle):** For categorical data, where the color does not denote differences in magnitude or value.
+- **Diverging palettes (bottom):** For data with emphasis on mid-range values and extremes.
+
+Since our adjusted p-values are sequential, we will choose from these palettes. Let's go with the "Yellow, orange, red" palette. We can choose how many colors from the palette to include, which may take some trial and error. We can test the colors included in a palette by using the `display.brewer.pal()` function, and changing if desired:
+
+```r
+# Testing the palette with six colors
+display.brewer.pal(6, "YlOrRd")
+```
+
+The yellow might be a bit too light, and we might not need so many different colors. Let's test with three different colors:
+
+```r
+# Testing the palette with three colors
+display.brewer.pal(3, "YlOrRd")
+
+# Define a palette
+mypalette <- brewer.pal(3, "YlOrRd")
+
+# how are the colors represented in the mypalette vector?
+mypalette
+```
+
+Those colors look okay, so let's test them in our plot. We can add a color scale layer, and most often one of the following two scales will work:
+
+- **`scale_color_manual()`:** for categorical data or quantiles
+- **`scale_color_gradient()` family:** for continuous data. 
+
 
 ## Conclusion
 
