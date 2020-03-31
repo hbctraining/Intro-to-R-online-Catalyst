@@ -1,6 +1,6 @@
 ## Interacting with data in R
 
-R is commonly used for handling big data, and so it only makes sense that we learn about R in the context of some kind of relevant data. Let's take a few minutes to add files to the folders we created and familiarize ourselves with the data.
+Welcome to segment 2B, Interacting with data in R. R is commonly used for handling big data, and so it only makes sense that we learn about R in the context of some kind of relevant data. Let's take a few minutes to add files to the folders we created and familiarize ourselves with the data.
 
 ### Adding files to your working directory
 
