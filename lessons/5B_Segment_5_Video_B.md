@@ -146,6 +146,9 @@ alphabets[c(1,2,4,5)]
 alphabets[c(5:1)]
 ```
 
+### Factors
+
+Since factors are also one-dimensional and are very similar to vectors the same methods for selecting or extracting values using indices apply to them as well. Usually logical operators are used to identify indices associated with a given factor in the context of data frames. 
 
 ## Conclusion
 
