@@ -150,3 +150,10 @@ colnames(metadata)
 ```
 
 The list above is a non-comprehensive list of functions that can be used to inspect data structures. However, these are some of the more commonly used ones.
+
+## Conclusion
+
+Inspecting data structures is a very important aspect of working in R. It is often necessary to perform sanity checks on outputs from other functions or scripts to ensure that the results are as expected. Some of the functions listed above can also be used as input to downstream applications, for example the row names from a data frame might be required to extract information about specific rows.
+
+Thanks for your attention.
+
