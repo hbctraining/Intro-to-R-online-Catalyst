@@ -80,12 +80,9 @@ age[which(age > 50 | age < 18)]
 
 `which()` stands for "which is true" and is useful when dealing with NA values.
 
-***
-***
+## Conclusion
 
-### Factors
-
-Since factors are also one-dimensional and are very similar to vectors the same methods for selecting or extracting values using indices apply to them as well. Usually logical operators are used to identify indices associated with a given factor in the context of data frames. 
+Using logical operators and operations is a commonly used method to subset and wrangle data structures in R, in segment 5D (or 5E) we will be using logical operators to subset data frames. Thanks for your attention. 
 
 ---
 
