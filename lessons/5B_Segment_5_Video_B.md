@@ -93,6 +93,60 @@ In addition to these using minus within the brackets works like you might expect
 age[-5]
 ```
 
+Now let’s practice with a quick exercise. Please pause the video and complete the exercise.
+
+***
+
+**Exercises** 
+
+1. Create a vector called alphabets with the following letters, C, D, X, L, F.
+2. Use the associated indices along with `[ ]` to do the following:
+	* only display C, D and F
+	* display all except X
+	* display the letters in the opposite order (F, L, X, D, C)
+
+***
+
+Let's go through the exercise together. 
+
+(1) To create a *character* vector called `alphabets`, we first need to write out the name of the new vector we are creating, followed by the assignment operator. We can then use the combine function to create it. We need to make sure that all the alphabets are in quotations.
+
+```r
+alphabets <- c("C","D","X","L","F")
+```
+
+(2a) Next, to display only C, D and F, we can identify the indices associated with them - so 1, 2 and 6 and we can create a vector called whatever you want to name it. I'll call it `idx`. Next, we can place that vector of indices inside the square brackets. 
+
+```r
+idx <- c(1,2,6)
+
+alphabets[idx]
+```
+
+Alternatively, you could have doen this in one step by creating the vector within the square brackets.
+
+```r
+alphabets[c(1,2,6)]
+```
+
+(2b) To diplay all the elements from alphabets except for X, you can use the minus notation and we know X is the 3rd element so -3.
+
+```r
+alphabets[-3]
+```
+It is possible to also use a longer line of code to do this instead of using the minus notation:
+
+```r
+alphabets[c(1,2,4,5)]
+```
+
+(2c) To display the contents of the vector in the reverse order, we can use the inverted sequence of values from 5 to 1:
+
+```r
+alphabets[c(5:1)]
+```
+
+
 ## Conclusion
 
 We hope this gives you a good understanding of how to use a basic but important functionality within R. We will be going through using indices to extract data from two-dimensional objects in segment 5D. Thanks for your attention.
