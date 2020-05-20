@@ -128,3 +128,8 @@ It is possible to specify size relative to default, this is done using the rel f
 
 ## Conclusion
 
+In this segment we talked about the base syntax for plotting with the ggplot2 package. Essentially, it is a combination of many different functions put together using the plus notation. 
+
+The mandatory functions in this code chunk are the ggplot() function, the geom function, or geom object to specify what type of plot you want to make, and finally the aes function within one of the above functions to specify the axes. 
+
+In segment 7C, we will go further into changing the appearance of the plot. Thanks for your attention.
