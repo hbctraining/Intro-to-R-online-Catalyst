@@ -20,22 +20,19 @@ Bullets for slide:
 
 There are a number of different statistical software packages available, for example SAS, SPSS or Matlab. The question is then what makes R so favourable?
 
-To start R is open source, meaning that it is distributed with its source code available for modification. It includes a license for programmers to change the software in any way they choose. With open source comes an open community. There is a large and growing community of R users including individuals contributing to the R project by fixing problems and improving functionality.
+* To start R is open source, meaning that it is distributed with its source code available for modification. It includes a license for programmers to change the software in any way they choose. With open source comes an open community. There is a large and growing community of R users including individuals contributing to the R project by fixing problems and improving functionality.
 
-R is also platform agnostic. It doesn't matter what type of computer and operating system you have, R can be easily installed and used. Also you will have noticed that it was free to do so.
+* R is also platform agnostic. It doesn't matter what type of computer and operating system you have, R can be easily installed and used. Bonus, you will have noticed that it was free to do so!
 
-R has a wide array of statistical methods and graphical techniques available
+* R is a language designed especially for statistical analysis. All the R libraries focus on making data analysis easier. Members of the R community are very active and supporting and they have a great knowledge of statistics as well as programming. 
 
-Data science Data handling, wrangling, and storage
+* R is very popular in data science, and is not specific to any one domain. It is especially useful data wrangling, which is the process of cleaning messy and complex data sets to enable further analysis. This is a very important and time taking process in data science and R has an extensive library of tools for data handling, wrangling and storage.
 
-Visualization
-
+* Finally, R has many tools that can help in data visualization. This allows analyzing data from angles which are not clear in unorganized or tabulated data. 
 
 Image for slide:
 
 <img src="../img/why_R.png" width="600">
-
-
 
 
 ## What is RStudio?
