@@ -28,7 +28,7 @@ There are a number of different statistical software packages available, for exa
 
 * R is very popular in data science, and is not specific to any one domain. It is especially useful data wrangling, which is the process of cleaning messy and complex data sets to enable further analysis. This is a very important and time taking process in data science and R has an extensive library of tools for data handling, wrangling and storage.
 
-* Finally, R has many tools that can help in data visualization. This allows analyzing data from angles which are not clear in unorganized or tabulated data. 
+* Finally, R has fabulous tools that can help in data visualization. This allows analyzing data from angles which are not clear in unorganized or tabulated data. 
 
 Image for slide:
 
