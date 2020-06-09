@@ -20,14 +20,15 @@ Bullets for slide:
 
 There are a number of different statistical software packages available, for example SAS, SPSS or Matlab. The question is then what makes R so favourable?
 
-Well, to start R is open source. As you will have noticed
+To start R is open source, meaning that it is distributed with its source code available for modification. It includes a license for programmers to change the software in any way they choose. With open source comes an open community. There is a large and growing community of R users including individuals contributing to the R project by fixing problems and improving functionality.
 
-R is a powerful, extensible environment. It has a wide range of statistics and general data analysis and visualization capabilities.
+R is also platform agnostic. It doesn't matter what type of computer and operating system you have, R can be easily installed and used. Also you will have noticed that it was free to do so.
 
-* Data handling, wrangling, and storage
-* Wide array of statistical methods and graphical techniques available
-* Easy to install on any platform and use (and it’s free!)
-* Open source with a large and growing community of peers
+R has a wide array of statistical methods and graphical techniques available
+
+Data science Data handling, wrangling, and storage
+
+Visualization
 
 
 Image for slide:
