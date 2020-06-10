@@ -20,15 +20,15 @@ Bullets for slide:
 
 There are a number of different statistical software packages available, for example SAS, SPSS or Matlab. The question is then what makes R so favourable?
 
-* To start R is open source, meaning that it is distributed with its source code available for modification. It includes a license for programmers to change the software in any way they choose. With open source comes an open community. There is a large and growing community of R users including individuals contributing to the R project by fixing problems and improving functionality.
+* To start, R is open source - this means R is free! It also means that R is actively developed and maintained by a community, and there are regular updates. 
 
-* R is also platform agnostic. It doesn't matter what type of computer and operating system you have, R can be easily installed and used. Bonus, you will have noticed that it was free to do so!
+* R is platform agnostic. It doesn't matter what type of computer and operating system you have, R can be easily installed and used. 
 
 * R is a language designed especially for statistical analysis. All the R libraries focus on making data analysis easier. Members of the R community are very active and supporting and they have a great knowledge of statistics as well as programming. 
 
-* R is very popular in data science, and is not specific to any one domain. It is especially useful data wrangling, which is the process of cleaning messy and complex data sets to enable further analysis. This is a very important and time taking process in data science and R has an extensive library of tools for data handling, wrangling and storage.
+* R is very popular in data science, and is not specific to any one domain. It is especially useful for data wrangling, which is the process of cleaning messy and complex data sets to enable further analysis. This is a very important and time-consuming process in data science and R has an extensive library of tools for data handling, wrangling and storage.
 
-* Finally, R has fabulous tools that can help in data visualization. This allows analyzing data from angles which are not clear in unorganized or tabulated data. 
+* Finally, R has fabulous tools for data visualization. As data grows ever bigger and more complex, visualization becomes increasingly important in providing clarity and insight.
 
 Image for slide:
 
@@ -37,12 +37,14 @@ Image for slide:
 
 ## What is RStudio?
 
-RStudio is freely available open-source Integrated Development Environment (IDE). RStudio provides an environment with many features to make using R easier and is a great alternative to working on R in the terminal. 
+Another requirement for working through these segments is to have RStudio installed. RStudio is a cross-platform integrated development environment or an IDE for the R statistical language. Similar to R, RStudio is also freely available and open source. It provides a graphical user interface and serves as a great alternative to working with R in the terminal. It has a host of features that make R easier to navigate and is a great learning tool.
+
+Image for slide plus some bullet points:
 
 <img src="../img/rstudio_logo.png" width="300">
 
+* Platform agnostic
+* Free for academic use
+* Open source
 * Graphical user interface, not just a command prompt
 * Great learning tool 
-* Free for academic use
-* Platform agnostic
-* Open source
