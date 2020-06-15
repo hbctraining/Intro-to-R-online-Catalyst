@@ -9,27 +9,30 @@ Welcome to segment 1A, Getting Started in RStudio. In this lesson we will walk t
 
 ## Creating a new project in RStudio
 
-Define a project in RStudio and why we use it.
-Let's create a new project directory for our "Introduction to R" lesson today. 
+When you're using RStudio, you have the option of creating a new R project. A project is simply a working directory designated with a `.RProj` file. We recommend creating a new R Project whenever you are starting a new research project. Once you’ve created a new R project, you should immediately create folders in the directory which will contain your R code, data files, notes, and other material relevant to your project.
 
-1. Open RStudio
-2. Go to the `File` menu and select `New Project`.
-3. In the `New Project` window, choose `New Directory`. Then, choose `Empty Project`. Name your new directory `Intro-to-R` and then "Create the project as subdirectory of:" the Desktop (or location of your choice).
-4. Click on `Create Project`.
-5. After your project is completed, if the project does not automatically open in RStudio, then go to the `File` menu, select `Open Project`, and choose `Intro-to-R.Rproj`.
-6. When RStudio opens, you will see three panels in the window.
-7. Go to the `File` menu and select `New File`, and select `R Script`. The RStudio interface should now look like the screenshot below.
+Let's get started and create a new project directory for "Introduction to R": 
 
-![RStudio interface](../img/Rstudio_interface.png)
+1. Start by opening up RStudio. 
+2. Once it's open you can go to the `File` menu and select `New Project`. You can create an RStudio project:
+* In a brand new directory
+* In an existing directory where you already have R code and data
+* Or by cloning a version control (Git or Subversion) repository
+3. In the `New Project` window, choose `New Directory`. Then, choose `Empty Project`. You will be prompted to name your new directory. We will call our project `Intro-to-R`. Underneath you will see "Create the project as subdirectory of". Here, you have the opportunity to choose the location on your computer where you want this project to reside. Clicking on the "Browse" button will open up a File Explorer window and you can navigate to the appropriate folder.
+4. Once you are done, click on `Create Project`. After your project is created, if it does not automatically open in RStudio, then go to the `File` menu, select `Open Project`, and choose `Intro-to-R.Rproj`.
+5. When RStudio opens, you will see three panels in the window. Finally, go to the `File` menu and select `New File`, and select `R Script`. The RStudio interface should now have four panels
 
 ## RStudio Interface
 
-**The RStudio interface has four main panels:**
 
-1. **Console**: where you can type commands and see output. *The console is all you would see if you ran R in the command line without RStudio.*
-2. **Script editor**: where you can type out commands and save to file. You can also submit the commands to run in the console.
-3. **Environment/History**: environment shows all active objects and history keeps track of all commands run in console
-4. **Files/Plots/Packages/Help**
+Bullet points for slides:
+
+**The RStudio Interface:**
+
+1. **Console**: where you can type commands and see output. 
+2. **Script editor**: where you can type out commands and save to file. Your code will not be evaluated until your "run" them in the console.
+3. **Environment/History**: where you can see what objects are in your working space or environment or viw your command history.
+4. **Files/Plots/Packages/Help** Here you can see file directories, view plots, see your packages and access R help documentation.
 
 ## Organizing your working directory & setting up
 
