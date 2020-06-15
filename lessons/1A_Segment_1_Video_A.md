@@ -1,5 +1,15 @@
-## Creating a new project directory in RStudio
+* Creating project
+* RStudio interface
+* Organizing working directory
+* Structuring your working directory
 
+## Introduction
+
+Welcome to segment 1A, Getting Started in RStudio. In this lesson we will walk through the steps for creating a project and  explore the various features of the RStudio interface. Within the project we will organize your working directory by setting up an appropriate directory structure and downloading the necessary files.
+
+## Creating a new project in RStudio
+
+Define a project in RStudio and why we use it.
 Let's create a new project directory for our "Introduction to R" lesson today. 
 
 1. Open RStudio
