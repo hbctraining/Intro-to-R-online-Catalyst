@@ -1,27 +1,79 @@
 ## Introduction
 
-Welcome to segment 1B, **Interacting with R**. In this segment we will begin by working in the console and interacting directly with R. We will then move to the script editor and demonstrate how you can 
+Welcome to segment 1B, **Interacting with R**. In this segment we will begin by working in the console and interacting directly with R. We will then move to the script editor and demonstrate it's use, while also introducing some R syntax. Finally, we will bring in data to our project and describe it. This data will be useful in future segments.
 
-## Interacting with R
 
-Now that we have our interface and directory structure set up, let's start playing with R! There are **two main ways** of interacting with R in RStudio: using the **console** or by using **script editor** (plain text files that contain your code).
+## The Console window
 
-### Console window
-The **console window** (in RStudio, the bottom left panel) is the place where R is waiting for you to tell it what to do, and where it will show the results of a command.  You can type commands directly into the console, but they will be forgotten when you close the session. 
+There are **two main ways** of interacting with R in RStudio; using the **console** or by using **script editor**. The **console window** in RStudio, here in the bottom left hand side of Rstudio screen, is where the code will be executed. You can type commands directly into the console and upon pressing return the code will be executed and the result will be displayed.
 
-Let's test it out:
+Let's test it out with a simple mathematical operation:
 
 ```r
 3 + 5
 ```
 
-![Running in the console](../img/console.png)
+After pressing return, you should see the number 8 returned in the console.
 
-### Script editor
+In the R console, you will find that the flashing cursor is placed immediately after the `>` symbol. The `>` symbol represents the command prompt, it's called this because it is “prompting” you to feed it with some R code. 
 
-Best practice is to enter the commands in the **script editor**, and save the script. You are encouraged to comment liberally to describe the commands you are running using `#`. This way, you have a complete record of what you did, you can easily show others how you did it and you can do it again later on if needed. 
+Bullet point slide:
 
-**The Rstudio script editor allows you to 'send' the current line or the currently highlighted text to the R console by clicking on the `Run` button in the upper-right hand corner of the script editor**. Alternatively, you can run by simply pressing the `Ctrl` and `Enter` keys at the same time as a shortcut.
+* Console is ready to accept commands: `>`.
+* Console is waiting for you to enter more data: `+`.
+* Console is hanging: absence of `>` or `+`. Press ESC to quit
+
+
+Interpreting the command prompt can help understand when R is ready to accept commands. If R is ready to accept commands, the R console shows a `>` as the command prompt. Once the code is finished running, the console will display the results and come back with a new `>` prompt, ready to accept another commad.
+
+If you see a `+` as the prompt, this means that R is still waiting for you to enter additional code as it assumes the code is incomplete. This can happen if you have typos in your code, for example, if you have not 'closed' a parenthesis or quotation. 
+
+If you have run your code, waiting for it finish but not see the `>` returned, nor do you see a `+`, you can press the ESC key. This will stop the command in progress and return to you the command prompt. You can troubleshoot the problem and try running the code again.
+
+
+## Script editor
+
+The second way to interact with R is through your script editor. When you type code into an R script, you’ll notice that, unlike typing code into the Console, nothing happens. In order for R to interpret the code, you need to send it from the script editor to the console. Let's try typing the same `3 + 5` as before but this time in our editor. There are three ways i which you can send code to the console:
+
+1. You can simply copy the code from the editor and paste it into the console. This is the least efficient way of going about it.
+2. You can highlight the code or place your cursor on the line, then press `Ctrl + Enter`
+3. You can highlight the code or place your cursor on the line, then Click on the 'Run' button at the top of the editor
+
+There are certainly many cases where it makes sense to type code directly into the console. For example, to open a help menu, or to take a quick look at some data, or to do simple calculations. However, the problem with writing all your code in the console is that nothing that you write will be saved. Best practice is to enter the commands in the **script editor**, and save the script as a physical file. 
+
+### Parts of speech
+
+As you begin with your own scripts in R, you will start to encounter the different parts of speech for R syntax. Here, we have an example script to give you an idea of the different parts and how they appear. The details of each will be covered in other segments.
+
+  - Where you see the hashtag is where there is a comment in the code. If R sees a `#` at the beginning of a line, it knows not to try and interpret it as code.
+  - On several of the lines, you will see what looks like an arrow. This is the assignment operator, which means variables are being created.
+  - There are also many instances of parentheses in the example code, these are lines in which functions are being used.
+  - Inside the parentheses you will often see text, but also cases in which it is left empty. The text inside represents arguments for the function, and you will see the use of `=` to specify the value for a particular argument.
+
+With R code you will also find indentation and consistency in spacing. While this is not a necessary practice, we highly recommend it as it can improve clarity and legibility of your code.
+
+**Slide: Parts of speech for R syntax**
+- Have the code chunk on the slide and enter circles (animation) on the different parts, as I talk about them?
+
+```r
+# Load libraries
+library(Biobase)
+library(limma)
+library(ggplot2)
+
+# Setup directory variables
+baseDir <- getwd()
+dataDir <- file.path(baseDir, "data")
+metaDir <- file.path(baseDir, "meta")
+resultsDir <- file.path(baseDir, "results")
+
+# Load data
+meta <- read.delim(file.path(metaDir, '2015-1018_sample_key.csv'), header=T, sep="\t", row.names=1)
+```
+
+Let's play around a bit with the hashtag and comments in our script.
+
+
 
 Now let's try entering commands to the **script editor** and using the comments character `#` to add descriptions and highlighting the text to run:
 	
@@ -50,36 +102,19 @@ Now R is trying to run that sentence as a command, and it
 doesn't work. We get an error in the console *"Error: unexpected symbol in "I am" means that the R interpreter did not know what to do with that command."*
 
 
-### Console command prompt
-
-Interpreting the command prompt can help understand when R is ready to accept commands. Below lists the different states of the command prompt and how you can exit a command:
-
-**Console is ready to accept commands**: `>`.
-
-If R is ready to accept commands, the R console shows a `>` prompt. 
-
-When the console receives a command (by directly typing into the console or running from the script editor (`Ctrl-Enter`), R will try to execute it.
-
-After running, the console will show the results and come back with a new `>` prompt to wait for new commands.
+You are encouraged to comment liberally to describe the commands you are running using `#`. This way, you have a complete record of what you did, you can easily show others how you did it and you can do it again later on if needed. 
 
 
-**Console is waiting for you to enter more data**: `+`.
+## Best practices
 
-If R is still waiting for you to enter more data because it isn't complete yet,
-the console will show a `+` prompt. It means that you haven't finished entering
-a complete command. Often this can be due to you having not 'closed' a parenthesis or quotation. 
+Before we move on to more complex concepts and getting familiar with the language, we want to point out a few things about best practices when working with R which will help you stay organized in the long run:
 
-**Escaping a command and getting a new prompt**: `esc`
-
-If you're in Rstudio and you can't figure out why your command isn't running, you can click inside the console window and press `esc` to escape the command and bring back a new prompt `>`.
+* Code and workflow are more reproducible if we can document everything that we do. Our end goal is not just to "do stuff", but to do it in a way that anyone can easily and exactly replicate our workflow and results. **All code should be written in the script editor and saved to file, rather than working in the console.** 
+* The **R console** should be mainly used to inspect objects, test a function or get help. 
+* Use `#` signs to comment. **Comment liberally** in your R scripts. This will help future you and other collaborators know what each line of code (or code block) was meant to do. Anything to the right of a `#` is ignored by R. *A shortcut for this is `Ctrl + Shift + C` if you want to comment an entire chunk of text.*
 
 
-***
-**Exercise**
 
-1. Try highlighting only `3 +` from your script editor and running it. Find a way to bring back the command prompt `>` in the console.
-
-***
 R is commonly used for handling big data, and so it only makes sense that we learn about R in the context of some kind of relevant data. Let's take a few minutes to add files to the folders we created and familiarize ourselves with the data.
 
 ### Adding files to your working directory
@@ -106,46 +141,8 @@ The first column contains the row names, and **note that these are identical to 
 
 R is particularly good at handling this type of **categorical data**. Rather than simply storing this information as text, the data is represented in a specific data structure which allows the user to sort and manipulate the data in a quick and efficient manner. We will discuss this in more detail as we go through the different lessons in R!  
 
-## Best practices
-
-Before we move on to more complex concepts and getting familiar with the language, we want to point out a few things about best practices when working with R which will help you stay organized in the long run:
-
-* Code and workflow are more reproducible if we can document everything that we do. Our end goal is not just to "do stuff", but to do it in a way that anyone can easily and exactly replicate our workflow and results. **All code should be written in the script editor and saved to file, rather than working in the console.** 
-* The **R console** should be mainly used to inspect objects, test a function or get help. 
-* Use `#` signs to comment. **Comment liberally** in your R scripts. This will help future you and other collaborators know what each line of code (or code block) was meant to do. Anything to the right of a `#` is ignored by R. *A shortcut for this is `Ctrl + Shift + C` if you want to comment an entire chunk of text.*
 
 
 
-## The R syntax
-Now that we know how to talk with R via the script editor or the console, we want to use R for something more than adding numbers. To do this, we need to know more about the R syntax. 
-
-
-Below is an example script highlighting the many different "parts of speech" for R (syntax):
-
-  - the **comments** `#` and how they are used to document function and its content
-  - **variables** and **functions**
-  - the **assignment operator** `<-`
-  - the `=` for **arguments** in functions
-
-_NOTE: indentation and consistency in spacing is used to improve clarity and legibility_
-
-
-### Example script
-
-```r
-# Load libraries
-library(Biobase)
-library(limma)
-library(ggplot2)
-
-# Setup directory variables
-baseDir <- getwd()
-dataDir <- file.path(baseDir, "data")
-metaDir <- file.path(baseDir, "meta")
-resultsDir <- file.path(baseDir, "results")
-
-# Load data
-meta <- read.delim(file.path(metaDir, '2015-1018_sample_key.csv'), header=T, sep="\t", row.names=1)
-```
 
 
