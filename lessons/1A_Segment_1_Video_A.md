@@ -5,7 +5,7 @@ Welcome to segment 1A, **Getting Started in RStudio**. In this lesson we will wa
 
 ## Creating a new project in RStudio
 
-When you're using RStudio, you have the option of creating a new R project. A project is simply a working directory designated with a `.RProj` file. We recommend creating a new R Project whenever you are starting a new research project. Once you’ve created a new R project, you should immediately create folders in the directory which will contain your R code, data files, notes, and other material relevant to your project.
+When you're using RStudio, you have the option of creating a new R project. A project is simply a working directory designated with a `.RProj` file. We recommend creating a new R Project whenever you are starting a new research project.
 
 Let's get started and create a new project directory for "Introduction to R": 
 
@@ -43,25 +43,24 @@ Now that we are familiarized with the RStudio interface, we can continue to orga
 getwd()
 ```
 
-Your working directory should be the `Intro-to-R` folder constructed when you created the project. The working directory is where RStudio will automatically look for any files you bring in and where it will automatically save any files you create, unless otherwise specified. 
+In the console, you should see a path returned. This path is the location on your computer where the `Intro-to-R` folder lives, which is also the directory chosen when creating this project. The working directory is where RStudio will automatically look for any files you bring in and where it will automatically save any files you create, unless otherwise specified. 
 
-You can visualize your working directory by selecting the `Files` tab from the **Files/Plots/Packages/Help** window. 
+
+Your working directory can also be viewed by selecting the `Files` tab from the bottom right window. 
 
 ![Viewing your working directory](../img/getwd.png)
 
-If you wanted to choose a different directory to be your working directory, you could navigate to a different folder in the `Files` tab, then, click on the `More` dropdown menu and select `Set As Working Directory`.
+One nice feature of the files tab is that you can use it to set your working directory to a new folder. Once you navigate to a folder you want to read and save files to, click on the `More` dropdown menu and select `Set As Working Directory`.
  
 ![Setting your working directory](../img/setwd.png)
 
-
-### Structuring your working directory
-To organize your working directory for a particular analysis, you should separate the original data (raw data) from intermediate datasets. For instance, you may want to create a `data/` directory within your working directory that stores the raw data, and have a `results/` directory for intermediate datasets and a `figures/` directory for the plots you will generate.
+Once you’ve started a new R project, you should create folders in the directory which will contain your R code, data files, notes, and other material relevant to your project. For instance, you may want to create a `data/` directory within your working directory that stores the raw data, and have a `results/` directory for intermediate datasets and a `figures/` directory for the plots you will generate.
 
 Let's create these three directories within your working directory by clicking on `New Folder` within the `Files` tab. 
 
 ![Structuring your working directory](../img/wd_setup.png)
 
-When finished, your working directory should look like:
+When finished, your working directory should look like what we have here :
 
 ![Your organized working directory](../img/complete_wd_setup.png)
 
