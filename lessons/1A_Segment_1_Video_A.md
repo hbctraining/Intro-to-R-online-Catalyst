@@ -1,7 +1,7 @@
 
 ## Introduction
 
-Welcome to segment 1A, **Getting Started in RStudio**. In this lesson we will walk through the steps for creating a project and explore the various features of the RStudio interface. Within the project we will organize your working directory by setting up an appropriate directory structure and downloading the necessary files.
+Welcome to segment 1A, **Getting Started in RStudio**. In this lesson we will walk through the steps for creating a project and explore the various features of the RStudio interface. Within the project we will organize your working directory by setting up an appropriate directory structure, and introduce some basic housekeeping tasks.
 
 ## Creating a new project in RStudio
 
@@ -64,15 +64,13 @@ When finished, your working directory should look like what we have here :
 
 ![Your organized working directory](../img/complete_wd_setup.png)
 
-### Setting up 
+## User configuration settings
 
-This is more of a housekeeping task. We will be writing long lines of code in our script editor and want to make sure that the lines "wrap" and you don't have to scroll back and forth to look at your long line of code.
-
-Click on "Tools" at the top of your RStudio screen and click on "Global Options" in the pull down menu.
+Finally, we would like to bring to your attention user configuration options for your Rstudio workspace. If you click on "Tools" at the top of your RStudio screen and click on "Global Options" in the pull down menu you will see a dialog box open. On left hand side you will see an array of categories listed. These are different aspects of Rstudio that can be changed by the user.
 
 ![options](../img/tools_options.png)
 
-On the left, select "Code" and put a check against "Soft-wrap R source files". Make sure you click the "Apply" button at the bottom of the Window before saying "OK".
+Since we will be writing long lines of code in our script editor, we want to make sure that the lines "wrap" and you don't have to scroll right and left just to read the code. To enable this feature, in your dialog box select "Code" from the left hand panel and put a check against "Soft-wrap R source files". Then you will want to you click the "Apply" button at the bottom of the Window before saying "OK".
 
 ![wrap_options](../img/wrap_option.png)
 
