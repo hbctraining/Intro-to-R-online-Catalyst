@@ -1,12 +1,10 @@
-## Functions and their arguments
+## Introduction
 
-### Introduction
+Welcome to segment 3A, **"Working with Functions in R"**. In this segment, we will define what a function is in R and discuss how we use them through implementation of arguments. We will also discuss different ways in which you can find help on using functions in R. 
 
-Welcome to segment 3A. In this segment, we will define what a function is in R and discuss how we use them through implementation of arguments. We will also discuss different ways in which you can find help on using functions in R. In other segments, we have used a few examples of basic functions yet we haven't really talked much about them - so now let's take the time to delve into functions in more detail.
+## What are functions?
 
-### What are functions?
-
-Functions are **"self contained" modules of code that accomplish a specific task**. The general usage for a function is the name of the function followed by parentheses:
+Functions in R are **"self-contained" modules of code that accomplish a specific task**. The general usage for a function is the name of the function followed by parentheses:
 
 ```r
 function_name(input)
