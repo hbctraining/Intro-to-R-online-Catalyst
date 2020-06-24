@@ -1,6 +1,86 @@
-## Interacting with data in R
+## Introduction
 
-Welcome to segment 2B, Interacting with data in R. R is commonly used for handling big data, and so it only makes sense that we learn about R in the context of some kind of relevant data. Let's take a few minutes to add files to the folders we created and familiarize ourselves with the data.
+Welcome to segment 1B, **Interacting with R**. In this segment we will begin by working in the console and interacting directly with R. We will then move to the script editor and demonstrate how you can 
+
+## Interacting with R
+
+Now that we have our interface and directory structure set up, let's start playing with R! There are **two main ways** of interacting with R in RStudio: using the **console** or by using **script editor** (plain text files that contain your code).
+
+### Console window
+The **console window** (in RStudio, the bottom left panel) is the place where R is waiting for you to tell it what to do, and where it will show the results of a command.  You can type commands directly into the console, but they will be forgotten when you close the session. 
+
+Let's test it out:
+
+```r
+3 + 5
+```
+
+![Running in the console](../img/console.png)
+
+### Script editor
+
+Best practice is to enter the commands in the **script editor**, and save the script. You are encouraged to comment liberally to describe the commands you are running using `#`. This way, you have a complete record of what you did, you can easily show others how you did it and you can do it again later on if needed. 
+
+**The Rstudio script editor allows you to 'send' the current line or the currently highlighted text to the R console by clicking on the `Run` button in the upper-right hand corner of the script editor**. Alternatively, you can run by simply pressing the `Ctrl` and `Enter` keys at the same time as a shortcut.
+
+Now let's try entering commands to the **script editor** and using the comments character `#` to add descriptions and highlighting the text to run:
+	
+	# Intro to R Lesson
+	# Feb 16th, 2016
+
+	# Interacting with R
+	
+	## I am adding 3 and 5. R is fun!
+	3+5
+
+![Running in the script editor](../img/script_editor.png)
+
+You should see the command run in the console and output the result.
+
+![Script editor output](../img/script_editor_output.png)
+	
+What happens if we do that same command without the comment symbol `#`? Re-run the command after removing the # sign in the front:
+
+```r
+I am adding 3 and 5. R is fun!
+3+5
+```
+
+Now R is trying to run that sentence as a command, and it 
+doesn't work. We get an error in the console *"Error: unexpected symbol in "I am" means that the R interpreter did not know what to do with that command."*
+
+
+### Console command prompt
+
+Interpreting the command prompt can help understand when R is ready to accept commands. Below lists the different states of the command prompt and how you can exit a command:
+
+**Console is ready to accept commands**: `>`.
+
+If R is ready to accept commands, the R console shows a `>` prompt. 
+
+When the console receives a command (by directly typing into the console or running from the script editor (`Ctrl-Enter`), R will try to execute it.
+
+After running, the console will show the results and come back with a new `>` prompt to wait for new commands.
+
+
+**Console is waiting for you to enter more data**: `+`.
+
+If R is still waiting for you to enter more data because it isn't complete yet,
+the console will show a `+` prompt. It means that you haven't finished entering
+a complete command. Often this can be due to you having not 'closed' a parenthesis or quotation. 
+
+**Escaping a command and getting a new prompt**: `esc`
+
+If you're in Rstudio and you can't figure out why your command isn't running, you can click inside the console window and press `esc` to escape the command and bring back a new prompt `>`.
+
+
+***
+**Exercise**
+
+1. Try highlighting only `3 +` from your script editor and running it. Find a way to bring back the command prompt `>` in the console.
+
+***
+R is commonly used for handling big data, and so it only makes sense that we learn about R in the context of some kind of relevant data. Let's take a few minutes to add files to the folders we created and familiarize ourselves with the data.
 
 ### Adding files to your working directory
 
@@ -34,11 +114,7 @@ Before we move on to more complex concepts and getting familiar with the languag
 * The **R console** should be mainly used to inspect objects, test a function or get help. 
 * Use `#` signs to comment. **Comment liberally** in your R scripts. This will help future you and other collaborators know what each line of code (or code block) was meant to do. Anything to the right of a `#` is ignored by R. *A shortcut for this is `Ctrl + Shift + C` if you want to comment an entire chunk of text.*
 
-## Learning Objectives
 
-* Employ variables in R.
-* Describe the various data types used in R. 
-* Construct data structures to store data.
 
 ## The R syntax
 Now that we know how to talk with R via the script editor or the console, we want to use R for something more than adding numbers. To do this, we need to know more about the R syntax. 
