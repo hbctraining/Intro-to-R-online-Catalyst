@@ -1,11 +1,7 @@
-* Creating project
-* RStudio interface
-* Organizing working directory
-* Structuring your working directory
 
 ## Introduction
 
-Welcome to segment 1A, Getting Started in RStudio. In this lesson we will walk through the steps for creating a project and  explore the various features of the RStudio interface. Within the project we will organize your working directory by setting up an appropriate directory structure and downloading the necessary files.
+Welcome to segment 1A, **Getting Started in RStudio**. In this lesson we will walk through the steps for creating a project and explore the various features of the RStudio interface. Within the project we will organize your working directory by setting up an appropriate directory structure and downloading the necessary files.
 
 ## Creating a new project in RStudio
 
@@ -20,25 +16,28 @@ Let's get started and create a new project directory for "Introduction to R":
 * Or by cloning a version control (Git or Subversion) repository
 3. In the `New Project` window, choose `New Directory`. Then, choose `Empty Project`. You will be prompted to name your new directory. We will call our project `Intro-to-R`. Underneath you will see "Create the project as subdirectory of". Here, you have the opportunity to choose the location on your computer where you want this project to reside. Clicking on the "Browse" button will open up a File Explorer window and you can navigate to the appropriate folder.
 4. Once you are done, click on `Create Project`. After your project is created, if it does not automatically open in RStudio, then go to the `File` menu, select `Open Project`, and choose `Intro-to-R.Rproj`.
-5. When RStudio opens, you will see three panels in the window. Finally, go to the `File` menu and select `New File`, and select `R Script`. The RStudio interface should now have four panels
+5. When RStudio opens, you will see three panels in the window. Finally, go to the `File` menu and select `New File`, and select `R Script`. 
 
 ## RStudio Interface
 
-
 Bullet points for slides:
 
-**The RStudio Interface:**
+* **Console**
+* **Script editor**
+* **Environment/History**
+* **Files/Plots/Packages/Help**
 
-1. **Console**: where you can type commands and see output. 
-2. **Script editor**: where you can type out commands and save to file. Your code will not be evaluated until your "run" them in the console.
-3. **Environment/History**: where you can see what objects are in your working space or environment or viw your command history.
-4. **Files/Plots/Packages/Help** Here you can see file directories, view plots, see your packages and access R help documentation.
+The RStudio interface should now have four panels or windows. Let's take a moment to discuss what each window does in more detail. 
 
-## Organizing your working directory & setting up
+* On the bottom left corner we have the console window. This is where R actually evaluates code. Here, you can type out code and once you press the return key, you will get an immediate response as R executes the code. For example, if you type 1+1 into the console and press enter, you’ll see that R immediately gives an output of 2.
+* Above the console, we have the script editor. You can think of this as notepad for your code. Here, you can type out commands and save to file. R scripts are just text files with the “.R” extension. Note that when you’re typing code in the script editor, R won’t actually evaluate the code as you type. To have R actually evaluate your code, you need to first ‘send’ the code to the Console (we’ll talk about this in another segment).
+* In the upper right hand corner is the Environment and History window. The Environment tab of this window shows you the names of all the data objects that you’ve defined in your current R session. The History tab simply shows you a history of all the code you’ve previously evaluated in the console.
+* The last window in the bottom right hand corner shows you a lot of heplful information. The files tab gives you access to the file directory on your hard drive. The plots tab allows you to see the plots and gives you options to save them to file. The packages tab shows a list of all the R packages installed on your hard drive and indicates whether or not they are currently loaded. Finally, the help tab opens up the R help documentation pages.
 
-### Viewing your working directory
 
-Before we organize our working directory, let's check to see where our current working directory is located by typing into the console:
+## Organizing your working directory
+
+Now that we are familiarized with the RStudio interface, we can continue to organize our R project. Let's begin by checking to see where our current working directory is located. We can do this by typing into the console:
 
 ```r
 getwd()
