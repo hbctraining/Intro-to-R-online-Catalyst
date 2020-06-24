@@ -43,16 +43,7 @@ There are certainly many cases where it makes sense to type code directly into t
 
 ### Parts of speech
 
-As you begin with your own scripts in R, you will start to encounter the different parts of speech for R syntax. Here, we have an example script to give you an idea of the different parts and how they appear. The details of each will be covered in other segments.
-
-  - Where you see the hashtag is where there is a comment in the code. If R sees a `#` at the beginning of a line, it knows not to try and interpret it as code.
-  - On several of the lines, you will see what looks like an arrow. This is the assignment operator, which means variables are being created.
-  - There are also many instances of parentheses in the example code, these are lines in which functions are being used.
-  - Inside the parentheses you will often see text, but also cases in which it is left empty. The text inside represents arguments for the function, and you will see the use of `=` to specify the value for a particular argument.
-
-With R code you will also find indentation and consistency in spacing. While this is not a necessary practice, we highly recommend it as it can improve clarity and legibility of your code.
-
-**Slide: Parts of speech for R syntax**
+**Slide Title: Parts of speech for R syntax**
 - Have the code chunk on the slide and enter circles (animation) on the different parts, as I talk about them?
 
 ```r
@@ -70,56 +61,59 @@ resultsDir <- file.path(baseDir, "results")
 # Load data
 meta <- read.delim(file.path(metaDir, '2015-1018_sample_key.csv'), header=T, sep="\t", row.names=1)
 ```
+As you begin with your own scripts in R, you will start to encounter the different parts of speech for R syntax. Here, we have an example script to give you an idea of the different parts and how they appear. The details of each will be covered in other segments.
 
-Let's play around a bit with the hashtag and comments in our script.
+  - Where you see the hashtag is where there is a comment in the code. If R sees a `#` at the beginning of a line, it knows not to try and interpret it as code.
+  - On several of the lines, you will see what looks like an arrow. This is the assignment operator, which means variables are being created.
+  - There are also many instances of parentheses in the example code, these are lines in which functions are being used.
+  - Inside the parentheses you will often see text, but also cases in which it is left empty. The text inside represents arguments for the function, and you will see the use of `=` to specify the value for a particular argument.
 
+With R code you will also find indentation and consistency in spacing. While this is not a necessary practice, it is highly recommended it as it can improve clarity and legibility of your code.
 
+### Comments
 
-Now let's try entering commands to the **script editor** and using the comments character `#` to add descriptions and highlighting the text to run:
-	
-	# Intro to R Lesson
-	# Feb 16th, 2016
+Let's play around a bit with the hashtag by adding comments to our script. First we will add a title and a subtitle:
 
-	# Interacting with R
-	
-	## I am adding 3 and 5. R is fun!
-	3+5
+```r
+# Introduction to R
 
-![Running in the script editor](../img/script_editor.png)
+## Interacting with R 
+```
+Note that we have used differing numbers of the hashtag to comment. It doesn't matter how many you have, as long as R sees one it knows not to run that code. Also, you may have noticed a difference in the text coloring of our comments. This syntax highlighting is a feature of RStudio, and is very helpful when reading code.
 
-You should see the command run in the console and output the result.
+Next we will use the hashtag to add descriptions to our code:
 
-![Script editor output](../img/script_editor_output.png)
-	
-What happens if we do that same command without the comment symbol `#`? Re-run the command after removing the # sign in the front:
+```r
+## I am adding 3 and 5. R is fun!
+3+5
+```
+
+Now we can highlight the whole chunk of text and send it to the console. You should see that although both lines were sent to the console only the one line without the hashtag was interpreted. Now try sending both lines without the comment symbol:
 
 ```r
 I am adding 3 and 5. R is fun!
 3+5
 ```
 
-Now R is trying to run that sentence as a command, and it 
-doesn't work. We get an error in the console *"Error: unexpected symbol in "I am" means that the R interpreter did not know what to do with that command."*
+R is trying to run that sentence as a command, and it doesn't work. We get an error in the console *"Error: unexpected symbol in "I am" means that the R interpreter did not know what to do with that command."*
 
+When creating scripts for your own analyses, be sure to comment liberally. This will help future you and other collaborators know what each line of code (or code block) was meant to do. A shortcut for commenting is `Ctrl + Shift + C`. If you want to comment an entire chunk of text you could try this:
 
-You are encouraged to comment liberally to describe the commands you are running using `#`. This way, you have a complete record of what you did, you can easily show others how you did it and you can do it again later on if needed. 
+**Highlight code and use comment shortuct**
+```r
+# I am adding 3 and 5. R is fun!
+# 3+5
+```
 
-
-## Best practices
-
-Before we move on to more complex concepts and getting familiar with the language, we want to point out a few things about best practices when working with R which will help you stay organized in the long run:
-
-* Code and workflow are more reproducible if we can document everything that we do. Our end goal is not just to "do stuff", but to do it in a way that anyone can easily and exactly replicate our workflow and results. **All code should be written in the script editor and saved to file, rather than working in the console.** 
-* The **R console** should be mainly used to inspect objects, test a function or get help. 
-* Use `#` signs to comment. **Comment liberally** in your R scripts. This will help future you and other collaborators know what each line of code (or code block) was meant to do. Anything to the right of a `#` is ignored by R. *A shortcut for this is `Ctrl + Shift + C` if you want to comment an entire chunk of text.*
+Finally, code and workflow are more reproducible if we can document everything that we do. Remember, our end goal is not just to "do stuff", but to do it in a way that anyone can easily and exactly replicate our workflow and results. All code should be written in the script editor and saved to file, rather than working in the console. The R console should be mainly used to inspect objects, test a function or get help. 
 
 
 
-R is commonly used for handling big data, and so it only makes sense that we learn about R in the context of some kind of relevant data. Let's take a few minutes to add files to the folders we created and familiarize ourselves with the data.
+## Interacting with data in R
 
-### Adding files to your working directory
+R is commonly used for handling big data, and so it only makes sense that we learn about R in the context of some kind of relevant data. Let's take a few minutes to add files to our working directory and familiarize ourselves with the dataset.
 
-You can access the files we need for this workshop using the links provided below. If you right click on the link, and "Save link as..". Choose `~/Desktop/Intro-to-R/data` as the destination of the file. You should now see the file appear in your working directory. **We will discuss these files a bit later in the lesson.**
+You can access the files we need for this workshop using the links provided below the video. If you right click on the link, and "Save link as..". Choose `~/Desktop/Intro-to-R/data` as the destination of the file. You should now see the file appear in your working directory. **We will discuss these files a bit later in the lesson.**
 
 * Download the **normalized counts file** by right clicking on [this link](https://raw.githubusercontent.com/hbc/NGS_Data_Analysis_Course/master/sessionII/data/counts.rpkm.csv)
 * Download **metadata file** using [this link](https://github.com/hbc/NGS_Data_Analysis_Course/raw/master/sessionII/data/mouse_exp_design.csv)
