@@ -33,7 +33,7 @@ If you have run your code, waiting for it finish but not see the `>` returned, n
 
 ## Script editor
 
-The second way to interact with R is through your script editor. When you type code into an R script, you’ll notice that, unlike typing code into the Console, nothing happens. In order for R to interpret the code, you need to send it from the script editor to the console. Let's try typing the same `3 + 5` as before but this time in our editor. There are three ways i which you can send code to the console:
+The second way to interact with R is through your script editor. When you type code into an R script, you’ll notice that, unlike typing code into the Console, nothing happens. In order for R to interpret the code, you need to send it from the script editor to the console. Let's try typing the same `3 + 5` as before but this time in our editor. There are three ways in which you can send code to the console:
 
 1. You can simply copy the code from the editor and paste it into the console. This is the least efficient way of going about it.
 2. You can highlight the code or place your cursor on the line, then press `Ctrl + Enter`
@@ -97,7 +97,7 @@ I am adding 3 and 5. R is fun!
 
 R is trying to run that sentence as a command, and it doesn't work. We get an error in the console *"Error: unexpected symbol in "I am" means that the R interpreter did not know what to do with that command."*
 
-When creating scripts for your own analyses, be sure to comment liberally. This will help future you and other collaborators know what each line of code (or code block) was meant to do. A shortcut for commenting is `Ctrl + Shift + C`. If you want to comment an entire chunk of text you could try this:
+A shortcut for commenting is `Ctrl + Shift + C`. If you want to comment an entire chunk of text you could try this:
 
 **Highlight code and use comment shortuct**
 ```r
@@ -105,20 +105,18 @@ When creating scripts for your own analyses, be sure to comment liberally. This 
 # 3+5
 ```
 
-Finally, code and workflow are more reproducible if we can document everything that we do. Remember, our end goal is not just to "do stuff", but to do it in a way that anyone can easily and exactly replicate our workflow and results. All code should be written in the script editor and saved to file, rather than working in the console. The R console should be mainly used to inspect objects, test a function or get help. 
-
+When creating scripts for your own analyses, be sure to comment liberally. This will help future you and other collaborators know what each line of code (or code block) was meant to do. Your code and workflow are much more reproducible with documentation. Remember, our end goal is not just to "do stuff", but to do it in a way that anyone can easily and exactly replicate our workflow and results. 
 
 
 ## Interacting with data in R
 
-R is commonly used for handling big data, and so it only makes sense that we learn about R in the context of some kind of relevant data. Let's take a few minutes to add files to our working directory and familiarize ourselves with the dataset.
+Next, let's get some data setup in our project. R is commonly used for handling big data, and so it only makes sense that we learn about R in the context of some dataset. Let's take a few minutes to add files to our working directory and familiarize ourselves with the dataset.
 
-You can access the files we need for this workshop using the links provided below the video. If you right click on the link, and "Save link as..". Choose `~/Desktop/Intro-to-R/data` as the destination of the file. You should now see the file appear in your working directory. **We will discuss these files a bit later in the lesson.**
+You can access the files we need for this workshop using the links provided below the segment video. If you right click on the link, and "Save link as.." you should see a file explorer window open. Navigate to the location on your filesystem where you have created the `Intro-to-R` project, then click on the `data` folder. You will need to do this for each of the two files.
 
-* Download the **normalized counts file** by right clicking on [this link](https://raw.githubusercontent.com/hbc/NGS_Data_Analysis_Course/master/sessionII/data/counts.rpkm.csv)
-* Download **metadata file** using [this link](https://github.com/hbc/NGS_Data_Analysis_Course/raw/master/sessionII/data/mouse_exp_design.csv)
+**Do we just have the files in our data folder, already populated? We won't have a link to show as example** 
 
-> *NOTE:* If the files download automatically to some other location on your laptop, you can move them to the your working directory using your file explorer or finder (outside RStudio), or navigating to the files in the `Files` tab of the bottom right panel of RStudio
+Once you have done so, you can go back to your RStudio window and take a look at your workinf directory. If you click on the data fiolder you should see the two files there...
 
 ### The dataset
 
