@@ -74,3 +74,7 @@ Since we will be writing long lines of code in our script editor, we want to mak
 
 ![wrap_options](../img/wrap_option.png)
 
+
+## Conclusion
+
+In this segment we have dabbled with a few of the features that RStudio has to offer. Additionally, you should now be familiar with the RStudio interface and know how and when to navigate between the four different panes. Of course, we have only scratched the surface. There is so much more to Rstudio and as you go through additional segments we hope you will continue to build on the foundational concepts described here.
