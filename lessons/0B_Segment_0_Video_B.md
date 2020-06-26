@@ -48,3 +48,7 @@ Image for slide plus some bullet points:
 * Open source
 * Graphical user interface, not just a command prompt
 * Great learning tool 
+
+
+## Conclusion
+Before getting started in R, it is important to know a little bit about the software you are using and the benfits if using it. In this segment, we have highlighted some of the main features of R. Additionally, we describe RStudio, an intregrated development environment which makes working in R that much easier.
