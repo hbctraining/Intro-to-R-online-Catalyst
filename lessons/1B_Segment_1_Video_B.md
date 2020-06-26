@@ -114,24 +114,24 @@ Next, let's get some data setup in our project. R is commonly used for handling 
 
 You can access the files we need for this workshop using the links provided below the segment video. If you right click on the link, and "Save link as.." you should see a file explorer window open. Navigate to the location on your filesystem where you have created the `Intro-to-R` project, then click on the `data` folder. You will need to do this for each of the two files.
 
-**Do we just have the files in our data folder, already populated? We won't have a link to show as example** 
+**Q: Do we just have the files in our data folder, already populated? We won't have a link to show as example** 
 
-Once you have done so, you can go back to your RStudio window and take a look at your workinf directory. If you click on the data fiolder you should see the two files there...
+Once you have done so, you can go back to your RStudio window and take a look at your working directory. If you click on the `data` folder you should see the two files there: `counts.rpkm.csv` and `mouse_exp_design.csv`. If you find the files are in the data folder but do not have the extension `.csv`, rather they have `.txt`, you will want to change this. In the File tab, check the box next to the file. Then click on `Rename`. A dialog box will pop up asking you to enter the new name, here you can change the .txt to .csv
 
-### The dataset
+The counts.rpkm.csv file represents normalized count data obtained from RNA-sequencing of the 12 mouse brain samples. This data is stored in a comma separated values (CSV) file as a 2-dimensional matrix, with **each row corresponding to a gene and each column corresponding to a sample**.
 
-In this example dataset, we have collected whole brain samples from 12 mice and want to evaluate expression differences between them. The expression data represents normalized count data obtained from RNA-sequencing of the 12 brain samples. This data is stored in a comma separated values (CSV) file as a 2-dimensional matrix, with **each row corresponding to a gene and each column corresponding to a sample**.
+**Slide with this data file image:**
 
 <img src="../img/counts_view.png" width="900"> 
 
-### The metadata
-We have another file in which we identify **information about the data** or **metadata**. Our metadata is also stored in a CSV file. In this file, each row corresponds to a sample and each column contains some information about each sample. 
 
-The first column contains the row names, and **note that these are identical to the column names in our expression data file above** (albeit, in a slightly different order). The next few columns contain information about our samples that allow us to categorize them. For example, the second column contains genotype information for each sample. Each sample is classified in one of two categories: Wt (wild type) or KO (knockout). *What types of categories do you observe in the remaining columns?*
+The mouse_exp_design file is the metadata file for this data. This file contains information about the normalized count data. In this file, each row corresponds to a sample. The first column contains the row names, and **note that these are identical to the column names in our expression data file above** (albeit, in a slightly different order). The next few columns contain information about our samples that allow us to categorize them. For example, the second column contains genotype information for each sample. Each sample is classified in one of two categories: Wt (wild type) or KO (knockout). 
 
 <img src="../img/metadata_view.png" width="400"> 
 
-R is particularly good at handling this type of **categorical data**. Rather than simply storing this information as text, the data is represented in a specific data structure which allows the user to sort and manipulate the data in a quick and efficient manner. We will discuss this in more detail as we go through the different lessons in R!  
+R is particularly good at handling this type of **categorical data**. Rather than simply storing this information as text, the data is represented in a specific data structure which allows the user to sort and manipulate the data in a quick and efficient manner. This will be discussed in more detail in later segments.
+
+
 
 
 
