@@ -1,28 +1,27 @@
 ## Introduction
 
-Welcome to segment 3A, **"Working with Functions in R"**. In this segment, we will define what a function is in R and discuss how we use them through implementation of arguments. We will also discuss different ways in which you can find help on using functions in R. 
+Welcome to segment 3A, **"Working with Functions in R"**. In this segment, we will define what a function is in R and discuss how we use them through the implementation of arguments. We will also discuss different ways in which you can find help when using functions in R. 
 
-## What are functions?
+**Slide: What are functions?** (in the archive folder)
 
-Functions in R are **"self-contained" modules of code that accomplish a specific task**. The general usage for a function is the name of the function followed by parentheses:
+Functions are **"self-contained" modules of code that accomplish a specific task**. The general usage for a function is the name of the function followed by parentheses:
 
 ```r
 function_name(input)
 ```
-Functions usually take in some sort of data structure (value, vector, dataframe etc.) as input. The input is then processed in some way and a result is returned to the user.
+Functions usually take in some sort of data structure as input, and that input is then processed in some way, with a result being returned to the user.
 
 The input(s) are called **arguments**, which can include:
 
-1. a physical object (any data structure) on which the function carries out a task 
+1. a physical object (any data structure) on which the function carries out a task OR
 2. specifications that alter the way the function operates (e.g. options)
 
 Note that not all functions will necessarily take arguments, for example:
 
 ```r
-# A function with no arguments required
 getwd()
 ```
-You can see that the parentheses are present, however there is no value provided inside them and a results is still returned to the user.
+You can see that the parentheses are present, however there is no value provided inside them and a result is still returned to the user. This function 
 
 While there are many functions like `getwd()`, most functions will take atleast one argument as input and can typically accept up to several arguments. In many cases, a function will require one or two mandatory arguments that the user is required to provide and all other arguments for the function will fall back on using a *default*. 
 
