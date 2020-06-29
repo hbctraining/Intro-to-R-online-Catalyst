@@ -2,34 +2,34 @@
 
 Welcome to segment 3A, **"Working with Functions in R"**. In this segment, we will define what a function is in R and discuss how we use them through the implementation of arguments. We will also discuss different ways in which you can find help when using functions in R. 
 
-**Slide: What are functions?** (in the archive folder)
+## Functions
 
-Functions are **"self-contained" modules of code that accomplish a specific task**. The general usage for a function is the name of the function followed by parentheses:
+Functions in R, are **"self-contained" modules of code that accomplish a specific task**. The general usage for a function is the name of the function followed by parentheses:
 
 ```r
 function_name(input)
 ```
-Functions usually take in some sort of data structure as input, and that input is then processed in some way, with a result being returned to the user.
+Functions will usually take in some sort of data structure as input, process it in some way, and return a result to the user.
 
 The input(s) are called **arguments**, which can include:
 
 1. a physical object (any data structure) on which the function carries out a task OR
-2. specifications that alter the way the function operates (e.g. options)
+2. specifications that alter the way the function operates (also referred to as options)
 
-Note that not all functions will necessarily take arguments, for example:
+**Slide: What are functions?** (in the archive folder)
+
+However, not all functions will necessarily take arguments, for example the function `getwd()`.
 
 ```r
 getwd()
 ```
-You can see that the parentheses are present, however there is no value provided inside them and a result is still returned to the user. This function 
+Here, you can see that the parentheses are present yet there is no value provided inside. After pressing return, a result is still returned to the user. In the case of `getwd()` the result is the path to your working directory.
 
-While there are many functions like `getwd()`, most functions will take atleast one argument as input and can typically accept up to several arguments. In many cases, a function will require one or two mandatory arguments that the user is required to provide and all other arguments for the function will fall back on using a *default*. 
-
-The **default arguments** represent values that the author of the function has determined as being "good enough in standard cases". An example of a default would be what symbol to use for data points in a plot (i.e. a closed circle). However, if you wanted something specific, simply change the argument yourself with a value of your choice.
+While there are many functions like `getwd()`, most functions will take atleast one argument as input and can typically accept up to several arguments. In cases where there several arguments for a function, you will find that only a subset of them are mandatory for the user to provide. All other arguments for the function will fall back on using a *default*. The **default arguments** represent values that the author of the function has determined as being "good enough in standard cases".
 
 ### Basic functions
 
- **All of the functions we will use here are available as part of R's built in capabilities**. However, you can also obtain added functionality to your R environment by downloading and installing external packages which will introduce you to other functions. Alternatively, you can create your own functions in R. Both of these are beyond the scope of this segment, but if you are interested we encourage you to refer to those segments. 
+ **All of the functions we will use in this segment are available as part of R's built in capabilities**. However, you can also obtain added functionality to your R environment by downloading and installing external packages which will introduce you to other functions. Alternatively, you can create your own functions in R. Both of these are beyond the scope of this segment, but if you are interested we encourage you to refer to those segments. 
 
 Since R is used for statistical computing, many of the base functions involve mathematical operations. One example would be the function `sqrt()`. The argument for this function is a numeric value, and the output is the square root of that number. Let's try finding the square root of 81:
 
