@@ -6,6 +6,8 @@ Welcome to segment 5A, in this segment we will be talking about functions for in
 
 There are a wide selection of base functions in R that are useful for inspecting your data and summarizing it. In this segment we will be utilizing some of the data objects we have created in segments 2B and importing-exporting-data; specifically `metadata`, `glenghts`, `expression`. If you do not have these objects, you can follow the instructions provided below the video. 
 
+** Add a read.csv() here to explicitly read in metadata **
+
 Once you have these objects, we can get started.
 
 Let's take a look at the `metadata` object by typing out its name and pressing return; the variable contains information describing the samples in our study. 
