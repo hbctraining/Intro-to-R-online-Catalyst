@@ -27,7 +27,7 @@ To create your own function, you will want to start by giving your function a na
 name_of_function 
 ```
 
-You can then use the assignment operator to assign value to it, where the value is the function.
+You can then use the assignment operator to assign value to it. The value will be the function that you define.
 
 ```r
 name_of_function <- 
@@ -62,7 +62,7 @@ name_of_function <- function(argument1, argument2, ...) {
 ```
 
 
-The last line of the code is the value that will be returned by the function. It is not necessary that a function return anything, for example a function that makes a plot might not return anything, whereas a function that does a mathematical operation might return a number, or a list. The value that is returned, is being passed into the global environment. The important idea behind functions is that objects that are created within the function are local to the environment of the function – they don’t exist outside of the function. 
+The last line of the code is the value that will be returned by the function. It is not necessary that a function return anything, for example a function that makes a plot might not return anything, whereas a function that does a mathematical operation might return a number, or a list of numbers. 
 
 ```r
 name_of_function <- function(argument1, argument2, ...) {
@@ -76,7 +76,7 @@ name_of_function <- function(argument1, argument2, ...) {
 
 Let's try creating a simple example function. This function will take in a numeric value as input, and return the squared value.
 
-We will call the function `square_it`, and will assign to it the function() function. We will add the argument `x` inside the parentheses. `x` will be the numeric value required as input from the user.
+We will call the function `square_it`, and assign the value to be function() function. We will add the argument `x` inside the parentheses. `x` will be the numeric value required as input from the user.
 
 ```r
 square_it <- function(x) {
@@ -84,19 +84,51 @@ square_it <- function(x) {
 }
 ```
 
-Inside the curly brackets we will add a line of code. The something that we want to do is square the input value `x`.
+Inside the curly brackets we will add a line of code. The something that we want to do here, is square the input value `x`. A variable called square is created to store the result of x times x:
 
 ```r
 square_it <- function(x) {
-x * x
+square <- x * x
 }
 ```
 
-Now, we can use the function as we would any other function. We type out the name of the function, and inside the parentheses  we provide a numeric value `x`:
+Finally, we add a return statement, returning the variable `square` to the user.
+
+```r
+square_it <- function(x) {
+    square <- x * x
+   return(square)
+}
+```
+
+To be able to use this function, it needs first to be read into memory. This is just like loading a library, until you do it the functions contained within it cannot be called.
+
+To do this, highlight the chunk of code and run it in the console. Now, if you look in your environment tab and scroll down, you should see a new section called "Functions". Here, you will see `square_it` listed there.
+
+We can now use the `square_it` function as we would any other function. We type out the name of the function, and inside the parentheses provide a numeric value `x`:
 
 ```r
 square_it(5)
 ```
+
+The important idea behind functions is that objects that are created within the function are local to the environment of the function – they don’t exist outside of the function. Take a look at your environment. Even though inside the function a variable called `square` has been created, we do not observe that in our global environment. Only the value that is returned from the function, is being passed into the global environment.
+
+Note that we could have also created this function without the return statement. However, if we do it that way we would also forgo creating the square variable:
+
+```r
+# Alternative way of defining the same function
+square_it <- function(x) {
+    x * x
+}
+```
+
+If we highlight and run this code in the console, this will overwrite the function currently loaded in memory. Now try using it as we had done before. You should see teh same value being returned.
+
+```r
+square_it(5)
+```
+
+
 
 Pretty simple, right? In this case, we only had one line of code that was run, but in theory you could have many lines of code to get obtain the final results that you want to "return" to the user. We have only scratched the surface here when it comes to creating functions! We will revisit this in later lessons, but if interested you can also find more detailed information on this [R-bloggers site](https://www.r-bloggers.com/how-to-write-and-debug-an-r-function/), which is where we adapted this example from.
 
