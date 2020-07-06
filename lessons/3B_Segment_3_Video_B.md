@@ -128,6 +128,46 @@ If we highlight and run this code in the console, this will overwrite the functi
 square_it(5)
 ```
 
+Let's try one more example to demonstrate the use of multiple arguments. This time we will create a function called `multiply_it` which takes into two arguments: a numeric value `x` and a numeric value `y`. The function will return the product of these two values.
+
+
+```r
+multiply_it <- function(x, y){
+    x * y
+}
+```
+
+Once you have run the function in your console, test it out with x = 4 and y =8. The number 32 should be returned in the console.
+
+```r
+multiply_it(4, 8)
+```
+
+Setting default options for arguments can be helpful at times. For example, if the user does not pass all the arguments required by function, then it will result in an error. Try this with `multiply_it`:
+
+```r
+multiply_it(4)
+```
+
+One reason to pass default arguments could be to avoid failure of the function. Values that serve as "good enough" are used and then they can always be changed by the user if required. However, it really depends upon the use case. Although a default does not make sense in this case, we will test it out to show how it works. Re-define the function setting the value of `y = 1` so that the user is only required to specify a value for x:
+
+```r
+multiply_it <- function(x, y = 1){
+    x * y
+}
+```
+
+Once you have run the function in your console, test it out first with a single value x = 4. The number 4 should be returned in the console.
+
+```r
+multiply_it(4)
+```
+
+What if we provided a y-value? The default gets overwritten by the value provided:
+
+```r
+multiply_it(4, 8)
+```
 
 
 Pretty simple, right? In this case, we only had one line of code that was run, but in theory you could have many lines of code to get obtain the final results that you want to "return" to the user. We have only scratched the surface here when it comes to creating functions! We will revisit this in later lessons, but if interested you can also find more detailed information on this [R-bloggers site](https://www.r-bloggers.com/how-to-write-and-debug-an-r-function/), which is where we adapted this example from.
