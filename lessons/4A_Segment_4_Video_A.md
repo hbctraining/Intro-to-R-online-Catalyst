@@ -1,3 +1,7 @@
+## Introduction
+
+Welcome to segment 4A, "Packages and Libraries in R". In this segment we will begin..
+
 ## Packages and Libraries
 
 **Packages** are collections of R functions, data, and compiled code in a well-defined format, created to add specific functionality. There are 10,000+ user contributed packages and growing.
