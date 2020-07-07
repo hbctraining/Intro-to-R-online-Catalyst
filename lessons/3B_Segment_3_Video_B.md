@@ -50,7 +50,7 @@ name_of_function <- function(argument1, argument2, ...) {
 }
 ```
 
-In between the curly brackets we place the tasks that are being executed, using the inputs if necessary. The code between the curly brackets is run every time the function is called. This code might be very long or very short. 
+In between the curly brackets we place the tasks that are being executed, using the inputs if necessary. The code that is placed between the curly brackets is run every time the function is called. This code might be very long or very short. 
 
 
 ```r
@@ -74,7 +74,7 @@ name_of_function <- function(argument1, argument2, ...) {
 ```
 
 
-Let's try creating a simple example function. This function will take in a numeric value as input, and return the squared value.
+Let's try creating a simple example function. The function will take in a numeric value as input, and return the squared value.
 
 We will call the function `square_it`, and assign the value to be function() function. We will add the argument `x` inside the parentheses. `x` will be the numeric value required as input from the user.
 
@@ -101,11 +101,11 @@ square_it <- function(x) {
 }
 ```
 
-To be able to use this function, it needs first to be read into memory. This is just like loading a library, until you do it the functions contained within it cannot be called.
+To be able to use this function, it needs first to be read into memory. This is just like loading a library, until you do it the functions contained within it cannot be used.
 
-To do this, highlight the chunk of code and run it in the console. Now, if you look in your environment tab and scroll down, you should see a new section called "Functions". Here, you will see `square_it` listed there.
+Highlight the chunk of code and run it in the console. Now, if you look in your environment tab and scroll down, you should see a new section called "Functions". Here, you will see `square_it` listed.
 
-We can now use the `square_it` function as we would any other function. We type out the name of the function, and inside the parentheses provide a numeric value `x`:
+We can now use the `square_it` function as we would any other function. We type out the name of the function, and inside the parentheses provide a numeric value for  `x`:
 
 ```r
 square_it(5)
@@ -122,13 +122,13 @@ square_it <- function(x) {
 }
 ```
 
-If we highlight and run this code in the console, this will overwrite the function currently loaded in memory. Now try using it as we had done before. You should see teh same value being returned.
+If we highlight and run this code in the console, this will overwrite the function currently loaded in memory. Now try using it as we had done before. You should see the same value being returned.
 
 ```r
 square_it(5)
 ```
 
-Let's try one more example to demonstrate the use of multiple arguments. This time we will create a function called `multiply_it` which takes into two arguments: a numeric value `x` and a numeric value `y`. The function will return the product of these two values.
+Let's try one more example to demonstrate the use of multiple arguments. This time we will create a function called `multiply_it` which takes in two arguments: a numeric value `x` and a numeric value `y`. The function will return the product of these two values.
 
 
 ```r
