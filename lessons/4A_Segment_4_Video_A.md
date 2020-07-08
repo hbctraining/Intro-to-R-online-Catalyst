@@ -35,9 +35,13 @@ search() # Gives a list of attached packages
 
 ## Repositories
 
-In this workshop we have introduced you to functions from the standard base packages. However, the more you work with R you will come to realize that there is a cornucopia of R packages that offer a wide variety of functionality. To use additional packages will require installation. Many packages can be installed from the [CRAN](http://cran.r-project.org/) or [Bioconductor](https://www.bioconductor.org/) repositories.
+R packages are stored in repositories, typically they are online and accessible to everyone. Three of the most popular repositories for R packages are CRAN, Bioconductor and GitHub. We will discuss a little about each of them and then walk through the methods for obtaining a package from it.
 
-### Package installation from CRAN 
+**Slide for each; including code**
+- Don't run the code now; just show each clip on the slides
+- Can we open a browser for each repository live? or do we do screenshots?
+
+### CRAN 
 
 CRAN is a repository where the latest downloads of R (and legacy versions) are found in addition to source code for thousands of different user contributed R packages.
 
@@ -51,7 +55,7 @@ An example is given below for the `ggplot2` package that will be required for so
 install.packages("ggplot2")
 ```
 
-### Package installation from Bioconductor
+### Bioconductor
 Alternatively, packages can also be installed from [Bioconductor](https://www.bioconductor.org/), another repository of packages which provides tools for the analysis and comprehension of high-throughput **genomic data**. These packages includes (but is not limited to) tools for performing statistical analysis, annotation packages, and accessing public datasets.
 
 <img src="../img/bioconductor_logo.png" width="300">
@@ -75,7 +79,9 @@ library(BiocManager)
 install("ggplot2")
 ```
 
-### Package installation from source
+### Github
+
+## Package installation from source
 
 Finally, R packages can also be installed from source. This is useful when you do not have an internet connection (and have the source files locally), since the other two methods are retrieving the source files from remote sites. 
 
@@ -87,7 +93,14 @@ To install from source, we use the same `install.packages` function but we have 
 install.packages("~/Downloads/ggplot2_1.0.1.tar.gz", type="source", repos=NULL)
 ```
 
-### Loading libraries
+## Installing `ggplot2`
+
+Let's install ggplot2:
+
+```r
+install.packages("ggplot2")
+```
+
 Once you have the package installed, you can **load the library** into your R session for use. Any of the functions that are specific to that package will be available for you to use by simply calling the function as you would for any of the base functions. *Note that quotations are not required here.*
 
 
@@ -102,5 +115,5 @@ other attached packages:
 [1] ggplot2_2.0.0
 ```
 
-In this case there are several other packages that were also loaded along with `ggplot2`.
+In this case there are several other packages that were also loaded along with `ggplot2`. Talk more about these!
 
