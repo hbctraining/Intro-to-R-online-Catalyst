@@ -1,25 +1,39 @@
 ## Introduction
 
-Welcome to segment 4A, "Packages and Libraries in R". In this segment we will begin..
+Welcome to segment 4A, "Packages and Libraries in R". In this segment we will discuss what a package is in R and demonstrate the different ways in which you can install them. Once installed, we will go through the steps required to ensure it was a successful installation. We will also describe the process of utilizing packages in R by loading libraries.
 
 ## Packages and Libraries
 
-**Packages** are collections of R functions, data, and compiled code in a well-defined format, created to add specific functionality. There are 10,000+ user contributed packages and growing.
+**Slide: Packages vs. Libraries (just the image or definitions as well?)
 
-There are a set of **standard (or base) packages** which are considered part of the R source code and automatically available as part of your R installation. Base packages contain the **basic functions** that allow R to work, and enable standard statistical and graphical functions on datasets; for example, all of the functions that we have been using so far in our examples. 
+<img src="../img/install_vs_library.jpeg" width="600">
 
-The directories in R where the packages are stored are called the **libraries**. The terms *package* and *library* are sometimes used synonymously and there has been [discussion](http://www.r-bloggers.com/packages-v-libraries-in-r/) amongst the community to resolve this. It is somewhat counter-intuitive to _load a package_ using the `library()` function and so you can see how confusion can arise.
+*Analogy and image credit to [Dianne Cook](https://twitter.com/visnut/status/1248087845589274624) of [Monash University](https://www.monash.edu/).* 
+
+A **Package** in R is a collection of R functions, data, and compiled code in a well-defined format. Packages increase the power of R by improving existing functionalities, or by adding new ones. There are currently over 16,000 user contributed packages and this number continues to increase exponentially.
+
+As part of your R installation, you have access to a set of **standard (or base) packages**. These base packages are considered part of the R source code and contain **basic functions** that allow R to work, and enable standard statistical and graphical functions on datasets. Functions that have been used in any of the previous segments are part of these base packages.
+
+A **Library** in R, refers to the directory or folder on your computer where the packages are stored. After a package is installed on your computer, you need to load the library into your R session. Loading the library allows the user to access any functions or datasets that are part of the package.
+
+The terms *package* and *library* are sometimes used synonymously and there has been [discussion](http://www.r-bloggers.com/packages-v-libraries-in-r/) amongst the community to resolve this. An analogy used to help differentiate between packages and libraries, is if you think of the package installation as installing a lightbulb into your light fixture. You do this once and you're all set for awhile. When we want to use the light, we use the switch to turn it on or off. Similarly, when we want to use a package we need to load the library every time we start a new RStudio environment.
 
 
-You can check what libraries are loaded in your current R session by typing into the console:
+To check what libraries are loaded in your current R session, we use a function called `sessionInfo()`. This is a function that does not require any arguments. 
 
 ```r
 sessionInfo() #Print version information about R, the OS and attached or loaded packages
 
-# OR
-
-search() #Gives a list of attached packages
 ```
+In the console, you will see text returned describing your R session. This includes the version of R you are using, details on your computer and operating system. Further down you will see listed the libraries that have been loaded. Note that right now you should only see the base packages listed.
+
+Another function that is helpful in identifying the libraries loaded in your R session is `search()`. Similar to `sessionInfo()` there are no arguments required as input. The output of this function is less detailed than `sessionInfo()`, reporting only the list of loaded libraries.
+
+```r
+search() # Gives a list of attached packages
+```
+
+## Repositories
 
 In this workshop we have introduced you to functions from the standard base packages. However, the more you work with R you will come to realize that there is a cornucopia of R packages that offer a wide variety of functionality. To use additional packages will require installation. Many packages can be installed from the [CRAN](http://cran.r-project.org/) or [Bioconductor](https://www.bioconductor.org/) repositories.
 
