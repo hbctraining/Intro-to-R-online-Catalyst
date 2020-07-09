@@ -1,6 +1,6 @@
 ## Introduction
 
-Welcome to segment 4A, "Packages and Libraries in R". In this segment we will discuss what a package is in R and demonstrate the different ways in which you can install them. Once installed, we will go through the steps required to ensure it was a successful installation. We will also describe the process of utilizing packages in R by loading libraries.
+Welcome to segment 4A, "Packages and Libraries in R". In this segment we will define what a package is in R and describe the different repositories which house them. We will introduce various functions for installing package and highlight differences for each repository. We will also describe the process of utilizing packages in R by loading libraries.
 
 ## Packages and Libraries
 
@@ -108,21 +108,22 @@ Let's test out a package installation! We will install ggplot2, a popular packag
 install.packages("ggplot2")
 ```
 
+In your console, you will see a message printed stating "trying URL...". This shows you that R is accesing the source files from the CRAN website and downloading to your personal computer. If you see no errors and the command prompt returns, you can assume the package was successfully installed.
 
-
-Once you have the package installed, you can **load the library** into your R session for use. Any of the functions that are specific to that package will be available for you to use by simply calling the function as you would for any of the base functions. *Note that quotations are not required here.*
+Now, if we wanted to use any functions from the ggplot2 package - the library needs to loaded into our R session for use. To do this we use the library() function. *Note that quotations are not required here.*
 
 
 ```r
 library(ggplot2)
 ```
 
-You can also check what is loaded in your current environment by using `sessionInfo()` or `search()` and you should see your package listed as:
+Once again, if you were able to run the code without any errors reported and the command prompt returns, you are good to go. You can use some ofthe functions learned at the beginning of this segment to double check that in fact your library has loaded properly.
+
+For example, running sessionInfo() you should now see a section called "other attached packages" and ggplot2 listed there. You might also notice that there are addtional packages listed under "loaded via a namespace". This means that ggplot2 is internally accessing functions/objects from these packages but the user can not access them without explicitly loading the libraries. 
 
 ```r
 other attached packages:
 [1] ggplot2_2.0.0
 ```
 
-In this case there are several other packages that were also loaded along with `ggplot2`. Talk more about these!
 
