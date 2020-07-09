@@ -35,7 +35,7 @@ RSiteSearch("{generalized linear model}")
 This will open up a new window in your browser, returning information related to the term "generalized linear model" without matching the individual words "generalized", "linear", or "model". This is helpful because it searches for packages that you may not already have installed. However, it is limited to the CRAN repository.
 
 
-### Finding functions specific to a package
+## Finding functions specific to a package
 
 Alternatively, you may know the package you need to use but need help finding out more on what functions to use. Suppose we are interested in using `ggplot2`, a package that was installed in the segment titled "Packages and Libraries". One way to get more information would be to use the `Package` tab in RStudio. If you click on the tab, you will see listed all packages that you have installed. For those *libraries that you have loaded*, you will see a blue checkmark in the box next to it. 
 
