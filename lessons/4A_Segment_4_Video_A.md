@@ -26,7 +26,6 @@ A **Library** in R, refers to the directory or folder on your computer where the
 
 The terms *package* and *library* are sometimes used synonymously and there has been [discussion](http://www.r-bloggers.com/packages-v-libraries-in-r/) amongst the community to resolve this. An analogy used to help differentiate between packages and libraries, is if you think of the package installation as installing a lightbulb into your light fixture. You do this once and you're all set for awhile. When we want to use the light, we use the switch to turn it on or off. Similarly, when we want to use a package we need to load the library every time we start a new RStudio environment.
 
-RStudio:
 
 To check what libraries are loaded in your current R session, we use a function called `sessionInfo()`. This is a function that does not require any arguments. 
 
@@ -56,7 +55,7 @@ The first, and most common repository is CRAN, which stands for the Comprehensiv
 
 <img src="../img/cran_packages.png" width="600">
 
-Packages for R can be installed from the [CRAN](http://cran.r-project.org/) repository using the `install.packages` function. This function will download the source code from on the CRAN mirrors and install the package (and any dependencies) locally on your computer. 
+Packages for R can be installed from the [CRAN](http://cran.r-project.org/) repository using the `install.packages` function. This function will download the source code from CRAN and install the package (and any dependencies) locally on your computer. 
 
 An example is given below for the `ggplot2` package:
 
@@ -65,36 +64,35 @@ install.packages("ggplot2")
 ```
 
 ### Bioconductor
-Alternatively, packages can also be installed from [Bioconductor](https://www.bioconductor.org/), another repository of packages which provides tools for the analysis and comprehension of high-throughput **genomic data**. These packages includes (but is not limited to) tools for performing statistical analysis, annotation packages, and accessing public datasets.
+
+Bioconductor is a topic specific repository, intended for open source software for bioinformatics. The packages provide tools for the analysis and comprehension of high-throughput **genomic data**. These packages include (but is not limited to) tools for performing statistical analysis, annotation packages, and accessing public datasets. Similar to CRAN, it has its own submission and review processes, and its community is very active having several conferences and meetings per year. There are many packages that are available in CRAN and Bioconductor, but there are also packages that are specific to one repository. 
 
 <img src="../img/bioconductor_logo.png" width="300">
 
-There are many packages that are available in CRAN and Bioconductor, but there are also packages that are specific to one repository. Generally, you can find out this information with a Google search or by trial and error. 
 
-To install from Bioconductor, you will first need to install BiocManager. *This only needs to be done once ever for your R installation.* 
+To install a package from Bioconductor, you will first need to install BiocManager. *This only needs to be done once ever for your R installation.* Then you can use the `install()` function to install a package by providing the name in quotations. Note the syntax with the double colon is used to indicate that the `install()` function should be used from the BiocManager package.
 
 ```r
-# DO NOT RUN THIS!
-
 install.packages("BiocManager")
-```
-
-Then you can use the `install()` function to install a package by providing the name in quotations. Here we show that the same package `ggplot2` is available through Bioconductor:
-
-```r
-# DO NOT RUN THIS!
-
-library(BiocManager)
-install("ggplot2")
+BiocManager::install("ggplot2")
 ```
 
 ### Github
 
+Github is probably the most popular repository for open source projects, although it is not R specific. Its popularity comes from the unlimited space for open source, the integration with a version control software, and its ease to share and collaborate with others. Many popular R packages reside in GitHub and are commonly used by many in the R community. However, be aware that sometimes these packages can be the development version. Additionally, there is no review process associated with R packages in GitHub.
+
+To install a package from GitHub, you will first need to install a package called devtools. The devtools package contains specific functions for each repository, and the function for GitHub is install_github. In quotations, you will need to provide the 	repository address in the format username/repo:
+
+```r
+install.packages("devtools")
+devtools::install_github("tidyverse/ggplot2")
+```
+
 ## Package installation from source
 
-Finally, R packages can also be installed from source. This is useful when you do not have an internet connection (and have the source files locally), since the other two methods are retrieving the source files from remote sites. 
+Finally, R packages can also be installed from source. This is useful when you do not have an internet connection (and have the source files locally), since the other methods we described are retrieving the source files from remote sites. 
 
-To install from source, we use the same `install.packages` function but we have additional arguments that provide *specifications* to *change from defaults*:
+To install from source, we use the same `install.packages` function but we have additional arguments that provide *specifications* to *change from defaults*. Instead of the package name, we provide the path on your personal computer to where the source files reside. We also set type = "source" and specify that we are not accessing a repository by setting repos = NULL. 
 
 ```r
 # DO NOT RUN THIS!
@@ -104,11 +102,13 @@ install.packages("~/Downloads/ggplot2_1.0.1.tar.gz", type="source", repos=NULL)
 
 ## Installing `ggplot2`
 
-Let's install ggplot2:
+Let's test out a package installation! We will install ggplot2, a popular package for data visualization which will be used in later segments. As we noted, there is more than one repository from which we can install this package. Here, we will use the CRAN method `install.packages()`:
 
 ```r
 install.packages("ggplot2")
 ```
+
+
 
 Once you have the package installed, you can **load the library** into your R session for use. Any of the functions that are specific to that package will be available for you to use by simply calling the function as you would for any of the base functions. *Note that quotations are not required here.*
 
