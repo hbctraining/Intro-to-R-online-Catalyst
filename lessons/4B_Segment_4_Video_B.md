@@ -1,4 +1,30 @@
+## Introduction
+
+Welcome to segment 4B, "**Getting Help in R**". In this segment we will discuss different methods of finding help when working in R. Often, we get stuck while doing some analysis and while we know what it is we want to get done, we do not know the correct function to use. Other times we are using functions and find ourselves confronted with a cryptic error and we are unable to move forward. It is important for anyone who is new to R to know the right place to look for help. In this segment we will demonstrate various ways to access built-in help in R, and also provide some guidelines and helpful resources when asking for help.
+
+
+### Finding functions but not knowing which package it is a part of
+
+When starting out with an analysis in R, it can sometimes be overwhelming. You have the task you wish to execute, but are not aware of the function required to help you accomplish it. 
+
+For example, suppose you would like to draw a scatter plot for your data. You have the x and y data points but how do you go about drawing it?
+
+R has some functionality built-in for users to access help without leaving the RStudio interface. One example is the 
+
+you can use `help.search()` (*but only looks through the installed packages*):
+
+```r
+help.search("scatter")
+```
+
+If you can't find what you are looking for, you can use the [rdocumention.org](https://www.rdocumentation.org/) website that search through the help files across all packages available.
+
+
+
 ### Finding functions specific to a package
+
+Alternatively, you may know the package you need to use but need help finding out more on what packages are involved. And finally, you may be running through your analysis but run hit a wall because of an error that you just can't get past. In this segment we provide solutions on the best ways to find help when you run into problems such as these.
+
 
 This is your first time using `ggplot2`, how do you know where to start and what functions are available to you? One way to do this, is by using the `Package` tab in RStudio. If you click on the tab, you will see listed all packages that you have installed. For those *libraries that you have loaded*, you will see a blue checkmark in the box next to it. Scroll down to `ggplot2` in your list:
 
@@ -9,23 +35,6 @@ If your library is successfully loaded you will see the box checked, as in the s
 
 An alternative is to find the help manual online, which can be less technical and sometimes easier to follow. For example, [this website](http://docs.ggplot2.org/current/) is much more comprehensive for ggplot2 and is the result of a Google search. Many of the Bioconductor packages also have very helpful vignettes that include comprehensive tutorials with mock data that you can work with.
 
-### Finding functions but not knowing which package it is a part of
-
-If you are looking for a function to do a particular task, you can use `help.search()` (*but only looks through the installed packages*):
-
-```r
-help.search("scatter")
-```
-
-If you can't find what you are looking for, you can use the [rdocumention.org](https://www.rdocumentation.org/) website that search through the help files across all packages available.
-
-***
-
-**Exercise**
-
-The `ggplot2` package is part of the [`tidyverse` suite of integrated packages](https://www.tidyverse.org/packages/) which was designed to work together to make common data science operations more user-friendly. **We will be using the `tidyverse` suite in later lessons, and so let's install it**. _NOTE: This suite of packages is only available in CRAN._ 
-
-***
 
 ## Asking for help
 
@@ -100,7 +109,13 @@ not related to a `data.frame`, you can save any other R data structure that you 
 * The [R FAQ](http://cran.r-project.org/doc/FAQ/R-FAQ.html) is dense and technical but it is full of useful information.
 
 
+***
 
+**Exercise**
+
+The `ggplot2` package is part of the [`tidyverse` suite of integrated packages](https://www.tidyverse.org/packages/) which was designed to work together to make common data science operations more user-friendly. **We will be using the `tidyverse` suite in later lessons, and so let's install it**. _NOTE: This suite of packages is only available in CRAN._ 
+
+***
 
 ---
 
