@@ -9,7 +9,7 @@ When starting out with an analysis in R, it can sometimes be overwhelming. You h
 
 For example, suppose you would like to draw a scatter plot for your data. You have the x and y data points but how do you go about drawing it?
 
-R has some functionality built-in for users to access help without leaving the RStudio interface. One example is the 
+R has some functionality built-in for users to access help without leaving the RStudio interface. One example is the `apropos()` function. This function searches for objects, including functions, directly accessible in the current R session that have names matching the specified character string.
 
 you can use `help.search()` (*but only looks through the installed packages*):
 
