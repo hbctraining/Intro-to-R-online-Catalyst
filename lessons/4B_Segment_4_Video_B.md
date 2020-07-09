@@ -3,37 +3,53 @@
 Welcome to segment 4B, "**Getting Help in R**". In this segment we will discuss different methods of finding help when working in R. Often, we get stuck while doing some analysis and while we know what it is we want to get done, we do not know the correct function to use. Other times we are using functions and find ourselves confronted with a cryptic error and we are unable to move forward. It is important for anyone who is new to R to know the right place to look for help. In this segment we will demonstrate various ways to access built-in help in R, and also provide some guidelines and helpful resources when asking for help.
 
 
-### Finding functions but not knowing which package it is a part of
+## Finding functions but not knowing which package it is a part of
 
 When starting out with an analysis in R, it can sometimes be overwhelming. You have the task you wish to execute, but are not aware of the function required to help you accomplish it. 
 
 For example, suppose you would like to draw a scatter plot for your data. You have the x and y data points but how do you go about drawing it?
 
-R has some functionality built-in for users to access help without leaving the RStudio interface. One example is the `apropos()` function. This function searches for objects, including functions, directly accessible in the current R session that have names matching the specified character string.
+R has some functionality built-in for users to access help without leaving the RStudio interface. One example is the `apropos()` function. This function searches for objects, including functions, directly accessible in the current R session that have names matching the specified character string. The function searches the literal string or can take regular expressions as input. The function is case-insensitive.
 
-you can use `help.search()` (*but only looks through the installed packages*):
+Let's test this out using "scatter" as our search keyword:
 
 ```r
-help.search("scatter")
+apropos("scatter")
+
+[1] "scatter.smooth" "smoothScatter" 
 ```
 
-If you can't find what you are looking for, you can use the [rdocumention.org](https://www.rdocumentation.org/) website that search through the help files across all packages available.
+The function returns two results. We can then use the help function, with the question mark, to open up documentation for each of these functions and find our more on what they do. Note that the result will be limited to the libraries that are loaded in your current R session.
 
+```r
+?scatter.smooth
+```
+
+Another built-in option is the function `RSiteSearch()`, however this does require an active internet connection. `RSiteSearch()` uses an internet search engine to search for information in function help pages and vignettes for all CRAN packages. Curly brackets can be used to specify multi-word terms. For example, 
+
+
+```r
+RSiteSearch("{generalized linear model}") 
+```
+
+This will open up a new window in your browser, returning information related to the term "generalized linear model" without matching the individual words "generalized", "linear", or "model". This is helpful because it searches for packages that you may not already have installed. However, it is limited to the CRAN repository.
 
 
 ### Finding functions specific to a package
 
-Alternatively, you may know the package you need to use but need help finding out more on what packages are involved. And finally, you may be running through your analysis but run hit a wall because of an error that you just can't get past. In this segment we provide solutions on the best ways to find help when you run into problems such as these.
+Alternatively, you may know the package you need to use but need help finding out more on what functions to use. Suppose we are interested in using `ggplot2`, a package that was installed in the segment titled "Packages and Libraries". One way to get more information would be to use the `Package` tab in RStudio. If you click on the tab, you will see listed all packages that you have installed. For those *libraries that you have loaded*, you will see a blue checkmark in the box next to it. 
 
-
-This is your first time using `ggplot2`, how do you know where to start and what functions are available to you? One way to do this, is by using the `Package` tab in RStudio. If you click on the tab, you will see listed all packages that you have installed. For those *libraries that you have loaded*, you will see a blue checkmark in the box next to it. Scroll down to `ggplot2` in your list:
+Type in "ggplot2" to the search box at the top of the tab. You should now see ggplot2 listed below.  Now, if you click on the hyperlinked `ggplot2` RStudio will open up the help documentation in the Help tab and you can scroll through it.
 
 <img src="../img/ggplot_help.png" width="300">  
 
+You will see all functions for this package listed alphabetically with a short description beside each. For some packages this might be helpful, but in other cases it would be nice to have a long form guide to the package. A vignette is a package guide that include comprehensive tutorials, sometimes with mock data that you can work through. You can access all of your libraries that you have installed and identify which have vignettes available using browseVignette(). Or alternatively, you can search for vignettes associated with the package you are interested in, for example `ggplot2`:
 
-If your library is successfully loaded you will see the box checked, as in the screenshot above. Now, if you click on `ggplot2` RStudio will open up the help pages and you can scroll through.
+```r
+browseVignettes("ggplot2")
+```
 
-An alternative is to find the help manual online, which can be less technical and sometimes easier to follow. For example, [this website](http://docs.ggplot2.org/current/) is much more comprehensive for ggplot2 and is the result of a Google search. Many of the Bioconductor packages also have very helpful vignettes that include comprehensive tutorials with mock data that you can work with.
+A list of results will be displayed as an HTML page in a browser, and you can then click the hyperlinks to those that are of interest. For example, if we click on the "Aesthetics specifications", this takes us to an HTML page. This vignette summarises the various formats that grid drawing functions take, including things like color, fill and line types for plots. 
 
 
 ## Asking for help
