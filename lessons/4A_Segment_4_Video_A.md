@@ -1,6 +1,6 @@
 ## Introduction
 
-Welcome to segment 4A, "Packages and Libraries". In this segment we will define what a package is in R and describe the different repositories which house them. We will introduce various functions for installing package and highlight differences for each repository. We will also describe the process of utilizing packages in R by loading libraries.
+Welcome to segment 4A, "**Packages and Libraries**". In this segment we will define what a package is in R and describe the different repositories which house them. We will introduce various functions for installing package and highlight differences for each repository. We will also describe the process of utilizing packages in R by loading libraries.
 
 ## Packages and Libraries
 
