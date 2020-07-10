@@ -56,74 +56,60 @@ A list of results will be displayed as an HTML page in a browser, and you can th
 
 Once you have familiarized yourself with the workings of R and start coding, you will no doubt encounter many error messages. Trying to decipher an error can be a time-consuming task, and often you can find yourself falling down the rabbit hole trying to fix it. This is common with R, but don't get discouraged! We have a few tips that can help when troubleshooting in R .
 
+**Slide: Tips on Troublehooting**
+
+*fade in bullets*
+
+* Check your code for syntax errors
+* Scan the error message for useful pointers
+* Google cryptic error messages
+* Ask for help
+
+
 1. The most common error in RStudio is syntax errors. If something is not working check your code to make sure you haven't forgotten a comma, opened a bracket but haven’t closed it, or misspelled the name of a variable. The script editor in RStudio is good at picking up these types of errors and pointing it out to you with a little red x appearing next to that line of code.
 
 2. R reports errors through messages in the console, which appear after you run code that is not quite right. Although the error messages look intimidating, they can sometimes be helpful. Take a quick look at the message to see if it is something that you can decipher. Error messages like "object not found" or "could not find function" and are pretty straightforward in telling you what the problem is and the solution is often an easy fix.
 
-3. When dealing with more crytpic error messages, the solution is to Google it. It is very likely that there is someone else out there who has already encountered this same problem. R is backed by a large community of users and resources for help. Your Google search will likely point you to some of the more well-known R resources where the problem you are having has been discussed in detail and likley solved.
+3. When dealing with more crytpic error messages, the solution is to Google it. R is backed by a large community of users and online resources for help. Chances are high that someone has already encountered the same or similar problem and you can use the answers given by R experts. 
 
-4. Finally, if you have gotten to this point without a solution - you need to ask for help. The key to getting help from someone is for them to grasp your problem rapidly. You should make it as easy as possible to pinpoint where the issue might be.
+4. Finally, if you have gotten to this point without a solution - you need to ask for help. 
 
-1. Try to **use the correct words** to describe your problem. For instance, a package
-is not the same thing as a library. Most people will understand what you meant,
-but others have really strong feelings about the difference in meaning. The key
-point is that it can make things confusing for people trying to help you. **Be as
-precise as possible when describing your problem.**
+**Slide: How to ask for help**
 
-2. **Always include the output of `sessionInfo()`** as it provides critical information about your platform, the versions of R and the packages that you are using, and other information that can be very helpful to understand your problem.
+*fade in bullets*
 
-	```r
-	sessionInfo()  #This time it is not interchangeable with search()
-	```
+* Be as precise as possible when describing your problem 
+* Include the output of sessionInfo()
+* Create a reproducible example
 
-3. If possible, **reproduce the problem using a very small `data.frame`**
-instead of your 50,000 rows and 10,000 columns one, provide the small one with
-the description of your problem. When appropriate, try to generalize what you
-are doing so even people who are not in your field can understand the question. 
-	- To share an object with someone else, you can provide either the raw file (i.e., your CSV file) with
-your script up to the point of the error (and after removing everything that is
-not relevant to your issue). Alternatively, in particular if your questions is
-not related to a `data.frame`, you can save any other R data structure that you have in your environment to a file:
 
-		```r
-		# DO NOT RUN THIS!
+The key to getting help from someone is for them to grasp your problem rapidly. You should make it as easy as possible to pinpoint where the issue might be.
 
-		save(iris, file="/tmp/iris.RData")
-		```
+1. Try to use the correct words to describe your problem. The key point is to be as clear and precise as possible for people trying to help you. 
 
-		The content of this `.RData` file is not human readable and cannot be posted directly on stackoverflow. It can, however, be emailed to someone who can read it with this command:
+2. **Always include the output of `sessionInfo()`** as it provides critical information about your platform, the versions of R and the packages that you are using. All of this information can be very helpful to identify what might be causing your problem.	
 
-		```r
-		# DO NOT RUN THIS!
+3. If possible, **reproduce the problem using a very small `data.frame`**. Instead of your 50,000 rows and 10,000 columns one, create a small one with
+the description of your problem. You can share an object containing the relevant R data structures that you have in your environment to an RData file. 
 
-		some_data <- load(file="~/Downloads/iris.RData")
-		```
+Please see the list of resources provided as links under this segment video. These are very helpful for when you are crafting your post for the first time.
 
-### Where to ask for help?
 
-* **Google** is often your best friend for finding answers to specific questions regarding R. 
-	- Cryptic error messages are very common in R - it is very likely that someone else has encountered this problem already! Start by googling the error message.  However, this doesn't always work because often, package developers rely on the error catching provided by R. You end up with general error messages that might not be very helpful to diagnose a problem (e.g. "subscript out of bounds").
-* **Stackoverflow**: Search using the `[r]` tag. Most questions have already been answered, but the challenge is to use the right words in the search to find the answers: [http://stackoverflow.com/questions/tagged/r](http://stackoverflow.com/questions/tagged/r). If your question hasn't been answered before and is well crafted, chances are you will get an answer in less than 5 min.
-* **Your friendly colleagues**: if you know someone with more experience than you,
-  they might be able and willing to help you.
-* **The [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)**: it is read by a
-  lot of people (including most of the R core team), a lot of people post to it,
-  but the tone can be pretty dry, and it is not always very welcoming to new
-  users. If your question is valid, you are likely to get an answer very fast
-  but don't expect that it will come with smiley faces. Also, here more than
-  everywhere else, be sure to use correct vocabulary (otherwise you might get an
-  answer pointing to the misuse of your words rather than answering your
-  question). You will also have more success if your question is about a base
-  function rather than a specific package.
-* **The [Bioconductor support site](https://support.bioconductor.org/)**. This is very useful and if you tag your post, there is a high likelihood of getting an answer from the developer.
-* If your question is about a specific package, see if there is a mailing list
-  for it. Usually it's included in the DESCRIPTION file of the package that can
-  be accessed using `packageDescription("name-of-package")`. You may also want
-  to try to **email the author** of the package directly.
-* There are also some **topic-specific mailing lists** (GIS, phylogenetics, etc...),
-  the complete list is [here](http://www.r-project.org/mail.html).
+**Slide: Where to ask for help?* 
+
+* **Your friendly colleagues**: if you know someone with more experience than you, they might be able and willing to help you.
+
+* **Stackoverflow**: Stack Overflow is a well organized and formatted site for help and discussions about programming.  Topics are tagged, and “r” is a very popular tag on the site. Search to see if you can find a post with a similar problem. If your question hasn't been answered before and is well crafted, chances are you will get an answer in less than 5 min.
+
+* **The [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)**: The R Project maintains a number of subscription-based email lists for posing and answering questions about R, including the general R-help email list. It is read by a lot of people (including most of the R core team), a lot of people post to it, but the tone can be pretty dry, and it is not always very welcoming to new users. 
+
+* **The [Bioconductor support site](https://support.bioconductor.org/)**. The Bioconductor support site is very useful and if you tag your post with the package name, there is a high likelihood of getting an answer from the developer.
+
+* If your question is about a specific package, see if there is a mailing list for it. Usually it's included in the DESCRIPTION file of the package that can
+  be accessed using `packageDescription("name-of-package")`. You may also want to try to **email the author** of the package directly.
+
   
-### More resources
+### More resources (for uner the video segment?)
 * The [Posting Guide](http://www.r-project.org/posting-guide.html) for the R
   mailing lists.
 * [How to ask for R help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html)
@@ -134,7 +120,7 @@ not related to a `data.frame`, you can save any other R data structure that you 
 
 ***
 
-**Exercise**
+**Exercise - where does this go?**
 
 The `ggplot2` package is part of the [`tidyverse` suite of integrated packages](https://www.tidyverse.org/packages/) which was designed to work together to make common data science operations more user-friendly. **We will be using the `tidyverse` suite in later lessons, and so let's install it**. _NOTE: This suite of packages is only available in CRAN._ 
 
