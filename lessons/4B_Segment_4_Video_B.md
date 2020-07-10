@@ -52,10 +52,17 @@ browseVignettes("ggplot2")
 A list of results will be displayed as an HTML page in a browser, and you can then click the hyperlinks to those that are of interest. For example, if we click on the "Aesthetics specifications", this takes us to an HTML page. This vignette summarises the various formats that grid drawing functions take, including things like color, fill and line types for plots. 
 
 
-## Asking for help
+## Troubleshooting
 
-The key to getting help from someone is for them to grasp your problem rapidly. You
-should make it as easy as possible to pinpoint where the issue might be.
+Once you have familiarized yourself with the workings of R and start coding, you will no doubt encounter many error messages. Trying to decipher an error can be a time-consuming task, and often you can find yourself falling down the rabbit hole trying to fix it. This is common with R, but don't get discouraged! We have a few tips that can help when troubleshooting in R .
+
+1. The most common error in RStudio is syntax errors. If something is not working check your code to make sure you haven't forgotten a comma, opened a bracket but haven’t closed it, or misspelled the name of a variable. The script editor in RStudio is good at picking up these types of errors and pointing it out to you with a little red x appearing next to that line of code.
+
+2. R reports errors through messages in the console, which appear after you run code that is not quite right. Although the error messages look intimidating, they can sometimes be helpful. Take a quick look at the message to see if it is something that you can decipher. Error messages like "object not found" or "could not find function" and are pretty straightforward in telling you what the problem is and the solution is often an easy fix.
+
+3. When dealing with more crytpic error messages, the solution is to Google it. It is very likely that there is someone else out there who has already encountered this same problem. R is backed by a large community of users and resources for help. Your Google search will likely point you to some of the more well-known R resources where the problem you are having has been discussed in detail and likley solved.
+
+4. Finally, if you have gotten to this point without a solution - you need to ask for help. The key to getting help from someone is for them to grasp your problem rapidly. You should make it as easy as possible to pinpoint where the issue might be.
 
 1. Try to **use the correct words** to describe your problem. For instance, a package
 is not the same thing as a library. Most people will understand what you meant,
