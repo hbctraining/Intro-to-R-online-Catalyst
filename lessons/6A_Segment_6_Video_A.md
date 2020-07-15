@@ -112,72 +112,89 @@ The `all` function is also useful. Given a logical vector, it will tell you whet
 all(A %in% B)
 ```
 
-Suppose we had **two vectors that had the same values but just not in the same order**. We could also use `all` to test for that. Rather than using the `%in%` operator we would use `==` and compare each element to the same position in the other vector. Unlike the `%in%` operator, **for this to work you must have two vectors that are of equal length**.
+The `all` function can also be used with the double equal operator to evaluate the order of two vectors. We can test this out with an example. Let's create two new vectors C and D. They contain the same numbers, but one is just in the reverse order.
 
 ```r
-A <- c(10,20,30,40,50)
-B <- c(50,40,30,20,10)  # same numbers but backwards 
+C <- c(10,20,30,40,50)
+D <- c(50,40,30,20,10)  # same numbers but backwards 
+```
 
-# test to see if each element of A is in B
-A %in% B
+First we could check to see if each element of vector C is in vector D.
 
-# test to see if each element of A is in the same position in B
-A == B
+```r
+# test to see if each element of C is in D
+C %in% D
+```
 
-# use all() to check if they are a perfect match
-all(A == B)
+If we put that inside the all function we could quickly assess whether all values in vector C have a match somewhere in vector D.
+
+```r
+# test to see if all values are matching between vectors
+all(C %in% D)
+```
+
+Great! Now we know that the two vectors contain all of the same values, but are they in the same order? To find out we can use the all function again, but this time using the double equals operator:
+
+```r
+
+# use all() to check if they are in the same order
+all(C == D)
 
 ```
 
-Often when working with genomic data, we have a data file that corresponds with our metadata file. The data file contains measurements from the biological assay for each individual sample. In this case, the biological assay is gene expression and data was generated using RNA-Seq. 
+Note that evaluating order with all is only possible if the two vectors you are comparing are the exact same length.
 
-Let's read in our expression data (RPKM matrix) that we downloaded previously:
+# Use case
+
+So now we know how to compare two vectors to one another, you might be wondering when would I need to do something like this? Well, one common example is when we are working with genomic data we often have a data file that corresponds with our metadata file. The data file contains measurements from the biological assay for each individual sample, while the metadata file contains information about each sample. For the data we are working with, the biological assay is gene expression and the data we are using was generated using RNA-Seq. 
+
+Let's read in the count matrix that we downloaded previously. This is a csv file located in your data folder in yoru working directory. You can use the read.csv() function to read in the data and save it to a variable called `rpkm_data`.
 
 ```r
 rpkm_data <- read.csv("data/counts.rpkm.csv")
 ```
 
-Take a look at the first few lines of the data matrix to see what's in there.
+Use the head() function to take a look at the first few lines of the dataframe to see what's in there.
 
 ```r
 head(rpkm_data)
 ```
 
-It looks as if the sample names (header) in our data matrix are similar to the row names of our metadata file, but it's hard to tell since they are not in the same order. We can do a quick check of the number of columns in the count data and the rows in the metadata and at least see if the numbers match up. 
+We have columns corresponding to samples and rows representing the different genes that were assayed. At a quick glance, it looks as if the sample names in our data are similar to the row names of our metadata file, but it's hard to tell since they are not in the same order. We can use some the functions we learned in segment 5A do a quick check of the number of columns in the count data and the rows in the metadata and at least see if the numbers match up. 
 
 ```r
 ncol(rpkm_data)
 nrow(metadata)
 ```
+It looks like both files contain 12 samples. Now what we need to find out is, **do we have data for every sample that we have metadata?** 
 
-What we want to know is, **do we have data for every sample that we have metadata?** 
-
-Let's try this on our data and see whether we have metadata information for all samples in our expression data. We'll start by creating two vectors; one with the `rownames` of the metadata and `colnames` of the RPKM data. These are base functions in R which allow you to extract the row and column names as a vector:
+We can answer this question by using the %in% operator. We need two vectors as input to the operator so we will create variables x and y.  x will be a vector of`rownames` from the metadata and y will be a vector of `colnames` of the RPKM data. In segement 5A, we discussed some base functions in R which allow you to extract the row and column names as a vector:
 
 ```r
 x <- rownames(metadata)
 y <- colnames(rpkm_data)
 ```
 
-Now check to see that all of `x` are in `y`:
+Now to check to see that all of `x` are in `y` we use:
 
 ```r
 all(x %in% y)
 ```
 
-*Note that we can use nested functions in place of `x` and `y`:*
+We get a TRUE value which tells us that the same 12 samples in our metadata are contained in the data file. Note that we could have use nested functions and skipped the step of creating x and y:
 
 ```r
+# Alternative 
 all(rownames(metadata) %in% colnames(rpkm_data))
 ```
 
-We know that all samples are present, but are they in the same order:
+We know that all samples are present, but are they in the same order? We can use the `all()` function here:
 
 ```r
 all(rownames(metadata) == colnames(rpkm_data))
 ```
 
-**Looks like all of the samples are there, but will need to be reordered. To reorder our genomic samples, we need to first learn different ways to reorder data. Therefore, we will step away from our genomic data briefly to learn about reordering, then return to it at the end of this lesson.**
+We get a FALSE value! **Looks like all of the samples are there, but not in the same order.  To reorder our genomic samples, we need to first learn different ways to reorder data and this will be covered in segement 6B.**
 
 ***
 [**Exercise 2**](https://github.com/hbctraining/Intro-to-R/blob/master/results/answer_keys/07_matching_answer_key.md)
