@@ -67,37 +67,26 @@ This time we get a different sequence of logical values.
 ```
 SLIDE:
 
-
-The logical vector returned denotes which elements in `A` are also in `B` and which are not.  
-
-We saw previously that we could use the output from a logical expression to subset data by returning only the values corresponding to `TRUE`. Therefore, we can use the output logical vector to subset our data, and return only those elements in `A`, which are also in `B` by returning only the TRUE values:
-
 ![matching1](../img/in-operator1.png)
 
+In the first element of the logical vector we observe a TRUE value. This is because in the first element of vector A, we have the number one which also exists in vector B. It doesn't matter that the number one is in position 5 of vector B, it just matters that it exist somewhere in the vector B. The next value is FALSE because the number three does not exist in vector B. We then observe another TRUE vaue, corresponding to the number five which also exists in vector B. And the remainder of FALSE values indicate that none of the other values overlap with vector B. The logical vector that was returned is relative to the first vector used as input to the %in% operator - which is vector A.
+
+In segment 5C, we demonstrated the use of output from a logical expression to subset data and return only the values corresponding to `TRUE`. In the same way, we can use the logical vector output from the %in% operator to subset the original vector A to keep only values that overlap with vector B.
+
+RSTUDIO:
+
+We can assign the output from the in operation to a variable called intersection.
 ```r
 intersection <- A %in% B
 intersection
 ```
 
-![matching2](../img/in-operator2.png)
+Then we can use the square brackets to subset vector A using the interesection variable. Note how only the values 1 and 5 are returned.
 
 ```r
 A[intersection]
 ```
 
-![matching3](../img/in-operator3.png)
-
-In these previous examples, the vectors were small and so it's easy to count by eye; but when we work with large datasets this is not practical. A quick way to assess whether or not we had any matches would be to use the `any` function to see if **any of the values contained in vector A are also in vector B**:
-
-```r
-any(A %in% B)
-```
-
-The `all` function is also useful. Given a logical vector, it will tell you whether all values returned are `TRUE`. If there is at least one `FALSE` value, the `all` function will return a `FALSE` and you know that all of A are not contained in B.
-
-```r
-all(A %in% B)
-```
 ***
 [**Exercise 1**](https://github.com/hbctraining/Intro-to-R/blob/master/results/answer_keys/07_matching_answer_key.md)
 
@@ -106,6 +95,23 @@ all(A %in% B)
 2. Subset the `B` vector to only return those values that are also in `A`.
 
 ***
+
+In our examples, the vectors A and B that we created were small and so it would be easy to evaluate the overlap by scanning the logicl values returned. However,  when we are working with large datasets this is not practical. We will introduce you to two new functions in R that are helpful when working logical vectors in R.
+
+The first is the `any` function. This function will take as input a logical vector of any length and will return a single logical value to evaluate if any of the values are TRUE. Therefore , if a TRUE values is returned - this means that there is at least one TRUE value in the logical vector and a FALSE value indicates that there are none.
+
+If we tried this with the logical vector output from the in operation A %in% B, we would get a TRUE value. This tells us that there is atleast one matching value between the two vectors.
+
+```r
+any(A %in% B)
+```
+
+The `all` function is also useful. Given a logical vector, it will tell you whether all values are `TRUE`. If there is at least one `FALSE` value, the `all` function will return a `FALSE`. If we tried this with the logical vector output from the in operation A %in% B, we would get a FALSE value, letting us know that all elements of A are not contained in B.
+
+```r
+all(A %in% B)
+```
+
 Suppose we had **two vectors that had the same values but just not in the same order**. We could also use `all` to test for that. Rather than using the `%in%` operator we would use `==` and compare each element to the same position in the other vector. Unlike the `%in%` operator, **for this to work you must have two vectors that are of equal length**.
 
 ```r
