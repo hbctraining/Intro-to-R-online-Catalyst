@@ -6,58 +6,45 @@ date: "Friday, September 8, 2017"
 Approximate time: 110 min
 
 
-## Learning Objectives
+## Introduction
 
-* Implement matching and re-ordering data within data structures.
+Welcome to segment 6A, “Finding overlap between vectors using the %in% operator. When working in R we are often dealing with vectors, whether it be individual vector variables, or as part of a dataframe. A common question that we encounter is then how can we compare one vector to another? In this segment, we introduce to you the %in% operator and show you how to evaluate overlapping content between two vectors. In addition, we will demonstrate how to check that the order of two vectors are the same. Finally, we apply these operations to a dataset to demonstrate a practical use case.
 
-## Matching data 
+##  The `%in%` operator
 
-Often when working with genomic data, we have a data file that corresponds with our metadata file. The data file contains measurements from the biological assay for each individual sample. In this case, the biological assay is gene expression and data was generated using RNA-Seq. 
+To compare the values contained in one vector to another, we use the %in% operator in R. Although lacking in [documentation](http://dr-k-lo.blogspot.com/2013/11/) this operator is well-used and very convenient once you get the hang of it. The operator is used with the following syntax: 
 
-Let's read in our expression data (RPKM matrix) that we downloaded previously:
-
-```r
-rpkm_data <- read.csv("data/counts.rpkm.csv")
-```
-
-Take a look at the first few lines of the data matrix to see what's in there.
-
-```r
-head(rpkm_data)
-```
-
-It looks as if the sample names (header) in our data matrix are similar to the row names of our metadata file, but it's hard to tell since they are not in the same order. We can do a quick check of the number of columns in the count data and the rows in the metadata and at least see if the numbers match up. 
-
-```r
-ncol(rpkm_data)
-nrow(metadata)
-```
-
-What we want to know is, **do we have data for every sample that we have metadata?** 
-
-## The `%in%` operator
- 
-Although lacking in [documentation](http://dr-k-lo.blogspot.com/2013/11/) this operator is well-used and convenient once you get the hang of it. The operator is used with the following syntax: 
-
+SLIDE
 ```r
 vector1_of_values %in% vector2_of_values
 ```
 
-It will take a vector as input to the left and will **evaluate each element to see if there is a match in the vector that follows on the right of the operator.** *The two vectors do not have to be the same size.* This operation will return a vector of the same length as vector1 containing logical values to indicate whether or not there was a match. Take a look at the example below:
+It will take a vector as input to the left and will **evaluate each element to see if there is a matching value in the vector that follows on the right of the operator.** This operation will return a logical vector of the same length as vector1, presenting a TRUE if the element value exists in vector2 and a FALSE if it does not.
+
+
+RSTUDIO:
+
+Let's go through an example to demonstrate how it works. We will create two vectors A and B. A will contain a set of 6 odd numbers and B will contain a set of 6 even numbers. *Note that the two vectors do not have to be the same length.*
 
 ```r
 A <- c(1,3,5,7,9,11)   # odd numbers
 B <- c(2,4,6,8,10,12)  # even numbers
+```
 
+To test and see if each of the elements in A is also in B we can type A %in% B:
+
+```r
 # test to see if each of the elements of A is in B	
 A %in% B
 ```
+
+The result is a logical vector of 6 FALSE values.Since vector A contains only odd numbers and vector B contains only even numbers, there is no overlap and so the vector returned contains a `FALSE` for each element. 
 
 ```r
 ## [1] FALSE FALSE FALSE FALSE FALSE FALSE
 ```
 
-Since vector A contains only odd numbers and vector B contains only even numbers, there is no overlap and so the vector returned contains a `FALSE` for each element. Let's change a couple of numbers inside vector B to match vector A:
+Let's change a couple of numbers inside vector B. Run the two lines of code so that we have a new vector B.
 
 
 ```r
@@ -65,14 +52,21 @@ A <- c(1,3,5,7,9,11)   # odd numbers
 B <- c(2,4,6,8,1,5)  # add some odd numbers in 
 ```
 
+
+To test and see which elements of vector A overlap with vector B we use the in operator:
+
 ```r
 # test to see if each of the elements of A is in B
 A %in% B
 ```
 
+This time we get a different sequence of logical values.
+
 ```r
 ## [1]  TRUE FALSE  TRUE FALSE FALSE FALSE
 ```
+SLIDE:
+
 
 The logical vector returned denotes which elements in `A` are also in `B` and which are not.  
 
@@ -128,6 +122,29 @@ A == B
 all(A == B)
 
 ```
+
+Often when working with genomic data, we have a data file that corresponds with our metadata file. The data file contains measurements from the biological assay for each individual sample. In this case, the biological assay is gene expression and data was generated using RNA-Seq. 
+
+Let's read in our expression data (RPKM matrix) that we downloaded previously:
+
+```r
+rpkm_data <- read.csv("data/counts.rpkm.csv")
+```
+
+Take a look at the first few lines of the data matrix to see what's in there.
+
+```r
+head(rpkm_data)
+```
+
+It looks as if the sample names (header) in our data matrix are similar to the row names of our metadata file, but it's hard to tell since they are not in the same order. We can do a quick check of the number of columns in the count data and the rows in the metadata and at least see if the numbers match up. 
+
+```r
+ncol(rpkm_data)
+nrow(metadata)
+```
+
+What we want to know is, **do we have data for every sample that we have metadata?** 
 
 Let's try this on our data and see whether we have metadata information for all samples in our expression data. We'll start by creating two vectors; one with the `rownames` of the metadata and `colnames` of the RPKM data. These are base functions in R which allow you to extract the row and column names as a vector:
 
